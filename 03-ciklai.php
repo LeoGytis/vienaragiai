@@ -12,6 +12,7 @@ for ($i = 1; $i <= 400; $i++) {
 }
 
 echo "<br>====== 2 UZDUOTIS ====== <br>";
+$didesni = 0;
 
 for ($i2 = 0; $i2 < 300; $i2++) {
     $x = rand(0, 300);
@@ -135,11 +136,15 @@ echo "Reikejo smugiu viniai ikalti: ". $smugiai. "<br>";
 echo "<br>====== 11 UZDUOTIS ====== <br>";
 
 $stringas = '';
+$pasikartoja = 0;
 
-for ($k = 0; $k < 10; $k++) {
-    $randSk = rand(1, 200);
-    
+for ($k = 0; $k < 20; $k++) {
+    $randSk = rand(1, 2);
+    if ($pasikartoja === $randSk) {
+        continue;
+    }
     $stringas .= " " . strval($randSk);
+    $pasikartoja = $randSk;
     echo $randSk;
 }
 echo "<br>";
