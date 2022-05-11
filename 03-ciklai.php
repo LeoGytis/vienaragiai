@@ -31,7 +31,7 @@ echo "Didesniu uz 150 yra: ". $didesni;
 echo "<br>====== 3 UZDUOTIS ====== <br>";
 
 $x3 = rand(1, rand(3000,4000));
-echo "SKAICIUS X". $x3. "<br>";
+echo "SKAICIUS X: ". $x3. "<br>";
 $paskutinis = floor($x3 / 77);
 echo "PASKUTINIS". $paskutinis. "<br>";
 
@@ -46,7 +46,6 @@ for ($i3 = 0; $i3 <= $x3; $i3++) {
 }
 
 echo "<br>====== 4 UZDUOTIS ====== <br>";
-
 
 $sk = 0; 
 
@@ -107,5 +106,41 @@ while ($pTaskai < 222 && $kTaskai < 222);
 echo "Petro taskai: ". $pTaskai. "<br>";
 echo "Kazio taskai: ". $kTaskai. "<br>";
 
-$laimetojas = $pTaskai > $kTaskai ? 'Petras' : ($pTaskai < $kTaskai ? 'Kazys' : 'Lygiosios'); // JEIGU LYGIOSIOS
+$laimetojas = $pTaskai > $kTaskai ? 'Petras' : ($pTaskai < $kTaskai ? 'Kazys' : 'Lygiosios'); // JEIGU LYGIOSIOS ???
 echo "Partija laimejo: ". $laimetojas;
+
+echo "<br>====== 8 UZDUOTIS ROMBAS ====== <br>";
+
+echo "<br>====== 10 UZDUOTIS ====== <br>";
+
+$gylis = 0;
+$smugiai = 0;
+
+do {
+    if (!--$saugiklis){
+        break;
+    }
+    $pataike = rand(0,1);
+    echo "PATAIKE: ". $pataike;
+    if ($pataike === 1 ) {
+    $gylis += rand(20, 30);
+    }
+    $smugiai++;
+}
+        
+while ($gylis < 85);
+
+echo "Reikejo smugiu viniai ikalti: ". $smugiai. "<br>";
+
+echo "<br>====== 11 UZDUOTIS ====== <br>";
+
+$stringas = '';
+
+for ($k = 0; $k < 10; $k++) {
+    $randSk = rand(1, 200);
+    
+    $stringas .= " " . strval($randSk);
+    echo $randSk;
+}
+echo "<br>";
+echo "Naujasis stringas: ". $stringas;
