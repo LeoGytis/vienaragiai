@@ -2,33 +2,33 @@
 echo '<pre>';
 $namas = [56 => 'Bebras', 'brolis' => 'Jonas', 'Simona'];
 
-// print_r($namas);
+print_r($namas);
 
 echo '<br>';
 
 $namas[1] = 'Barsukas';
 
-// echo $namas[1];
+echo $namas[1];
 
-$namas[] = 'Laima';
-array_push($namas, 'Kazys');
+$namas[] = 'Laima';             //Pushina nauja kintama i areju
+array_push($namas, 'Kazys');   //Pushina nauja kintama i areju
 array_unshift($namas, 'Pelė');
 
 echo '<br>';
 
-// print_r($namas);
+print_r($namas);
 
-// array_pop($namas);
-// array_shift($namas);
+array_pop($namas);
+array_shift($namas);
 
-// array_splice($namas, 1, 1);
+array_splice($namas, 1, 1);
 
 $namas['stogas'] = 'Karlsonas';
 
 
 echo '<br>';
 
-// print_r($namas);
+print_r($namas);
 
 foreach($namas as $key => $value) {
     // echo '<br>';
@@ -37,7 +37,8 @@ foreach($namas as $key => $value) {
 
 $A = 5;
 
-// echo '<br>';echo '<br>';
+echo '<br>';
+echo '<br>';
 
 $C = &$A;
 
