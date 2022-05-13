@@ -56,30 +56,73 @@ echo "<br>================= C UZDUOTIS =================<br>";
 // Suskaičiuokite kiekvieno antro lygio masyvų su vienodais
 // indeksais sumas (t.y. suma reikšmių turinčių indeksą 0, 1 ir t.t.)
 
-$newA2 = [0, 0, 0, 0]; // Ar eina padaryti nesukuriant su nuliais?
+$newA2 = [];
 
 foreach($newA as $row) {
     
     for ($k = 0; $k < 4; $k++) {
+        if (!array_key_exists($k, $newA2)) {
+            $newA2[] = 0;
+        }
         $newA2[$k] += $row[$k];
     }
 
-    // foreach ($row as $key => $value) {
+    // foreach ($row as $key => $value) { // KITAS CIKLAS TAM PACIAM REIKALUI
     //     $newA2[$key] += $value;      
     // } 
 }
 
-// print_r($newA2);
+print_r($newA2);
 
 echo "<br>================= D UZDUOTIS =================<br>";
 // Visus masyvus “pailginkite” iki 7 elementų
 
-foreach($newA as $row) {
-    for ($m = 0; $m < 2; $m++) {
-        $row[] = rand(5, 25);
-    }  
-    $newA[] = $row;
+foreach($newA as $row => $key) {
+
+    // $row[] = rand(5, 25); // ir tada naudoti & reference
+    // $row[] = rand(5, 25);
+
+    $newA[$row][] = rand(5, 25);
+    $newA[$row][] = rand(5, 25);
+
 }
 
-print_r($newA);
+// print_r($newA);
 
+echo "<br>================= E UZDUOTIS =================<br>";
+// Suskaičiuokite kiekvieno iš antro lygio masyvų elementų sumą
+// atskirai ir sumas panaudokite kaip reikšmes sukuriant naują
+// masyvą. 
+// T.y. pirma naujo masyvo reikšmė turi būti lygi mažesnio
+// masyvo, turinčio indeksą 0 dideliame masyve, visų elementų
+// sumai
+
+// $sum = 0;
+
+foreach($newA as $row) {
+    $newAE[] = array_sum($row);
+}
+print_r($newAE);
+
+echo "<br>================= 3 UZDUOTIS =================<br>";
+
+// Sukurkite masyvą iš 10 elementų. Kiekvienas masyvo elementas turi
+// būti masyvas su atsitiktiniu kiekiu nuo 2 iki 20 elementų. Elementų
+// reikšmės atsitiktinai parinktos raidės iš intervalo A-Z. Išrūšiuokite antro
+// lygio masyvus pagal abėcėlę (t.y. tuos kur su raidėm).
+
+
+for ($i3 = 0; $i3 < 10; $i3++) {
+
+    $row = [];
+    $kiekis = rand(2, 20);
+    
+    for ($k3 = 0; $k3 <= $kiekis; $k3++) {
+        $row[] = chr(rand(65, 90));
+    }
+
+    $newA3[] = $row;
+    
+}
+
+print_r($newA3);
