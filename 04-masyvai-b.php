@@ -1,6 +1,9 @@
 <?php 
 
 echo "====== 6 UZDUOTIS ====== <br>";
+// Sugeneruokite du masyvus, kurių reikšmės yra atsitiktiniai skaičiai nuo 100 iki
+// 999. Masyvų ilgiai 100. Masyvų reikšmės turi būti unikalios savo masyve (t.y.
+// neturi kartotis)
 
 $newA1 = [];
 $newA2 = [];
@@ -92,7 +95,28 @@ echo "<br>====== 11 UZDUOTIS ====== <br>";
 
 // Išrūšiuokite masyvą taip, kad jo
 // didžiausia reikšmė būtų masyvo viduryje, o einant nuo jos link masyvo
-// pradžios ir pabaigos reikšmės mažėtų. Paskaičiuokite pirmos ir antros masyvo
+// pradžios ir pabaigos reikšmės mažėtų.
+
+//  Paskaičiuokite pirmos ir antros masyvo
 // dalies sumas (neskaičiuojant vidurinės). Jeigu sumų skirtumas (modulis,
 // absoliutus dydis) yra didesnis nei | 30 | rūšiavimą kartokite. (Kad sumos
 // nesiskirtų viena nuo kitos daugiau nei per 30)
+
+$newA11 = [];
+
+do {
+
+    if (!(--$saugiklis)) {
+        echo 'Saugiklis!';
+        break;
+    }
+
+    $x3 = rand(1, 20);
+
+    if (!in_array($x3, $newA11)) {
+        $newA11[] = $x3;    
+    } 
+}
+while (count($newA11) < 25);
+
+print_r($newA11);

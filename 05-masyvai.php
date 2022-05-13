@@ -102,7 +102,7 @@ echo "<br>================= E UZDUOTIS =================<br>";
 foreach($newA as $row) {
     $newAE[] = array_sum($row);
 }
-print_r($newAE);
+// print_r($newAE);
 
 echo "<br>================= 3 UZDUOTIS =================<br>";
 
@@ -131,15 +131,110 @@ echo "<br>================= 4 UZDUOTIS =================<br>";
 // kurių masyvai trumpiausi eitų pradžioje. Masyvai kurie turi bent vieną
 // “K” raidę, visada būtų didžiojo masyvo visai pradžioje.
 
-foreach($newA3 as $row) {
-    
-    echo "Kiek elementu masyve: " . count($row) . "<br>";  
-    if (count($row)) {
 
-    }
+sort($newA3);
 
-    // print_r($row);  
+
+// foreach($newA3 as $key => $row) {    // ?????????????????????????????? usort()
+
+//     foreach ($row as $key2 => $letter) {
+//         if ($letter === 'K') {
+
+//         }
+//     }
+// }
+
+// print_r($newA3);
+
+echo "<br>================= 5 UZDUOTIS =================<br>";
+// Sukurkite masyvą iš 30 elementų. Kiekvienas masyvo elementas yra
+// masyvas [user_id => xxx, place_in_row => xxx] user_id
+// atsitiktinis unikalus skaičius nuo 1 iki 1000000, place_in_row atsitiktinis
+// skaičius nuo 0 iki 100.
+
+for ($i5 = 0; $i5 < 10; $i5++) {
+
+    $row5['id'] = rand(10000, 99999);
+    $row5['place'] = rand(1, 100);
+
+    $newA5[] = $row5;
 
 }
 
-print_r(sort($row));
+// print_r($newA5);
+
+echo "<br>================= 6 UZDUOTIS =================<br>";
+// Išrūšiuokite 5 uždavinio masyvą pagal user_id didėjančia tvarka.
+
+sort($newA5);
+// print_r($newA5);
+
+// Ir paskui išrūšiuokite pagal place_in_row mažėjančia tvarka
+
+function sortByPlace($a, $b) {
+    $a = $a['place'];
+    $b = $b['place'];
+
+    if ($a == $b) return 0;
+    return ($a > $b) ? -1 : 1;
+}
+
+usort($newA5, 'sortByPlace');
+
+// print_r($newA5);
+
+echo "<br>================= 7 UZDUOTIS =================<br>";
+// Prie 6 uždavinio masyvo antro lygio masyvų pridėkite dar du elementus:
+// name ir surname. Elementus užpildykite stringais iš atsitiktinai
+// sugeneruotų lotyniškų raidžių, kurių ilgiai nuo 5 iki 15.
+
+function generateRandomString($length = 10) {
+    $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; // 0-9 istryniau
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
+
+foreach ($newA5 as $key => $row5) {
+    $row5['name'] = generateRandomString(5);
+    $row5['surname'] = generateRandomString(8);
+    $newA5[$key] = $row5;
+}
+
+// print_r($newA5);
+
+echo "<br>================= 8 UZDUOTIS =================<br>";
+// Sukurkite masyvą iš 10 elementų. Masyvo reikšmes užpildykite pagal
+// taisyklę: generuokite skaičių nuo 0 iki 5. Ir sukurkite tokio ilgio masyvą.
+
+// Jeigu reikšmė yra 0 masyvo nekurkite. Antro lygio masyvo reikšmes
+// užpildykite atsitiktiniais skaičiais nuo 0 iki 10. Ten kur masyvo nekūrėte
+// reikšmę nuo 0 iki 10 įrašykite tiesiogiai.
+
+for ($i8 = 0; $i8 < 10; $i8++) {
+
+    $row8 = [];
+    $x8 = rand(0, 5);
+
+    if ($x8 == 0) {
+        $newA8[] = 1000000000;
+        continue;
+    }
+    else {
+        for ($k8 = 0; $k8 < $x8; $k8++) {
+            $row8[] = rand(0, 10);
+        } 
+    }
+    $newA8[] = $row8;
+}
+
+print_r($newA8);
+
+echo "<br>================= 9 UZDUOTIS =================<br>";
+// Paskaičiuokite 8 uždavinio masyvo visų reikšmių sumą ir išrūšiuokite
+// masyvą taip, kad pirmiausiai eitų mažiausios masyvo reikšmės arba
+// jeigu reikšmė yra masyvas, to masyvo reikšmių sumos.
+
