@@ -119,10 +119,27 @@ for ($i3 = 0; $i3 < 10; $i3++) {
     
     for ($k3 = 0; $k3 <= $kiekis; $k3++) {
         $row[] = chr(rand(65, 90));
+        sort($row);
     }
-
-    $newA3[] = $row;
-    
+    $newA3[] = $row;    
 }
 
-print_r($newA3);
+// print_r($newA3);
+
+echo "<br>================= 4 UZDUOTIS =================<br>";
+// Išrūšiuokite trečio uždavinio pirmo lygio masyvą taip, kad elementai
+// kurių masyvai trumpiausi eitų pradžioje. Masyvai kurie turi bent vieną
+// “K” raidę, visada būtų didžiojo masyvo visai pradžioje.
+
+foreach($newA3 as $row) {
+    
+    echo "Kiek elementu masyve: " . count($row) . "<br>";  
+    if (count($row)) {
+
+    }
+
+    // print_r($row);  
+
+}
+
+print_r(sort($row));
