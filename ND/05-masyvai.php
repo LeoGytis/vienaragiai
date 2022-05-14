@@ -220,7 +220,7 @@ for ($i8 = 0; $i8 < 10; $i8++) {
     $x8 = rand(0, 5);
 
     if ($x8 == 0) {
-        $newA8[] = 1000000000;
+        $newA8[] = 99;
         continue;
     }
     else {
@@ -231,10 +231,34 @@ for ($i8 = 0; $i8 < 10; $i8++) {
     $newA8[] = $row8;
 }
 
-print_r($newA8);
+// print_r($newA8);
 
 echo "<br>================= 9 UZDUOTIS =================<br>";
 // Paskaičiuokite 8 uždavinio masyvo visų reikšmių sumą ir išrūšiuokite
 // masyvą taip, kad pirmiausiai eitų mažiausios masyvo reikšmės arba
 // jeigu reikšmė yra masyvas, to masyvo reikšmių sumos.
+
+$sum9 = 0;
+
+foreach($newA8 as $row) {
+
+    $newA9 = [];
+
+    if (is_array($row)) {
+        $sum9 += array_sum($row);
+        $newA9[] = array_sum($row);
+    } else {
+        $sum9 += $row;
+        $newA9[] = $row;
+
+    }
+        print_r($row);
+    
+    // foreach($row as $key => $value) {
+    //     $sum9 += array_sum($row);
+    // }
+} 
+
+echo "Suma: " . $sum9 . "<br>";
+print_r($newA9);
 
