@@ -239,26 +239,33 @@ echo "<br>================= 9 UZDUOTIS =================<br>";
 // jeigu reikšmė yra masyvas, to masyvo reikšmių sumos.
 
 $sum9 = 0;
+$newA9 = [];
 
 foreach($newA8 as $row) {
-
-    $newA9 = [];
-
     if (is_array($row)) {
+        echo "AREJAUS SUMA: " . array_sum($row) . "<br>";
         $sum9 += array_sum($row);
-        $newA9[] = array_sum($row);
-    } else {
-        $sum9 += $row;
-        $newA9[] = $row;
+        array_push($newA9, array_sum($row));
+    } 
+        else {
+            $sum9 += $row;
+            $newA9[] = $row;
+            echo "Elementas  =: " . $row . "<br>";
+        }
 
-    }
-        print_r($row);
-    
-    // foreach($row as $key => $value) {
-    //     $sum9 += array_sum($row);
-    // }
+    // echo "<br>";
+    // print_r($row); 
 } 
 
-echo "Suma: " . $sum9 . "<br>";
+echo "<br>Visu elementu ir areju suma: " . $sum9 . "<br>";
+sort($newA9);
 print_r($newA9);
 
+echo "<br>================= 10 UZDUOTIS =================<br>";
+
+// Sukurkite masyvą iš 10 elementų. Jo reikšmės masyvai iš 10 elementų.
+// Antro lygio masyvų reikšmės masyvai su dviem elementais value ir
+// color. Reikšmė value vienas iš atsitiktinai parinktų simbolių: #%+*@裡,
+// o reikšmė color atsitiktinai sugeneruota spalva formatu: #XXXXXX.
+// Pasinaudoję masyvų atspausdinkite “kvadratą” kurį sudarytų masyvo
+// reikšmės nuspalvintos spalva color.
