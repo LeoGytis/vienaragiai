@@ -49,15 +49,15 @@ $m = [$zuikis];
 
 echo '<br>';
 echo $m[0]()(7);
-echo '<br>';echo '<br>';echo '<br>';
+// echo '<br>';echo '<br>';echo '<br>';
 
 
 function recursive($num){
-    echo 'IN' . $num, '<br>';
+    // echo 'IN' . $num, '<br>';
     if($num < 3){
         recursive($num + 1);
     }
-    echo 'OUT' . $num, '<br>';
+    // echo 'OUT' . $num, '<br>';
 }
 $startNum = 1;
 recursive($startNum);
@@ -72,7 +72,9 @@ $rm = [
     ], 9]
 ];
 
-print_r($rm);
+// print_r($rm);
+
+
 
 
 
@@ -88,8 +90,57 @@ function arraySum($masyvas) {
     }
     return $suma;
 }
-
 echo arraySum($rm);
+
+$masyvas = [
+    ['a','d'],
+    ['v','e'],
+    ['a','c'],
+    ['s','r'],
+];
+// usort($masyvas, function($a, $b) {
+//     return $b[1] <=> $a[1];
+// });
+
+usort($masyvas, fn($a, $b) => $b[1] <=> $a[1]);
+
+print_r($masyvas);
+
+
+$result = 0;
+
+$one = function() {
+     @var_dump($result); 
+};
+ 
+$two = function() use ($result) {
+     var_dump($result); 
+};
+ 
+$three = function() use (&$result){
+     var_dump($result); 
+};
+
+$four = fn() => var_dump($result); 
+// $five = fn() => var_dump(&$result);
+ 
+$result++;
+ 
+$one();    // NULL: $result nepasiekiamas
+$two();    // int(0): $result nukopijuojamas
+$three();    // int(1)
+
+$four();
+$five(); // Negalimas
+
+
+
+// $three();    // int(1)
+
+
+
+
+
 
 
 
