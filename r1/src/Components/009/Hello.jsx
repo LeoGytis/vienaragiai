@@ -1,6 +1,14 @@
-function Hello() {
+function Hello({spalva, size, skaicius}) {
+    // const skaicius = 4;
     return (
-         <h1>Hello ka tu?</h1>
+         <h1 style={
+             {
+                 color: spalva,
+                 fontSize: size * 2 + 'px'
+             }
+         }
+
+         >Hello ka tu? {skaicius + 11}</h1>
     )
 }
 
