@@ -1,51 +1,53 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 function App() {
 
-    const dogsArray = [ 'Bobikas', 'Lupis', 'Tūzikas', 'Au', 'Šamba', 'Šarikas'];
+    const dogsArray = [ 'Bobikas', 'Lupis', 'Tūzikas', 'auau', 'Šamba', 'Šarikas'];
     const [dogs, setDogs] = useState(dogsArray);
 
-    // const sortDogs = () => {
-    //     setDogs(dogy => dogy.slice(1)); // funkcija atimti viena elementa
-    // }
-
-    
-
-    const dogsSortFunction = (a, b) => a.length - b.length; 
-
+    const dogsSortFunction = (a, b) => b.length - a.length; 
     const sortDogs = () => {
-        console.log(dogs);
-        let sortedDogs = dogs.sort(dogsSortFunction);
-        setDogs(sortedDogs);
-        console.log(dogs);
-        console.log('DOGSaaaaa');
+        dogs.sort(dogsSortFunction);
+        setDogs([...dogs])
     }
-    // const sortDogs = () => {
-    //     setDogs(dogs => dogs.sort(function(a,b){
-    //         b.length - a.length;
-    //         return b.length - a.length; 
-    //     }))
-    //     dogsArray.sort(function(a, b){
-    //         // let a = a(a.service.value);
-    //         // let b = b(b.service.value);
-    //         // a.length - b.length  // ASCENDING
-    //         b.length - a.length;     // DESCENDING
-    //         return b.length - a.length;
-          
-    // }
-    
    
+    const countDogs = () => {
+        dogs.map((dog,i) => <div className="dogCage1" key={i}> <span>{i + " - "}</span> {dog}</div>) // Iskelia sunis i ekrana
+    }
+
+    function isLowerCase(value) {     // Tikrina ar pirmoji raide didzioji
+        return value.charAt(0) !== value.charAt(0).toLowerCase();
+    }
+
+    function countLetters(array) {
+        for (let i = 0; i < array.length; i++) {
+            console.log('valio');
+        }
+    } 
+
     return (
       <div className="App">
         <header className="App-header">
-            <h1>ND: REACT BASE LIST</h1>
+            <h3>ND: REACT BASE LIST</h3>
             <div>
             {
-                dogs.map((dogs,i) => <div key={i}>{dogs}</div>)
+               dogs.map((dog,index) => {
+                if (!isLowerCase(dog)) { return 0; }   //Ka rasyt vietoj return ???
+                if (index % 2 === 0) {
+                 return ( <div className="dogCage1" key={index}>{dog}</div> ); 
+                }
+                return ( <div className="dogCage2" key={index}>{dog}</div> );
+                })
             }
          </div>
+         <div>
+             {
+                countLetters(dogs)    
+             }
+         </div>
          <button onClick={sortDogs}>Surikiuoti sunis!</button>
+         <button onClick={countDogs}>Suskaiciuoti sunis!</button>
         </header>
       </div>
     );

@@ -57,5 +57,30 @@
 }
 
 .dogStyle {
-  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 55px;
+    flex-wrap: wrap;
+}
+
+.dogCage1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: yellowgreen;
+  margin: 15px;
+  padding: 10px 20px;
+  border-radius: 55px;
+}
+
+.dogCage2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: skyblue;
+  margin: 15px;
+  padding: 10px 20px;
 }
