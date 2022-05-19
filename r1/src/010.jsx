@@ -23,7 +23,7 @@ function App() {
         console.log(spalva);
     }
 
-    const suma = (sum) => {
+    const suma = () => {
         setSkaicius(skaicius + 1);
     }
 

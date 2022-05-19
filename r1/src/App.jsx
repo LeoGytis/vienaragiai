@@ -3,12 +3,28 @@ import { useState } from 'react';
 
 function App() {
 
-    const dogs = ['Lupis', 'Šamba', 'Šarikas', 'Bobikas']
+    // const cats = ['Pilkis', 'Murka', 'Rainis'];
+    // const [kv, setKv] = useState([]);
+
+    const dogs = ['Lupis', 'Tūzikas', 'Šamba', 'Šarikas', 'Bobikas'];
+    const [sunys, setSunys] = useState(dogs);
+
+    // const addKv = () => setSunys(dogs => [...dogs]); // funkcija prideti elementa i masyva
+
+    const sortSunys = () => {
+        setSunys(dogs => dogs.slice(1)); // funkcija prideti elementa i masyva
+    }
    
     return (
       <div className="App">
         <header className="App-header">
-            <h1>REACT BASE LIST</h1>
+            <h1>ND: REACT BASE LIST</h1>
+            <div className=''>
+            {
+                dogs.map((dog,i) => <div key={i}>{dog}</div>)
+            }
+            <button onClick={sortSunys}>Surikiuoti sunis!</button>
+         </div>
         </header>
       </div>
     );
