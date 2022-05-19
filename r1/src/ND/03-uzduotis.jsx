@@ -15,25 +15,23 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h3>ND: REACT BASE LIST</h3>
-        <h4>05 UZDUOTIS</h4>
+        <h4>3 UZDUOTIS</h4>
         <div>
           {dogs.map((dog, index) => {
-            if (dog.length > 6) {
+            if (index % 2 === 0)
               return (
-                <div className="dogCage1" style={{color: 'red'}} key={index}>
-                  {dog + " " + dog.length}
+                <div className="dogCage1" key={index}>
+                  {dog}
                 </div>
               );
-              }
-            else  
-              return (
-              <div className="dogCage1" style={{color: 'blue'}} key={index}>
-                {dog + " " + dog.length}
+
+            return (
+              <div className="dogCage2" key={index}>
+                {dog}
               </div>
             );
           })}
         </div>
-        <div>{}</div>
         <button onClick={sortDogs}>Surikiuoti sunis!</button>
       </header>
     </div>
