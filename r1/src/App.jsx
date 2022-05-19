@@ -9,33 +9,24 @@ function App() {
   const sortDogs = () => {
     dogs.sort(dogsSortFunction);
     setDogs([...dogs]);
+    
+    const seaPlaners = [
+      { id: 1, type: "man", name: "Lina", color: "blue" },
+      { id: 2, type: "car", name: "Opel", color: "red" },
+      { id: 3, type: "animal", name: "Vilkas", color: "green" },
+      { id: 4, type: "fish", name: "Ungurys", color: "yellow" },
+      { id: 5, type: "man", name: "Tomas", color: "green" },
+      { id: 6, type: "animal", name: "Bebras", color: "red" },
+      { id: 7, type: "animal", name: "Barsukas", color: "green" },
+      { id: 8, type: "car", name: "MB", color: "blue" },
+      { id: 9, type: "car", name: "ZIL", color: "red" },
+      { id: 10, type: "man", name: "Teta Toma", color: "yellow" },
+    ];
   };
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h3>ND: REACT BASE LIST</h3>
-        <h4>05 UZDUOTIS</h4>
-        <div>
-          {dogs.map((dog, index) => {
-            if (dog.length > 6) {
-              return (
-                <div className="dogCage1" style={{color: 'red'}} key={index}>
-                  {dog + " " + dog.length}
-                </div>
-              );
-              }
-            else  
-              return (
-              <div className="dogCage1" style={{color: 'blue'}} key={index}>
-                {dog + " " + dog.length}
-              </div>
-            );
-          })}
-        </div>
-        <div>{}</div>
-        <button onClick={sortDogs}>Surikiuoti sunis!</button>
-      </header>
+      <header className="App-header"></header>
     </div>
   );
 }
