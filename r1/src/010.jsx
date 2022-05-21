@@ -27,6 +27,10 @@ function App() {
         setSkaicius(skaicius + 1);
     }
 
+    // const add = () => {
+    //     setNr(n => n + 1);
+    // }
+
     const addKv = () => setKv(kvM => [...kvM, randColor()]); // funkcija prideti elementa i masyva
     
     const remKV = () => setKv(kvM => kvM.slice(1)); // grazinti kopija be vieno (pirmo) gabaliuko

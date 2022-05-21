@@ -1,6 +1,4 @@
-import { useState } from "react";
-
-const seaPlaners = [
+export const seaPlaners = [
     { id: 1, type: "man", name: "Lina", color: "blue" },
     { id: 2, type: "car", name: "Opel", color: "red" },
     { id: 3, type: "animal", name: "Vilkas", color: "green" },
@@ -12,25 +10,3 @@ const seaPlaners = [
     { id: 9, type: "car", name: "ZIL", color: "red" },
     { id: 10, type: "man", name: "Teta Toma", color: "yellow" },
   ];
-  
-
-function Daiktas() {
-
-  const [daiktas, setDaiktas] = useState(seaPlaners);
-  setDaiktas([...daiktas]);
-
-    daiktas.map(
-        (
-          daiktas,
-          key,
-        ) => (
-          <div key={key.toString()} className="daiktas">
-            {daiktas.id} - {daiktas.type} - {daiktas.name} - {daiktas.color}
-          </div>
-        )
-      );
-
-      return 'Lasabas';
-}
-
-export default Daiktas;

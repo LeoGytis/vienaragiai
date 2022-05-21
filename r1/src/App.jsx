@@ -1,7 +1,7 @@
 import './App.css';
 // import Bala from './ND/List/Bala';
-import Tvenkinys from './ND/List/Tvenkinys';
-import Daiktas from './ND/List/Daitas';
+// import Tvenkinys from './ND/List/Tvenkinys';
+import Daiktas from './ND/List/Daiktas';
 
 function App() {
   return (
