@@ -1,7 +1,6 @@
-import "./App.css";
 import { useState } from "react";
 
-function App() {
+function Uzduotis01() {
   const dogsArray = ["Bobikas", "Lupis", "Tūzikas", "auau", "Šamba", "Šarikas"];
   const [dogs, setDogs] = useState(dogsArray);
 
@@ -32,4 +31,4 @@ function App() {
   );
 }
 
-export default App;
+export default Uzduotis01;
