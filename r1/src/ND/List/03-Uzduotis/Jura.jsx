@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { seaPlaners } from "./seaPlaners";
-import Valtis from "./Valtis";
+import { seaPlaners } from "../seaPlaners";
+import Valtis from "../Valtis";
 import Laivas from "./Laivas";
-import Sala from "./Sala";
+import Sala from "../Sala";
 
 function Jura() {
   const [daiktas, setDaiktas] = useState(seaPlaners);
@@ -14,7 +14,7 @@ function Jura() {
       <div key={index}>
         {daiktai.id} - {daiktai.type} - {daiktai.name}
       </div>
-    ) : null  // Ar cia null return?
+    ) : null 
   )
     }
   </div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { seaPlaners } from "./seaPlaners";
+import { seaPlaners } from "../seaPlaners";
 
 function Daiktas(isPair) {
   // const isPair = 'porinis';

@@ -1,10 +1,12 @@
 import './App.css';
 // import Bala from './ND/List/Bala';
-import Tvenkinys from './ND/List/Tvenkinys';
-import Daiktas from './ND/List/Daiktas';
-import Jura from './ND/List/Jura';
-import Valtis from './ND/List/Valtis';
-import Laivas from './ND/List/Laivas';
+// import Tvenkinys from './ND/List/02-Uzduotis/Tvenkinys';
+// import Daiktas from './ND/List/02-Uzduotis/Daiktas';
+// import Jura from './ND/List/03-Uzduotis/Jura';
+// import Valtis from './ND/List/03-Uzduotis/Valtis';
+// import Laivas from './ND/List/03-Uzduotis/Laivas';
+// import Vandenynas from './ND/List/04-Uzdduotis/Vandenynas';
+import Pasaulis from './ND/List/05-Uzduotis/Pasaulis';
 
 function App() {
   return (
@@ -13,10 +15,9 @@ function App() {
      {/* <Bala></Bala> */}
      {/* <Daiktas></Daiktas> */}
      {/* <Tvenkinys></Tvenkinys> */}
-     <Jura></Jura>
-     {/* <Valtis></Valtis> */}
-     {/* <Laivas></Laivas> */}
-
+     {/* <Jura></Jura> */}
+    {/* <Vandenynas></Vandenynas> */}
+    <Pasaulis></Pasaulis>
       </header>
     </div>
   );

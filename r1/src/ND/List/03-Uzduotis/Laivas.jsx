@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { seaPlaners } from "./seaPlaners";
+import { seaPlaners } from "../seaPlaners";
 
 function Laivas() {
   const [daiktas, setDaiktas] = useState(seaPlaners);

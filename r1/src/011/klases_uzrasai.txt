@@ -1,0 +1,23 @@
+Metodai  (request?)
+
+                CRUD
+
+GET             Create  } HTML forma
+POST            Read    } HTML forma
+
+DELETE          Update
+PUT             Put
+----------------------------------------------------------------------------
+(responde)
+
+Default Content-type: txt\html
+header('Content-Type: application/json; charset=utf-8'); //pakeicia i json
+----------------------------------------------------------------------------
+Siunciant headerius surasome virsuje,
+
+ o tada body siunčiam praleidę vieną tuščią eilutę
+----------------------------------------------------------------------------
+
+
+
+
