@@ -84,3 +84,28 @@
   margin: 15px;
   padding: 10px 20px;
 }
+
+.rutulys {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  margin: 30px;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 4px;
+  border-color: yellowgreen;
+}
+
+.kvadratas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  margin: 30px;
+  border-style: solid;
+  border-width: 4px;
+  border-color: skyblue;
+}

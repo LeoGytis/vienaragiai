@@ -3,7 +3,7 @@ import { useState } from 'react';
 import randColor from './Functions/randColor';
 
 function App() {
-    const [spalva, setSpalva] = useState('skyblue');
+    const [spalva, setSpalva] = useState('crimson');
     const [skaicius, setSkaicius] = useState(1);
 
     const cats = ['Pilkis', 'Murka', 'Rainis'];
@@ -17,9 +17,9 @@ function App() {
 
     const kitasStebuklas = (a) => {
         console.log('Kitas stebuklu stebuklas ' + a);
-        // const newColor = spalva === 'yellow' ? 'skyblue' : 'crimson';
+        // const newColor = spalva === 'crimson' ? 'skyblue' : 'crimson';
         // setSpalva(newColor);
-        setSpalva((oldColor) => oldColor === 'yellow' ? 'skyblue' : 'crimson');
+        setSpalva((oldColor) => oldColor === 'crimson' ? 'skyblue' : 'crimson');
         console.log(spalva);
     }
 
