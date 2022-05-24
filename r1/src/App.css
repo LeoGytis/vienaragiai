@@ -109,3 +109,14 @@
   border-width: 4px;
   border-color: skyblue;
 }
+
+.kvadratukas {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: coral;
+  margin: 7px;
+  border-radius: 5px;
+}
