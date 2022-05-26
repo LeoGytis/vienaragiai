@@ -8,9 +8,9 @@
 </head>
 <body>
     <h1>Hello, Kitty</h1>
-    <a href="http://localhost/vienaragiai/012/?page=1">PAGE 1</a>
-    <a href="http://localhost/vienaragiai/012/?page=2">PAGE 2</a>
-    <a href="http://localhost/vienaragiai/012/?page=3">PAGE 3</a>
+    <a href="http://localhost/vienaragiai/Paskaitos/012/?page=1">PAGE 1</a>
+    <a href="http://localhost/vienaragiai/Paskaitos/012/?page=2">PAGE 1</a>
+    <a href="http://localhost/vienaragiai/Paskaitos/012/?page=3">PAGE 1</a>
     <?php
     if ($_GET['page'] == 1) {
         ?>
