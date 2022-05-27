@@ -5,6 +5,8 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
 }
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $color = 'yellow';
+    header('Location: http://localhost/vienaragiai/ND/12-WEB-mechanika/06-uzduotis.php?');
+    die;
 }
 ?>
 <!DOCTYPE html>
@@ -30,3 +32,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
  Nenaudodami jokių konkrečių $_GET ar $_POST reikšmių, 
  nuspalvinkite foną žaliai, kai paspaustas mygtukas iš GET formos ir 
  geltonai- kai iš POST. -->
+
+ <!-- Pakartokite 6 uždavinį.
+  Papildykite jį kodu, 
+  kuris naršyklę po POST metodo peradresuotų 
+  tuo pačiu adresu (t.y. į patį save) jau GET metodu. -->
