@@ -5,11 +5,24 @@ if (!file_exists(__DIR__.'/saskaitos.json')) {
     file_put_contents(__DIR__.'/saskaitos.json', json_encode([]));     // jeigu nera failo - sukurti
 }
 // nuskaityti faila i massyva (true) -> decodinti -> priskirti naujam kintamui
-$esamasKlientas = json_decode(file_get_contents(__DIR__.'/saskaitos.json'), true); 
+$klientas = json_decode(file_get_contents(__DIR__.'/saskaitos.json'), true); 
 
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    $esamasKlientas[uniqid()] = $_POST;
-    file_put_contents(__DIR__.'/saskaitos.json', json_encode($esamasKlientas)); // ideti papildytus duomenis i faila
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
+    function arAKVienodas($k) {
+        foreach ($k as $key => $value) {
+        if ($value['askodas'] == $_POST['askodas']) {  // Tikrina ar yra toks asmens kodas 
+            return true;
+        }
+        else return false;
+         }
+    } 
+    if (!arAKVienodas($klientas)) {
+        $klientas[uniqid()] = $_POST;
+        file_put_contents(__DIR__.'/saskaitos.json', json_encode($klientas)); // ideti papildytus duomenis i faila
+    } 
+    else echo 'TOKIU ASMENS KODU JAU YRA UZREGISTRUOTAS KLIENTAS';  
+
 }
 ?>
 <!DOCTYPE html>
@@ -54,7 +67,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     <div> 
     <div style="color: white;">
         <?php echo '<pre>';
-        // print_r($esamasKlientas);
+        // print_r($klientas);
     ?>
     </div>  
 </body>

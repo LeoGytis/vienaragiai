@@ -167,7 +167,7 @@ echo "<br>================= 6 UZDUOTIS =================<br>";
 // Išrūšiuokite 5 uždavinio masyvą pagal user_id didėjančia tvarka.
 
 sort($newA5);
-// print_r($newA5);
+print_r($newA5);
 
 // Ir paskui išrūšiuokite pagal place_in_row mažėjančia tvarka
 
