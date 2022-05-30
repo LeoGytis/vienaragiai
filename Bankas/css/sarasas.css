@@ -1,0 +1,31 @@
+.sas-column {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 800px;
+    margin-left: calc(50% - 400px);
+    margin-top: 20px;
+    border: 3px solid goldenrod;
+    padding: 45px;
+    border-radius: 50px;
+    background: rgb(98,76,66);
+    background: linear-gradient(143deg, rgba(98,76,66,0.6393907904958859) 15%, rgba(47,33,27,0.8634804263502276) 64%);
+}
+
+.klientas {
+    width: 200px;
+    text-decoration: none;
+}
+
+.sas-btn {
+    font-weight: 700;
+    background-color: rgba(218, 165, 32, 0.397);
+    padding: 15px 45px;
+    border-color: 3px solid goldenrod;
+    border-radius: 15px;
+}
+
+.klientas > a {
+    color: skyblue;
+    text-decoration: none;
+}

@@ -4,6 +4,7 @@ body * {
     padding: 0;
     vertical-align: top;
     box-sizing: border-box;
+ 
 }
 
 body {
@@ -13,7 +14,8 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    background-repeat: no-repeat6
+    background-repeat: no-repeat;
+    color: white;
 }
 
 .logo {
@@ -39,6 +41,7 @@ body {
     color: white;
     padding: 24px;
 }
+
 .navigation a:hover {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 24px;

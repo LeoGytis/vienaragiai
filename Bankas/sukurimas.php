@@ -4,26 +4,13 @@
 if (!file_exists(__DIR__.'/saskaitos.json')) {
     file_put_contents(__DIR__.'/saskaitos.json', json_encode([]));     // jeigu nera failo - sukurti
 }
-
-$klientasDabar = json_decode(file_get_contents(__DIR__.'/saskaitos.json'));  // nuskaityti faila -> decodinti -> priskirti naujam kintamui
-
-echo '<pre>';
-print_r($klientasDabar);
+// nuskaityti faila i massyva (true) -> decodinti -> priskirti naujam kintamui
+$esamasKlientas = json_decode(file_get_contents(__DIR__.'/saskaitos.json'), true); 
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-
-    $naujas = $_POST;
-    // $klientasDabar[] =  $_POST;
-    // array_push($klientasDabar, $_POST);
-
-   foreach ($naujas as $key => $value) {
-       $klientasDabar[] = $value;
-   }
-
-    file_put_contents(__DIR__.'/saskaitos.json', json_encode($klientasDabar)); // ideti papildytus duomenis i faila
+    $esamasKlientas[uniqid()] = $_POST;
+    file_put_contents(__DIR__.'/saskaitos.json', json_encode($esamasKlientas)); // ideti papildytus duomenis i faila
 }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,6 +18,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/form.css">
     <title>Sąskaitos sukūrimas</title>
 </head>
@@ -61,5 +49,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             </div> 
         </form>
     <div> 
+    <div style="color: white;">
+        <?php echo '<pre>';
+        // print_r($esamasKlientas);
+    ?>
+    </div>  
 </body>
 </html>
