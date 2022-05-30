@@ -4,36 +4,15 @@ require __DIR__ .'./header.php';
 $klientai = json_decode(file_get_contents(__DIR__.'/saskaitos.json'), true);
 $esamasKlientas = $klientai[$_GET['id']];
 
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    print_r($_POST['suma']);
-
-    foreach ($klientai as $key => $arr) {
-        // echo $key;
-        // echo '--------';
-        // echo $_GET['id'];
-        if ($key == $_GET['id']) {
-            echo 'LABAS';
-            echo '--------<br>';
-            $arr['lesos'] = strval(intval($arr['lesos']) + intval($_POST['suma']));   // Priskiriama nauja suma
-            // echo $naujaSuma['lesos'];
-            // echo print_r($naujaSuma);
-            // // echo gettype($naujaSuma['lesos']);
-            // // echo gettype(strval($naujaSuma['lesos']));
-            // array_replace($arr, $naujaSuma);
-            // // $arr['lesos'] = $naujaSuma['lesos'];
-            echo print_r($arr);
-             
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        foreach ($klientai as $key => $arr) {
+            if ($key == $_GET['id']) {                  // Tikrina ir suranda duoto puslapio ID
+                $arr['lesos'] = strval(intval($arr['lesos']) + intval($_POST['suma']));   // Priskiriama nauja suma
+                $klientai[$_GET['id']] = $arr; // Priskirti klientui su ID nauja arreju su nauja ivesta suma;
+            }
         }
-    }
-
-    // print_r($esamasKlientas[$_GET['id']]);
-    // print_r($klientai);
-
-    file_put_contents(__DIR__.'/saskaitos.json', json_encode($klientai)); // ideti papildytus duomenis i faila
-} 
-// echo $esamasKlientas;
-
+        file_put_contents(__DIR__.'/saskaitos.json', json_encode($klientai)); // ideti papildytus duomenis i faila
+    } 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,21 +29,18 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="sas-column" style="color: white;">
     <?php
     if (isset($_GET['id'])) {
-      
-        echo '<pre>';
-        print_r($esamasKlientas);   
+        // echo '<pre>';
+        // print_r($esamasKlientas);   
         echo '<div class="klientas">';
         foreach($esamasKlientas as $key => $value) {
             if ($key == 'vardas') {
-                echo 'Vardas: ';
                 echo $value; echo '<br>';
             }
             if ($key == 'pavarde') {
-                echo 'Pavarde: ';
                 echo $value; echo '<br>';
             }
             if ($key == 'lesos') {
-                echo 'Sąskaitos likutis: ';
+                echo 'Sąskaitos likutis: <br>';
                 echo $value; echo '<br>';
             }  
             

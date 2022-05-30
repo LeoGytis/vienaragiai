@@ -1,5 +1,5 @@
 <?php
-    require __DIR__ .'./header.php'; 
+    
 
 if (!file_exists(__DIR__.'/saskaitos.json')) {
     file_put_contents(__DIR__.'/saskaitos.json', json_encode([]));     // jeigu nera failo - sukurti
@@ -23,6 +23,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     <title>Sąskaitos sukūrimas</title>
 </head>
 <body>
+    <?php
+    require __DIR__ .'./header.php'; 
+    ?>
     <div class="form-column">
         <form action="" method="post" class="form" >
             <div class="form-row">

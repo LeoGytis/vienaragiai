@@ -39,20 +39,21 @@
 }
 
 .btn {
-    font-weight: 700;
-    background-color: rgba(218, 165, 32, 0.397);
+    color: white;
+    font-weight: 600;
+    background-color: rgba(218, 165, 32, 0.2);
     margin-top: 50px;
     padding: 15px 45px;
-    border-color: 3px solid goldenrod;
+    border: 1px solid goldenrod;
     border-radius: 15px;
 }
 
 .btn:hover {
     font-weight: 700;
-    background-color: goldenrod;
+    background-color: rgba(218, 165, 32, 0.6);
     margin-top: 50px;
     padding: 15px 45px;
     border-radius: 15px;
     cursor: pointer;
-    border: 3px solid goldenrod;
+    border: 1px solid goldenrod;
 }
