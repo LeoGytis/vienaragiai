@@ -1,0 +1,23 @@
+body {
+    background-image: url(../img/horses2.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.funds-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    margin-left: calc(50% - 200px);
+    margin-top: 20px;
+    border: 3px solid goldenrod;
+    padding: 45px;
+    border-radius: 20px;
+    background: rgb(98,76,66);
+    background: linear-gradient(143deg, rgba(98,76,66,0.6393907904958859) 15%, rgba(47,33,27,0.8634804263502276) 64%);
+}
