@@ -4,8 +4,6 @@ require __DIR__ .'./header.php';
 $klientai = json_decode(file_get_contents(__DIR__.'/saskaitos.json'), true);
 $esamasKlientas = $klientai[$_GET['id']];
 
-echo $klientai[$_GET['id']]['vardas'];
-
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
         foreach ($klientai as $key => $arr) {
             if ($key == $_GET['id']) {                  // Tikrina ir suranda duoto puslapio ID
@@ -14,7 +12,7 @@ echo $klientai[$_GET['id']]['vardas'];
             }
         }
         file_put_contents(__DIR__.'/saskaitos.json', json_encode($klientai)); // ideti papildytus duomenis i faila
-        header('Location: http://localhost/vienaragiai/Bankas/prideti.php?id=' . $_GET['id']);
+        header('Location: http://localhost/vienaragiai/Bankas/prideti.php?id=' . $_GET['id'].'&msg=1');
         die;
     } 
 ?>
@@ -50,6 +48,7 @@ echo $klientai[$_GET['id']]['vardas'];
             
         }
         echo '<div>';
+    }    
     ?>
     <form action="" method="post" class="form" > 
         <label class="label">Pridėti lėšų</label>
@@ -58,6 +57,8 @@ echo $klientai[$_GET['id']]['vardas'];
     </form>
         <body style="background: goldenrod;">
         <?php
+    if (isset($_GET['msg'])) {
+        if ($_GET['msg'] == 1) echo 'Sąskaitos buvo papildyta.';
     }
     ?>
     </div>

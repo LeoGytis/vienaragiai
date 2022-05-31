@@ -1,9 +1,6 @@
-.sas-column {
-    display: grid;
-    grid-template-columns: 250px 250px 250px;
-    grid-template-rows: 250px 250px 250px;
+.list-column {
     width: 800px;
-    color: white;
+    color: red;
     margin-left: calc(50% - 400px);
     margin-top: 20px;
     border: 3px solid goldenrod;
@@ -13,14 +10,9 @@
 }
 
 .klientas {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr auto;
-    column-gap: 30px;
-    align-items: center;
-    grid-template-rows: 80px auto 80px; 
-    row-gap: 100px;
-    width: 200px;
-    padding-top: 80px;
+    color: red;
+    width: 50px;
+    padding-top: 10px;
 }
 
 .sas-btn {
@@ -44,7 +36,7 @@
     cursor: pointer;
 }
 
-.klientas > div > a {
+.klientas > a {
     font-size: 16px;
     text-align: center;
     color: skyblue;

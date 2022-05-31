@@ -9,32 +9,27 @@ $klientas = json_decode(file_get_contents(__DIR__.'/saskaitos.json'), true);
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     function arAKVienodas($k, $p) {     // Tikrina ar jau yra toks asmens kodas 
-
-        echo 'asmens kodas' . $p;
-        echo '<br>';
         foreach ($k as $value) {
-            echo $value['askodas'];
-            echo '<br>';
-            if ($value['askodas'] === $p) {  
-                echo 'YRA TOKS!';  
+            if ($value['askodas'] == $p) {  
                 $p = 1;
                 break;
             }
-            else {
-                echo 'DAR NER!';
-                return false;
-                continue;
-             }  
-            } 
-        return $p ? true : false;    
-    } ; // kabliataskis ?
-    if (arAKVienodas($klientas, $_POST['askodas'])) {
-        $klientas[uniqid()] = $_POST;
+        } 
+        return $p == 1 ? true : false;    
+    }
+
+    if (!arAKVienodas($klientas, $_POST['askodas'])) { //paduoda i funkcija klienta ir kuriama askoda
+        $klientas[uniqid()] = $_POST;  // Priskiria unikalu ID naujam klientui ir ji sukuria
         file_put_contents(__DIR__.'/saskaitos.json', json_encode($klientas)); // ideti papildytus duomenis i faila
         echo 'NAUJAS KLIENTAS SUKURTAS!';
+        header('Location: http://localhost/vienaragiai/Bankas/sukurimas.php?msg=1');
+        die;
     } 
-    else echo 'TOKIU ASMENS KODU JAU YRA UZREGISTRUOTAS KLIENTAS';  
-
+    else { 
+        echo 'TOKIU ASMENS KODU JAU YRA UZREGISTRUOTAS KLIENTAS';
+        header('Location: http://localhost/vienaragiai/Bankas/sukurimas.php?msg=2');
+        die;
+    }      
 }
 ?>
 <!DOCTYPE html>
@@ -77,10 +72,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div> 
         </form>
     <div> 
-    <div style="color: white;">
-        <?php echo '<pre>';
-        // print_r($klientas);
+    <?php
+    if (isset($_GET['msg'])) {
+        if ($_GET['msg'] == 1) echo 'NAUJAS KLIENTAS SUKURTAS! VALIO!';
+        if ($_GET['msg'] == 2) echo 'TOKIU ASMENS KODU JAU YRA UZREGISTRUOTAS KLIENTAS :-----------';
+    }
     ?>
-    </div>  
 </body>
 </html>

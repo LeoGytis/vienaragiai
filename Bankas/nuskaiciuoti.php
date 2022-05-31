@@ -11,10 +11,12 @@ $esamasKlientas = $klientai[$_GET['id']];
                 if ($arr['lesos'] >= 0) {
                     $klientai[$_GET['id']] = $arr; // Priskirti klientui su ID nauja arreju su nauja ivesta suma;
                     file_put_contents(__DIR__.'/saskaitos.json', json_encode($klientai)); // ideti papildytus duomenis i faila
-                    header('Location: http://localhost/vienaragiai/Bankas/nuskaiciuoti.php?id=' . $_GET['id']);
+                    header('Location: http://localhost/vienaragiai/Bankas/nuskaiciuoti.php?id=' . $_GET['id'] . '&msg=1');
                     die;
                 } 
-                else echo 'NEGALI BŪTI MINUSINĖ SUMA!';
+                else 
+                header('Location: http://localhost/vienaragiai/Bankas/nuskaiciuoti.php?id=' . $_GET['id'] .'&msg=2');
+                die;
             }
         }
     } 
@@ -34,25 +36,21 @@ $esamasKlientas = $klientai[$_GET['id']];
     <div class="sas-column" style="color: white;">
     <?php
     if (isset($_GET['id'])) {
-        // echo '<pre>';
-        // print_r($esamasKlientas);   
         echo '<div class="klientas">';
         foreach($esamasKlientas as $key => $value) {
             if ($key == 'vardas') {
-                echo 'Vardas: ';
                 echo $value; echo '<br>';
             }
             if ($key == 'pavarde') {
-                echo 'Pavarde: ';
                 echo $value; echo '<br>';
             }
             if ($key == 'lesos') {
                 echo 'Sąskaitos likutis: ';
                 echo $value; echo '<br>';
             }  
-            
         }
         echo '<div>';
+    }
     ?>
     <form action="" method="post" class="form" > 
         <label class="label">Pirdėti lėšų</label>
@@ -61,6 +59,9 @@ $esamasKlientas = $klientai[$_GET['id']];
     </form>
         <body style="background: goldenrod;">
         <?php
+    if (isset($_GET['msg'])) {
+        if ($_GET['msg'] == 1) echo 'Iš sąskaitos buvo nuskaičiuota.';
+        if ($_GET['msg'] == 2) echo 'Sąskaitos nepakanka pinigams nuskaičiuoti.';
     }
     ?>
     </div>

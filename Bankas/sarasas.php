@@ -1,5 +1,5 @@
 <?php
-require __DIR__ .'./header.php'; 
+
 $klientai = json_decode(file_get_contents(__DIR__.'/saskaitos.json'), true);
 // echo '<pre>';
 // print_r($klientai);
@@ -22,8 +22,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>SĄRAŠAS</title>
 </head>
 <body>
+    <?php 
+    require __DIR__ .'./header.php'; 
+    ?>
     <div class="sas-column">
-        <div class="klientas">
             <?php 
             function sortBySurname($a, $b) { // Surusiuoti sarasa pagal pavarde
                 $a = $a['pavarde'];
@@ -34,7 +36,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             uasort($klientai, 'sortBySurname'); //uasort nepameta indexo
 
             foreach($klientai as $key => $arr) {
-                echo '<div>';
+                echo '<div class="klientas">';
                 echo $arr['vardas']; echo '<br>';
                 echo $arr['pavarde']; echo '<br>';
                 echo $arr['saskaita']; echo '<br>';
@@ -49,7 +51,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo '</div>';
             }
             ?>
-        <d/iv>    
     </div>
 </body>
 </html>
