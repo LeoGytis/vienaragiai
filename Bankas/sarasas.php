@@ -1,15 +1,15 @@
 <?php
 
-$klientai = json_decode(file_get_contents(__DIR__.'/saskaitos.json'), true);
-// echo '<pre>';
-// print_r($klientai);
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if ($klientai[$_POST['id']]['lesos'] <= 0) {    // Tikrina ar saskaita tuscia
-        unset($klientai[$_POST['id']]); 
-        file_put_contents(__DIR__.'/saskaitos.json', json_encode($klientai)); // ideti papildytus duomenis i faila
+    $klientai = json_decode(file_get_contents(__DIR__.'/data/saskaitos.json'), true);
+    // echo '<pre>';
+    // print_r($klientai);
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($klientai[$_POST['id']]['lesos'] <= 0) {    // Tikrina ar saskaita tuscia
+            unset($klientai[$_POST['id']]); 
+            file_put_contents(__DIR__.'/data/saskaitos.json', json_encode($klientai)); // ideti papildytus duomenis i faila
+        }
+        else echo 'Kliento ištrinti negalima, nes sąskaita nėra tusčia';
     }
-    else echo 'Kliento ištrinti negalima, nes sąskaita nėra tusčia';
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/list.css">
+    <link rel="stylesheet" href="./css/list.css"> <!-- KODEL VELUOJA CSS? -->
     <title>Sąskaitų sąrašas</title>
 </head>
 <body>

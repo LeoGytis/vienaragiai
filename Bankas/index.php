@@ -1,6 +1,4 @@
-<?php
-require __DIR__ .'./header.php'; 
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +16,8 @@ require __DIR__ .'./header.php';
     <title>BIT Bankas</title>
 </head>
 <body>
-
+<?php
+require __DIR__ .'./header.php'; 
+?>
 </body>
 </html>

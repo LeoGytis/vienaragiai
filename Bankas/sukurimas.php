@@ -1,11 +1,11 @@
 <?php
-    
+require __DIR__ .'./header.php'; 
 
-if (!file_exists(__DIR__.'/saskaitos.json')) {
-    file_put_contents(__DIR__.'/saskaitos.json', json_encode([]));     // jeigu nera failo - sukurti
+if (!file_exists(__DIR__.'/data/saskaitos.json')) {
+    file_put_contents(__DIR__.'/data/saskaitos.json', json_encode([]));     // jeigu nera failo - sukurti
 }
 // nuskaityti faila i massyva (true) -> decodinti -> priskirti naujam kintamui
-$klientas = json_decode(file_get_contents(__DIR__.'/saskaitos.json'), true); 
+$klientas = json_decode(file_get_contents(__DIR__.'/data/saskaitos.json'), true); 
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     function arAKVienodas($k, $p) {     // Tikrina ar jau yra toks asmens kodas 
@@ -20,7 +20,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!arAKVienodas($klientas, $_POST['askodas'])) { //paduoda i funkcija klienta ir kuriama askoda
         $klientas[uniqid()] = $_POST;  // Priskiria unikalu ID naujam klientui ir ji sukuria
-        file_put_contents(__DIR__.'/saskaitos.json', json_encode($klientas)); // ideti papildytus duomenis i faila
+        file_put_contents(__DIR__.'/data/saskaitos.json', json_encode($klientas)); // ideti papildytus duomenis i faila
         echo 'NAUJAS KLIENTAS SUKURTAS!';
         header('Location: http://localhost/vienaragiai/Bankas/sukurimas.php?msg=1');
         die;
@@ -43,9 +43,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Sąskaitos sukūrimas</title>
 </head>
 <body>
-    <?php
-    require __DIR__ .'./header.php'; 
-    ?>
     <div class="form-column">
         <form action="" method="post" class="form" >
             <div class="form-row">
@@ -69,14 +66,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="form-row">
                 <button type="submit" class="btn">SUKURTI</button>
+            </div>
+            <div>
+                <?php
+                    if (isset($_GET['msg'])) {
+                        if ($_GET['msg'] == 1) echo 'Naujas klientas sukurtas!';
+                        if ($_GET['msg'] == 2) echo 'Toks asmens kodas jau egzistuoja';
+                    }
+                ?>
             </div> 
         </form>
     <div> 
-    <?php
-    if (isset($_GET['msg'])) {
-        if ($_GET['msg'] == 1) echo 'NAUJAS KLIENTAS SUKURTAS! VALIO!';
-        if ($_GET['msg'] == 2) echo 'TOKIU ASMENS KODU JAU YRA UZREGISTRUOTAS KLIENTAS :-----------';
-    }
-    ?>
+    
 </body>
 </html>

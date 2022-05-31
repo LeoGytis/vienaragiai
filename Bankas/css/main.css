@@ -4,11 +4,9 @@ body * {
     padding: 0;
     vertical-align: top;
     box-sizing: border-box;
- 
 }
 
 body {
-    position: relative;
     background-image: url(../img/horses.jpg);
     background-position: center;
     background-size: cover;
