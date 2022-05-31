@@ -1,4 +1,5 @@
 <?php
+    require __DIR__ .'./header.php'; 
 
     $klientai = json_decode(file_get_contents(__DIR__.'/data/saskaitos.json'), true);
     // echo '<pre>';
@@ -22,9 +23,6 @@
     <title>Sąskaitų sąrašas</title>
 </head>
 <body>
-    <?php 
-    require __DIR__ .'./header.php'; 
-    ?>
     <div class="list-column">
             <?php 
             function sortBySurname($a, $b) { // Surusiuoti sarasa pagal pavarde
