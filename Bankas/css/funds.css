@@ -2,22 +2,66 @@ body {
     background-image: url(../img/horses2.jpg);
     background-position: center;
     background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
     background-repeat: no-repeat;
-    color: white;
 }
 
 .funds-column {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 400px;
-    margin-left: calc(50% - 200px);
+    /* display: flex;
+    justify-content: center; */
+    width: 600px;
+    margin-left: calc(50% - 300px);
     margin-top: 20px;
+    padding: 25px;
+    padding-top: 0px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: white;
     border: 3px solid goldenrod;
-    padding: 45px;
     border-radius: 20px;
-    background: rgb(98,76,66);
-    background: linear-gradient(143deg, rgba(98,76,66,0.6393907904958859) 15%, rgba(47,33,27,0.8634804263502276) 64%);
+    border-radius: 10px;
+    background-color: rgba(26, 21, 10, 0.95);
+}
+
+.funds-client {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+}
+
+.funds-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input {
+    width: 100px;
+    border: none;
+    padding: 5px;
+}
+
+.btn {
+    color: white;
+    font-weight: 600;
+    background-color: rgba(218, 165, 32, 0.2);
+    margin-top: 15px;
+    padding: 15px 45px;
+    border: 1px solid goldenrod;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    font-weight: 700;
+    background-color: rgba(218, 165, 32, 0.6);
+    margin-top: 15px;
+    padding: 15px 45px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid goldenrod;
 }

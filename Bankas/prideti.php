@@ -23,42 +23,36 @@ $esamasKlientas = $klientai[$_GET['id']];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/sarasas.css">
-    <title>PRIDETI</title>
+    <link rel="stylesheet" href="./css/funds.css">
+    <title>Pridėti lėšas</title>
 </head>
 
 <body>
-    <div class="sas-column" style="color: white;">
+<div class="funds-column">
     <?php
     if (isset($_GET['id'])) {
-        // echo '<pre>';
-        // print_r($esamasKlientas);   
-        echo '<div class="klientas">';
+        echo '<div class="funds-client">';
         foreach($esamasKlientas as $key => $value) {
             if ($key == 'vardas') {
-                echo $value; echo '<br>';
+                echo $value . '<br>';
             }
             if ($key == 'pavarde') {
-                echo $value; echo '<br>';
+                echo $value . '<br><br>';
             }
             if ($key == 'lesos') {
-                echo 'Sąskaitos likutis: <br>';
-                echo $value; echo '<br>';
-            }  
-            
+                echo $value . '€';
+            }   
         }
-        echo '<div>';
-    }    
+        echo '</div>';
+    }
     ?>
-    <form action="" method="post" class="form" > 
-        <label class="label">Pridėti lėšų</label>
+    <form action="" method="post" class="funds-form" > 
         <input type="text" name="suma" class="input" required>   
-        <button type="submit" class="btn">PRIDĖTI</button>
+        <button type="submit" class="btn">Pridėti lėšų</button>
     </form>
-        <body style="background: goldenrod;">
         <?php
     if (isset($_GET['msg'])) {
-        if ($_GET['msg'] == 1) echo 'Sąskaitos buvo papildyta.';
+        if ($_GET['msg'] == 1) echo '<br>Sąskaita buvo papildyta.';
     }
     ?>
     </div>
