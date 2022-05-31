@@ -8,7 +8,7 @@ $esamasKlientas = $klientai[$_GET['id']];
         foreach ($klientai as $key => $arr) {
             if ($key == $_GET['id']) {                  // Tikrina ir suranda areju pagal duota ID
                 $arr['lesos'] = strval(intval($arr['lesos']) - intval($_POST['suma']));   // Priskiriama nauja suma
-                if ($arr['lesos'] > 0) {
+                if ($arr['lesos'] >= 0) {
                     $klientai[$_GET['id']] = $arr; // Priskirti klientui su ID nauja arreju su nauja ivesta suma;
                     file_put_contents(__DIR__.'/saskaitos.json', json_encode($klientai)); // ideti papildytus duomenis i faila
                     header('Location: http://localhost/vienaragiai/Bankas/nuskaiciuoti.php?id=' . $_GET['id']);

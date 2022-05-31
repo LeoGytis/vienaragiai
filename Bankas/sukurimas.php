@@ -8,18 +8,30 @@ if (!file_exists(__DIR__.'/saskaitos.json')) {
 $klientas = json_decode(file_get_contents(__DIR__.'/saskaitos.json'), true); 
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
-    function arAKVienodas($k) {
-        foreach ($k as $key => $value) {
-        if ($value['askodas'] == $_POST['askodas']) {  // Tikrina ar yra toks asmens kodas 
-            return true;
-        }
-        else return false;
-         }
-    } 
-    if (!arAKVienodas($klientas)) {
+    function arAKVienodas($k, $p) {     // Tikrina ar jau yra toks asmens kodas 
+
+        echo 'asmens kodas' . $p;
+        echo '<br>';
+        foreach ($k as $value) {
+            echo $value['askodas'];
+            echo '<br>';
+            if ($value['askodas'] === $p) {  
+                echo 'YRA TOKS!';  
+                $p = 1;
+                break;
+            }
+            else {
+                echo 'DAR NER!';
+                return false;
+                continue;
+             }  
+            } 
+        return $p ? true : false;    
+    } ; // kabliataskis ?
+    if (arAKVienodas($klientas, $_POST['askodas'])) {
         $klientas[uniqid()] = $_POST;
         file_put_contents(__DIR__.'/saskaitos.json', json_encode($klientas)); // ideti papildytus duomenis i faila
+        echo 'NAUJAS KLIENTAS SUKURTAS!';
     } 
     else echo 'TOKIU ASMENS KODU JAU YRA UZREGISTRUOTAS KLIENTAS';  
 
