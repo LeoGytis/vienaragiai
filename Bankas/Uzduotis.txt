@@ -15,15 +15,15 @@ Banką sudaro atskiri puslapiai:
 2. Sąskaitos, kurioje yra lėšų ištrinti neturi būti galima.
 3. Sąskaitas saraše rūšiuoti pagal savininko pavardę.
 4. Sąskaitoje likusi suma negali būti minusinė.
-
-
 5. Asmens kodas turi būti unikalus. Negali būti dviejų vartotojų su tuo pačiu asmens kodu.
-
-
 6. Duomenų bazė - JSON failas.
 7. Informacijos keitimui naudoti POST metodą ir peradresavimą, kitais atvejais GET metodą.
 
+
+
 8. Po kiekvienos įrašymo (trynimo) operacijos turi būti parodomas pranešimas apie operacijos rezultatus.
+
+
 
 9. Sąskaitos numeris b puslapyje (naujos sąskaitos kūrimas) 
     turi būti sugeneruojamas automatiškai ir html atvaizduojamas 
