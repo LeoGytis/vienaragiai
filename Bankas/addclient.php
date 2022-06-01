@@ -22,13 +22,18 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (!arAKVienodas($clients, $_POST['askodas'])) { //paduoda funkcijai klienta ir kuriama askoda
-        $clients[$unikalusId] = $_POST;  // Priskiria unikalu ID naujam klientui ir ji sukuria
-        $unikalusId++;
-        file_put_contents(__DIR__.'/data/saskaitos.json', json_encode($clients)); // ideti papildytus duomenis i faila
-        file_put_contents(__DIR__.'/data/uniqueID.json', json_encode($unikalusId)); 
-        echo 'NAUJAS KLIENTAS SUKURTAS!';
-        header('Location: http://localhost/vienaragiai/Bankas/addclient.php?msg=1');
-        die;
+        if (strlen($_POST['vardas']) <= 3 || strlen($_POST['pavarde']) <= 3) {
+            header('Location: http://localhost/vienaragiai/Bankas/addclient.php?msg=3');
+            die;   
+        } else {
+            $clients[$unikalusId] = $_POST;  // Priskiria unikalu ID naujam klientui ir ji sukuria
+            $unikalusId++;
+            file_put_contents(__DIR__.'/data/saskaitos.json', json_encode($clients)); // ideti papildytus duomenis i faila
+            file_put_contents(__DIR__.'/data/uniqueID.json', json_encode($unikalusId)); 
+            echo 'NAUJAS KLIENTAS SUKURTAS!';
+            header('Location: http://localhost/vienaragiai/Bankas/addclient.php?msg=1');
+            die;
+        }
     } 
     else { 
         echo 'TOKIU ASMENS KODU JAU YRA UZREGISTRUOTAS KLIENTAS';
@@ -70,7 +75,8 @@ require __DIR__ .'./header.php';
                 <?php
                     if (isset($_GET['msg'])) {
                         if ($_GET['msg'] == 1) echo 'Naujas klientas sukurtas!';
-                        if ($_GET['msg'] == 2) echo 'Toks asmens kodas jau egzistuoja';
+                        if ($_GET['msg'] == 2) echo 'Toks asmens kodas jau egzistuoja.';
+                        if ($_GET['msg'] == 3) echo 'Per trumpas vardas ar pavarde.';
                     }
                 ?>
             </div> 
