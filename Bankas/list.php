@@ -27,11 +27,12 @@
                 echo '<div class="client">';
                 echo $arr['vardas'] . '<br>';
                 echo $arr['pavarde'] . '<br>';
-                echo $arr['saskaita'] . '<br>';
+                // echo $arr['saskaita'] . '<br>';
+                echo substr($arr['saskaita'], 0, 4) . ' ' . substr($arr['saskaita'], 4, 4) . ' ' . substr($arr['saskaita'], 8, 4) . ' ' . substr($arr['saskaita'], 12, 4) . ' ' . substr($arr['saskaita'], 16, 4) . ' '.'<br>';
                 echo $arr['askodas']. '<br><br>';
                 echo 'Lėšos: ' . $arr['lesos'] . '€' . '<br><br>';
-                echo '<a href="http://localhost/vienaragiai/Bankas/prideti.php?id=' . $key . '">Pridėti lėšas</a><br>';
-                echo '<a href="http://localhost/vienaragiai/Bankas/nuskaiciuoti.php?id=' . $key . '">Nuskaičiuoti lėšas</a><br><br>';
+                echo '<a href="http://localhost/vienaragiai/Bankas/addfunds.php?id=' . $key . '">Pridėti lėšas</a><br>';
+                echo '<a href="http://localhost/vienaragiai/Bankas/deductfunds.php?id=' . $key . '">Nuskaičiuoti lėšas</a><br><br>';
                 echo '<form action="" method="post">';
                     echo '<input type="hidden" name="id" value=' . $key . '>';
                     echo '<button type="submit" class="list-btn">IŠTRINTI</button><br><br>';

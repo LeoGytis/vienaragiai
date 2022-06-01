@@ -1,13 +1,16 @@
 <?php
-
-
 if (!file_exists(__DIR__.'/data/saskaitos.json')) {
     file_put_contents(__DIR__.'/data/saskaitos.json', json_encode([]));     // jeigu nera failo - sukurti
 }
+if (!file_exists(__DIR__.'/data/uniqueID.json')) {
+    file_put_contents(__DIR__.'/data/uniqueID.json', json_encode(0));     // jeigu nera failo - sukurti
+}
 // nuskaityti faila i massyva (true) -> decodinti -> priskirti naujam kintamui
-$klientas = json_decode(file_get_contents(__DIR__.'/data/saskaitos.json'), true); 
+$clients = json_decode(file_get_contents(__DIR__.'/data/saskaitos.json'), true); 
+$unikalusId = json_decode(file_get_contents(__DIR__.'/data/uniqueID.json'), true); 
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
     function arAKVienodas($k, $p) {     // Tikrina ar jau yra toks asmens kodas 
         foreach ($k as $value) {
             if ($value['askodas'] == $p) {  
@@ -18,20 +21,26 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         return $p == 1 ? true : false;    
     }
 
-    if (!arAKVienodas($klientas, $_POST['askodas'])) { //paduoda i funkcija klienta ir kuriama askoda
-        $klientas[uniqid()] = $_POST;  // Priskiria unikalu ID naujam klientui ir ji sukuria
-        file_put_contents(__DIR__.'/data/saskaitos.json', json_encode($klientas)); // ideti papildytus duomenis i faila
+    if (!arAKVienodas($clients, $_POST['askodas'])) { //paduoda funkcijai klienta ir kuriama askoda
+        $clients[$unikalusId] = $_POST;  // Priskiria unikalu ID naujam klientui ir ji sukuria
+        $unikalusId++;
+        file_put_contents(__DIR__.'/data/saskaitos.json', json_encode($clients)); // ideti papildytus duomenis i faila
+        file_put_contents(__DIR__.'/data/uniqueID.json', json_encode($unikalusId)); 
         echo 'NAUJAS KLIENTAS SUKURTAS!';
-        header('Location: http://localhost/vienaragiai/Bankas/sukurimas.php?msg=1');
+        header('Location: http://localhost/vienaragiai/Bankas/addclient.php?msg=1');
         die;
     } 
     else { 
         echo 'TOKIU ASMENS KODU JAU YRA UZREGISTRUOTAS KLIENTAS';
-        header('Location: http://localhost/vienaragiai/Bankas/sukurimas.php?msg=2');
+        header('Location: http://localhost/vienaragiai/Bankas/addclient.php?msg=2');
         die;
     }      
 }
-require __DIR__ .'./header.php'; 
+
+$iban = 'LT' . rand(40, 60) . '10100' . rand(10000000000, 99999999999);
+
+require __DIR__ .'./header.php';
+
 ?>
     <div class="addclient-column">
         <form action="" method="post" class="addclient" >
@@ -45,11 +54,11 @@ require __DIR__ .'./header.php';
             </div>
             <div class="addclient-row">
                 <label class="label">Sąskaitos numeris</label>
-                <input type="text" name="saskaita" class="input" placeholder="Sąskaitos numeris"  required>
+                <input type="text" name="saskaita" class="input" placeholder="<?= $iban ?>"  value=<?= $iban ?> readonly>
             </div>
             <div class="addclient-row">
                 <label class="label">Asmens kodas</label>
-                <input type="text" name="askodas" class="input" placeholder="Asmens kodas"  required>
+                <input name="askodas" class="input" placeholder="Asmens kodas"  required>
             </div>
             <div>
                 <input type="hidden" name="lesos" value="0">

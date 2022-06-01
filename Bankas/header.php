@@ -20,8 +20,8 @@
 <body>
     <nav class="navigation">
         <div class="logo"><img src="./img/logo_img.png" alt="Logo"></div>   
-        <a href="http://localhost/vienaragiai/Bankas/sarasas.php">Sąskaitų sąrašas</a>
-        <a href="http://localhost/vienaragiai/Bankas/sukurimas.php">Sąskaitos sukūrimas</a>
-        <a href="http://localhost/vienaragiai/Bankas/prideti.php">Pridėti lėšas</a>
-        <a href="http://localhost/vienaragiai/Bankas/nuskaiciuoti.php">Nuskaičiuoti lėšas</a>
+        <a href="http://localhost/vienaragiai/Bankas/list.php">Sąskaitų sąrašas</a>
+        <a href="http://localhost/vienaragiai/Bankas/addclient.php">Sąskaitos sukūrimas</a>
+        <a href="http://localhost/vienaragiai/Bankas/addfunds.php">Pridėti lėšas</a>
+        <a href="http://localhost/vienaragiai/Bankas/deductfunds.php">Nuskaičiuoti lėšas</a>
     </nav>

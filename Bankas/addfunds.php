@@ -9,7 +9,7 @@
             }
         }
         file_put_contents(__DIR__.'/data/saskaitos.json', json_encode($klientai)); // ideti papildytus duomenis i faila
-        header('Location: http://localhost/vienaragiai/Bankas/prideti.php?id=' . $_GET['id'].'&msg=1');
+        header('Location: http://localhost/vienaragiai/Bankas/addfunds.php?id=' . $_GET['id'].'&msg=1');
         die;
     } 
     require __DIR__ .'./header.php';

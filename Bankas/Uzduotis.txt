@@ -19,14 +19,14 @@ Banką sudaro atskiri puslapiai:
 6. Duomenų bazė - JSON failas.
 7. Informacijos keitimui naudoti POST metodą ir peradresavimą, kitais atvejais GET metodą.
 8. Po kiekvienos įrašymo (trynimo) operacijos turi būti parodomas pranešimas apie operacijos rezultatus.
-
-
 9. Sąskaitos numeris b puslapyje (naujos sąskaitos kūrimas) 
     turi būti sugeneruojamas automatiškai ir html atvaizduojamas 
     kaip readonly. Sąskaita turi atitikti IBAN formatą. Bankas lietuviškas.
 
 
 10. Asmens kodas turi būti tikrinamas ar atitinka taisykles.
+
+
 11. Vardas ir pavardė ilgesni nei 3 simboliai.
 12. Tikrinimas tik BackEnd’e. FrontEnd’e tikrinimo nedarykite.
 

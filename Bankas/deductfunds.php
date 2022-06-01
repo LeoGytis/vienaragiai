@@ -13,11 +13,11 @@
                 if ($arr['lesos'] >= 0) {
                     $klientai[$_GET['id']] = $arr; // Priskirti klientui su ID nauja arreju su nauja ivesta suma;
                     file_put_contents(__DIR__.'/data/saskaitos.json', json_encode($klientai)); // ideti papildytus duomenis i faila
-                    header('Location: http://localhost/vienaragiai/Bankas/nuskaiciuoti.php?id=' . $_GET['id'] . '&msg=1');
+                    header('Location: http://localhost/vienaragiai/Bankas/deductfunds.php?id=' . $_GET['id'] . '&msg=1');
                     die;
                 } 
                 else 
-                header('Location: http://localhost/vienaragiai/Bankas/nuskaiciuoti.php?id=' . $_GET['id'] .'&msg=2');
+                header('Location: http://localhost/vienaragiai/Bankas/deductfunds.php?id=' . $_GET['id'] .'&msg=2');
                 die;
             }
         }
