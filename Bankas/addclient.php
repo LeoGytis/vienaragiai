@@ -59,7 +59,7 @@ require __DIR__ .'./header.php';
             </div>
             <div class="addclient-row">
                 <label class="label">Sąskaitos numeris</label>
-                <input type="text" name="saskaita" class="input" placeholder="<?= $iban ?>"  value=<?= $iban ?> readonly>
+                <input type="number" name="saskaita" class="input" placeholder="<?= $iban ?>"  value=<?= $iban ?> readonly>
             </div>
             <div class="addclient-row">
                 <label class="label">Asmens kodas</label>

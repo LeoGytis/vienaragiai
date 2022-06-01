@@ -28,17 +28,8 @@
     <?php
         if (isset($_GET['id'])) {
             echo '<div class="funds-client">';
-            foreach($klientai[$_GET['id']] as $key => $value) {
-                if ($key == 'vardas') {
-                    echo $value . '<br>';
-                }
-                if ($key == 'pavarde') {
-                    echo $value . '<br><br>';
-                }
-                if ($key == 'lesos') {
-                    echo $value . '€';
-                }   
-            }
+            echo $klientai[$_GET['id']]['vardas'] . ' &nbsp;' . $klientai[$_GET['id']]['pavarde'] . '<br><br>';
+            echo $klientai[$_GET['id']]['lesos'] . '€';
             echo '</div>';
         }
         else echo 'Prašome pasirinkti klientą iš sąskaitų sąrašo.';
