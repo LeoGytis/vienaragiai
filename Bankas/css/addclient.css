@@ -9,6 +9,7 @@
     border: 3px solid goldenrod;
     padding: 45px;
     border-radius: 20px;
+    color: white;
     background: rgb(98,76,66);
     background: linear-gradient(143deg, rgba(98,76,66,0.6393907904958859) 15%, rgba(47,33,27,0.8634804263502276) 64%);
 }
@@ -41,18 +42,19 @@
 
 .addclient-btn {
     color: white;
-    font-weight: 600;
     background-color: rgba(218, 165, 32, 0.2);
     margin-top: 50px;
+    margin-bottom: -35px;
     padding: 15px 45px;
     border: 1px solid goldenrod;
     border-radius: 5px;
 }
 
 .addclient-btn:hover {
-    font-weight: 700;
+    color: white;
     background-color: rgba(218, 165, 32, 0.6);
     margin-top: 50px;
+    margin-bottom: -35px;
     padding: 15px 45px;
     border-radius: 5px;
     cursor: pointer;

@@ -11,6 +11,7 @@
     border: 3px solid goldenrod;
     padding: 50px;
     border-radius: 20px;
+    color: white;
     background: rgba(37, 28, 25, 0.85);
 }
 
@@ -24,7 +25,7 @@
 }
 
 .list-btn {
-   
+    color: white;
     background-color: rgba(218, 165, 32, 0.3);
     padding: 5px 25px;
     border: 1px solid goldenrod;
@@ -34,9 +35,7 @@
 }
 
 .list-btn:hover {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    color: white;
     background-color: rgba(218, 165, 32, 0.60);
     padding-top: 5px 25px;
     border: 1px solid goldenrod;

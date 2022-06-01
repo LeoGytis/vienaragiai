@@ -32,7 +32,7 @@
             echo $klientai[$_GET['id']]['lesos'] . '€';
             echo '</div>';
         }
-        else echo 'Prašome pasirinkti klientą iš sąskaitų sąrašo.';
+        else echo '<br>Prašome pasirinkti klientą iš sąskaitų sąrašo.<br><br>';
     ?>
     <form action="" method="post" class="funds-form" > 
         <input type="text" name="suma" class="funds-input" required>   
