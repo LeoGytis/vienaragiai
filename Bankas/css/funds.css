@@ -1,18 +1,8 @@
-body {
-    position: relative;
-    background-image: url(../img/horses2.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: rgba(218, 165, 32, 0.5);
-}
-
 .funds-column {
-    /* display: flex;
-    justify-content: center; */
     width: 600px;
     margin-left: calc(50% - 300px);
     margin-top: 20px;
+    margin-bottom: 800px;
     padding: 25px;
     padding-top: 20px;
     font-size: 20px;
@@ -23,6 +13,7 @@ body {
     border-radius: 20px;
     border-radius: 10px;
     background-color: rgba(26, 21, 10, 0.95);
+    
 }
 
 .funds-client {
@@ -42,14 +33,14 @@ body {
     align-items: center;
 }
 
-.input {
+.funds-input {
     width: 100px;
     border: none;
     padding: 5px;
     margin-top: 15px;
 }
 
-.btn {
+.funds-btn {
     color: white;
     font-weight: 600;
     background-color: rgba(218, 165, 32, 0.2);
@@ -59,7 +50,7 @@ body {
     border-radius: 5px;
 }
 
-.btn:hover {
+.funds-btn:hover {
     font-weight: 700;
     background-color: rgba(218, 165, 32, 0.6);
     margin-top: 15px;

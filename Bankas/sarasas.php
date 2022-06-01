@@ -1,5 +1,4 @@
 <?php
-    require __DIR__ .'./header.php'; 
 
     $klientai = json_decode(file_get_contents(__DIR__.'/data/saskaitos.json'), true);
     // echo '<pre>';
@@ -11,18 +10,9 @@
         }
         else echo 'Kliento ištrinti negalima, nes sąskaita nėra tusčia';
     }
+
+    require __DIR__ .'./header.php'; 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/list.css"> <!-- KODEL VELUOJA CSS? -->
-    <title>Sąskaitų sąrašas</title>
-</head>
-<body>
     <div class="list-column">
             <?php 
             function sortBySurname($a, $b) { // Surusiuoti sarasa pagal pavarde
@@ -34,7 +24,7 @@
             uasort($klientai, 'sortBySurname'); //uasort nepameta indexo
 
             foreach($klientai as $key => $arr) {
-                echo '<div class="klientas">';
+                echo '<div class="client">';
                 echo $arr['vardas'] . '<br>';
                 echo $arr['pavarde'] . '<br>';
                 echo $arr['saskaita'] . '<br>';
@@ -44,7 +34,7 @@
                 echo '<a href="http://localhost/vienaragiai/Bankas/nuskaiciuoti.php?id=' . $key . '">Nuskaičiuoti lėšas</a><br><br>';
                 echo '<form action="" method="post">';
                     echo '<input type="hidden" name="id" value=' . $key . '>';
-                    echo '<button type="submit" class="sas-btn">IŠTRINTI</button><br><br>';
+                    echo '<button type="submit" class="list-btn">IŠTRINTI</button><br><br>';
                 echo '</form>';
                 echo '</div>';
             }
