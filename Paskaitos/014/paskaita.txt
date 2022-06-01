@@ -1,0 +1,17 @@
+CRUD - Create - Read - Update - Delete
+
+C ---> data
+R ---> --- 
+U ---> DAta ir ID
+D ---> ---
+
+
+
+ <?php echo $tittle ?>  <==> <?= $tittle ?>   // JEIGU TAI VIENA EILUTE
+ <!-- <?php echo $tittle ?>  <==> <?= $tittle ?>   // JEIGU TAI VIENA EILUTE -->
+
+
+
+ URL su ? KAIP?
+ URL su /: parametras KAM? kam adresuotas parametras
+ body data  KA?
