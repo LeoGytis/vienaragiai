@@ -1,6 +1,6 @@
 <?php
 // KLASES DARO ANTANAS
-class Bebras {
+class Bebras {   //klase ir failo pavadinimas turi buti vienodi
 
     public $tail = 'Long';   // tik deklaracija (jokiu funkciju ar skaiciavimu)
     private $age = 23;
