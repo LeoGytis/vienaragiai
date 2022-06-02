@@ -22,8 +22,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     if (!arAKVienodas($clients, $_POST['askodas'])) { //paduoda funkcijai klienta ir kuriama askoda
         if (strlen($_POST['vardas']) > 3 && strlen($_POST['pavarde']) > 3) {
-            if ((int)substr($_POST['askodas'], 3, 2) <= 12 && (int)substr($_POST['askodas'], 5, 2) <= 31) {
-                // && (int)strlen($_POST['askodas'] == 11) NEPRAEINA
+            if ((int)substr($_POST['askodas'], 3, 2) <= 12 && (int)substr($_POST['askodas'], 5, 2) <= 31 && strval(strlen($_POST['askodas'])) == 11) {
                 $clients[$unikalusId] = $_POST;  // Priskiria unikalu ID naujam klientui ir ji sukuria
                 $unikalusId++;
                 file_put_contents(__DIR__.'/data/saskaitos.json', json_encode($clients)); // ideti papildytus duomenis i faila
