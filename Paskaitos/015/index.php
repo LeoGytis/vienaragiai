@@ -13,8 +13,8 @@ $bebras4 = clone($bebras1); // klonas bet jau kaip kitas objektas
 echo '<pre>';
 
 var_dump($bebras1);
-var_dump($bebras2);
-var_dump($bebras3);
+// var_dump($bebras2);
+// var_dump($bebras3);
 
 echo $bebras1->tail;  //tail be dolerio zenklo
 echo '<br>';

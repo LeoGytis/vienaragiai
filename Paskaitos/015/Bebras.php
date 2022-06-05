@@ -34,7 +34,7 @@ class Bebras {   //klase ir failo pavadinimas turi buti vienodi
     public function __get($what)
      {  
         if (in_array($what, ['age', 'name'])) {
-            return $this->$what;   //STIPRIAI ATKREIPT DEMESI KAD CIA YRA $$$ ($what)
+            return $this->$what;   //STIPRIAI ATKREIPT DEMESI KAD CIA YRA $ ($what)
             
         }
         echo '<br>Magic __get ===== ' . $what . '<br>';
