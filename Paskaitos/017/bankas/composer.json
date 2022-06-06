@@ -1,0 +1,17 @@
+{
+    "name": "leogytis/bankas",
+    "description": "Gycio bankas",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Bankas\\": "src/app"
+        }
+    },
+    "authors": [
+        {
+            "name": "LeoGytis",
+            "email": "leogytis@gmail.com"
+        }
+    ],
+    "require": {}
+}
