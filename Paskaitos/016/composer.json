@@ -1,0 +1,23 @@
+{
+    "name": "super/duper",
+    "description": "Normaliai",
+    "autoload": {
+        "psr-4": {
+            "Super\\Duper\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "LeoGytis",
+            "email": "leogytis@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Meska\\Lokys\\": "",
+            "Old\\" : "bb/"
+
+        }
+    },
+    "require": {}
+}
