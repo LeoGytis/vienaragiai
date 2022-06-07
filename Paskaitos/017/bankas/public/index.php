@@ -5,5 +5,5 @@ require __DIR__ . '/../vendor/autoload.php';
 
 App::start();
 
-echo 'Labutis';
+echo 'PUBLIC INDEX <br>';
 

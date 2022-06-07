@@ -4,3 +4,17 @@ h1 {
         font-size: 35px;
     }
 }
+
+.success {
+    padding: 5px;
+    background-color: aqua;
+    border: 1px solid black;
+    margin: 5px;
+}
+
+.alert {
+    padding: 5px;
+    background-color: crimson;
+    border: 1px solid black;
+    margin: 5px;
+}
