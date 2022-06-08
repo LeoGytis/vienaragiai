@@ -2,5 +2,5 @@
 
 interface PapildomasPlanas {
 
-    function jaJa(int $ja) : void; 
+    function jaJa(int $data) : void; 
 }
