@@ -7,6 +7,11 @@ use Bankas\Messages as M;
 
 class HomeController {
 
+    public function getIt() {
+        echo 'AAA';
+
+    }
+
     public function index() {
         echo 'Controlerio namai';
         $list = [];
@@ -24,5 +29,10 @@ class HomeController {
         M::add('Puiku', 'success');
         M::add($_POST['alabama'], 'success');
         return App::redirect('forma');
+    }
+
+    public function json() {
+
+        //kazkas turetu but
     }
 }

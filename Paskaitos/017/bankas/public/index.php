@@ -7,3 +7,5 @@ App::start();
 
 echo 'PUBLIC INDEX <br>';
 
+App::sent();
+
