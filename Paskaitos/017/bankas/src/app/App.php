@@ -40,6 +40,10 @@ class App {
         header('Location: http://' . self::DOMAIN . '/' . $url);
     }
 
+    public static function url($url = '') {
+        return 'http://' . self::DOMAIN . '/' . $url;
+    }
+
     public static function authAdd(object $user) {
         $_SESSION['auth'] = 1;
         $_SESSION['user'] = $user;
@@ -52,6 +56,10 @@ class App {
 
     public static function auth() : bool {
         return isset($_SESSION['auth']) && $_SESSION['auth'] == 1;
+    }
+
+    public static function authName() : string {
+        return isset($_SESSION['user'])->full_name;
     }
 
     private static function route(array $uri) {
@@ -67,7 +75,7 @@ class App {
         }
 
         if ('GET' == $m && count($uri) == 1 && $uri[0] === 'logout') {
-            return (new LoginController())->logout();
+            return (new LoginController())->doLogout();
         }
 
         if (count($uri) == 1 && $uri[0] === '') {
@@ -75,7 +83,7 @@ class App {
 
             echo 'Namai';
         }
-        if ('GET' == $m && count($uri) == 1 && $uri[0] === 'fomra') {
+        if ('GET' == $m && count($uri) == 1 && $uri[0] === 'forma') {
             if (!self::auth()) {  // jeigu useris neautorizuotas grazinam i login
                 return self::redirect('login');
             }
