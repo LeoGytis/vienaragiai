@@ -1,11 +1,13 @@
 <?php
 namespace Bankas;
 use Bankas\Controllers\HomeController;
-use Bankas\Messages;
+use Bankas\Controllers\LoginController;
+use Bankas\Messages as M;
 
 class App {
 
     const DOMAIN = 'bankas.lt';
+    const APP = __DIR__ . '/../';
     private static $html;
 
     public static function start() {
@@ -38,16 +40,45 @@ class App {
         header('Location: http://' . self::DOMAIN . '/' . $url);
     }
 
+    public static function authAdd(object $user) {
+        $_SESSION['auth'] = 1;
+        $_SESSION['user'] = $user;
+    }
+
+    //istrina is sesijos
+    public static function authRem() {
+        unset($_SESSION['auth'], $_SESSION['user']);
+    }
+
+    public static function auth() : bool {
+        return isset($_SESSION['auth']) && $_SESSION['auth'] == 1;
+    }
+
     private static function route(array $uri) {
 
         $m = $_SERVER['REQUEST_METHOD'];
+
+        if ('GET' == $m && count($uri) == 1 && $uri[0] === 'login') {
+            return (new LoginController())->showLogin();
+        }
+
+        if ('POST' == $m && count($uri) == 1 && $uri[0] === 'login') {
+            return (new LoginController())->doLogin();
+        }
+
+        if ('GET' == $m && count($uri) == 1 && $uri[0] === 'logout') {
+            return (new LoginController())->logout();
+        }
 
         if (count($uri) == 1 && $uri[0] === '') {
             return (new HomeController())->index();
 
             echo 'Namai';
         }
-        if ('GET' == $m && count($uri) == 1 && $uri[0] === '') {
+        if ('GET' == $m && count($uri) == 1 && $uri[0] === 'fomra') {
+            if (!self::auth()) {  // jeigu useris neautorizuotas grazinam i login
+                return self::redirect('login');
+            }
             return (new HomeController())->form();
 
             echo 'Forma';
