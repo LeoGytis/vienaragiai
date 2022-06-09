@@ -1,5 +1,6 @@
 <?php
+use Bankas2\App;
 
-echo 'labas';
+require __DIR__ . '/../vendor/autoload.php';
 
-// require __DIR__ . '/../vendor/autoload.php';
+App::start();

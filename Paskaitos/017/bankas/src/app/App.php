@@ -80,7 +80,6 @@ class App {
 
         if (count($uri) == 1 && $uri[0] === '') {
             return (new HomeController())->index();
-
             echo 'Namai';
         }
         if ('GET' == $m && count($uri) == 1 && $uri[0] === 'forma') {

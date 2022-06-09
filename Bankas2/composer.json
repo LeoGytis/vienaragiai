@@ -3,7 +3,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Leogytis\\Bankas2\\": "src/"
+            "Bankas2\\": "src/app/"
         }
     },
     "authors": [
