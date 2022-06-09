@@ -1,6 +1,4 @@
-h1 {
-    color: crimson;
-    span {
-        font-size: 25px;
-    }
-}
+@import 'main.scss';
+@import 'addclient.scss';
+@import 'funds.scss';
+@import 'list.scss';

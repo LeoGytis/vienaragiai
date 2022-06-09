@@ -1,6 +1,217 @@
-h1 {
-  color: crimson;
+body,
+body * {
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  box-sizing: border-box;
 }
-h1 span {
-  font-size: 25px;
+
+body {
+  background-image: url(/Bankas2/images/horses.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: sienna;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: rgb(47, 33, 27);
+  background: linear-gradient(90deg, rgb(47, 33, 27) 7%, rgb(98, 76, 66) 47%, rgb(47, 33, 27) 87%);
+}
+
+.navigation a {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 24px;
+  text-decoration: none;
+  color: white;
+  padding: 24px;
+}
+
+.navigation a:hover {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 24px;
+  text-decoration: none;
+  color: orange;
+  padding: 24px;
+}
+
+.addclient-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  margin-left: calc(50% - 200px);
+  margin-top: 20px;
+  margin-bottom: 500px;
+  border: 3px solid goldenrod;
+  padding: 45px;
+  border-radius: 20px;
+  color: white;
+  background: rgb(98, 76, 66);
+  background: linear-gradient(143deg, rgba(98, 76, 66, 0.6393907905) 15%, rgba(47, 33, 27, 0.8634804264) 64%);
+}
+
+.addclient {
+  width: 80%;
+}
+
+.addclient > .addclient-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 35px;
+}
+
+.addclient > .addclient-row > .label {
+  display: inline-block;
+  width: 100%;
+  color: white;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.addclient > .addclient-row > .input {
+  width: 150px;
+  border: none;
+  padding: 5px;
+}
+
+.addclient-btn {
+  color: white;
+  background-color: rgba(218, 165, 32, 0.2);
+  margin-top: 50px;
+  margin-bottom: -35px;
+  padding: 15px 45px;
+  border: 1px solid goldenrod;
+  border-radius: 5px;
+}
+
+.addclient-btn:hover {
+  color: white;
+  background-color: rgba(218, 165, 32, 0.6);
+  margin-top: 50px;
+  margin-bottom: -35px;
+  padding: 15px 45px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid goldenrod;
+}
+
+.funds-column {
+  width: 600px;
+  margin-left: calc(50% - 300px);
+  margin-top: 20px;
+  margin-bottom: 800px;
+  padding: 25px;
+  padding-top: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+  border: 3px solid goldenrod;
+  border-radius: 20px;
+  border-radius: 10px;
+  background-color: rgba(26, 21, 10, 0.95);
+}
+
+.funds-client {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+}
+
+.funds-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.funds-input {
+  width: 100px;
+  border: none;
+  padding: 5px;
+  margin-top: 15px;
+}
+
+.funds-btn {
+  color: white;
+  background-color: rgba(218, 165, 32, 0.2);
+  margin-top: 15px;
+  margin-bottom: 25px;
+  padding: 15px 45px;
+  border: 1px solid goldenrod;
+  border-radius: 5px;
+}
+
+.funds-btn:hover {
+  color: white;
+  background-color: rgba(218, 165, 32, 0.6);
+  margin-top: 15px;
+  margin-bottom: 25px;
+  padding: 15px 45px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid goldenrod;
+}
+
+.list-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  -moz-column-gap: 50px;
+       column-gap: 50px;
+  justify-items: center;
+  align-items: center;
+  row-gap: 50px;
+  width: 1400px;
+  margin-left: calc(50% - 700px);
+  margin-top: 40px;
+  border: 3px solid goldenrod;
+  padding: 50px;
+  border-radius: 20px;
+  color: white;
+  background: rgba(37, 28, 25, 0.85);
+}
+
+.client {
+  padding: 40px;
+  padding-bottom: 25px;
+  padding-right: 50px;
+  border: 1px solid rgb(86, 68, 20);
+  border-radius: 10px;
+  background-color: rgba(26, 21, 10, 0.6);
+}
+
+.list-btn {
+  color: white;
+  background-color: rgba(218, 165, 32, 0.3);
+  padding: 5px 25px;
+  border: 1px solid goldenrod;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+
+.list-btn:hover {
+  color: white;
+  background-color: rgba(218, 165, 32, 0.6);
+  padding-top: 5px 25px;
+  border: 1px solid goldenrod;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+  margin-bottom: -10px;
+}
+
+.client > a {
+  font-size: 18px;
+  color: skyblue;
+  text-decoration: none;
 }

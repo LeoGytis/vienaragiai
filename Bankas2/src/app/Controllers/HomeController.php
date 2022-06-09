@@ -9,6 +9,10 @@ class HomeController
 
     public static function index()
     {
-        return App::view('home');
+        $list = [];
+        for ($i = 0; $i < 10; $i++) {
+            $list[] = rand(1000, 9999);
+        }
+        return App::view('home', ['title' => 'Alabama title', 'list' => $list]);
     }
 }

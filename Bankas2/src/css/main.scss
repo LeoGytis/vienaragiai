@@ -1,0 +1,40 @@
+body,
+body * {
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(/Bankas2/images/horses.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: sienna;
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: rgb(47,33,27);
+    background: linear-gradient(90deg, rgba(47,33,27,1) 7%, rgba(98,76,66,1) 47%, rgba(47,33,27,1) 87%);
+}
+
+.navigation a {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+    padding: 24px;
+}
+
+.navigation a:hover {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+    text-decoration: none;
+    color: orange;
+    padding: 24px;
+}

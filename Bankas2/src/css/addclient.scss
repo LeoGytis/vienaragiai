@@ -1,0 +1,62 @@
+.addclient-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    margin-left: calc(50% - 200px);
+    margin-top: 20px;
+    margin-bottom: 500px;
+    border: 3px solid goldenrod;
+    padding: 45px;
+    border-radius: 20px;
+    color: white;
+    background: rgb(98,76,66);
+    background: linear-gradient(143deg, rgba(98,76,66,0.6393907904958859) 15%, rgba(47,33,27,0.8634804263502276) 64%);
+}
+
+.addclient {
+    width: 80%;   
+}
+
+.addclient > .addclient-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+.addclient > .addclient-row > .label {
+    display: inline-block;
+    width: 100%;
+    color: white;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.addclient > .addclient-row > .input {
+    width: 150px;
+    border: none;
+    padding: 5px;
+}
+
+.addclient-btn {
+    color: white;
+    background-color: rgba(218, 165, 32, 0.2);
+    margin-top: 50px;
+    margin-bottom: -35px;
+    padding: 15px 45px;
+    border: 1px solid goldenrod;
+    border-radius: 5px;
+}
+
+.addclient-btn:hover {
+    color: white;
+    background-color: rgba(218, 165, 32, 0.6);
+    margin-top: 50px;
+    margin-bottom: -35px;
+    padding: 15px 45px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid goldenrod;
+}
