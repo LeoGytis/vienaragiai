@@ -1,0 +1,16 @@
+{
+    "name": "leogytis/bankas2",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Leogytis\\Bankas2\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "LeoGytis",
+            "email": "leogytis@gmail.com"
+        }
+    ],
+    "require": {}
+}

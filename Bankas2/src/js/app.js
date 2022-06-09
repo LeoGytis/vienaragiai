@@ -1,0 +1,1 @@
+console.log('Js failas sako labas');
