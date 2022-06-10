@@ -10,11 +10,7 @@ class HomeController
 
     public static function index()
     {
-        $list = [];
-        for ($i = 0; $i < 10; $i++) {
-            $list[] = rand(1000, 9999);
-        }
-        return App::view('home', ['title' => 'Pradinis puslapis', 'list' => $list]);
+        return App::view('home', ['title' => 'BIT Bank International']);
     }
 
     public function form()

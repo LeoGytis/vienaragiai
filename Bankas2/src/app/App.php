@@ -41,12 +41,12 @@ class App
             return (new HomeController())->index(); //sukuriam nauja kontroleri i kreipiames i indexa
         }
 
-        if ('GET' == $m && count($uri) == 1 && $uri[0] === 'forma') {   // forma puslapis
-            return (new HomeController())->form(); //sukuriam nauj
+        if ('GET' == $m && count($uri) == 1 && $uri[0] === 'form') {   // forma puslapis
+            return (new HomeController())->form();
         }
 
-        if ('POST' == $m && count($uri) == 1 && $uri[0] === 'forma') {   // forma puslapis
-            return (new HomeController())->doForm(); //sukuriam nauj
+        if ('POST' == $m && count($uri) == 1 && $uri[0] === 'form') {   // forma puslapis
+            return (new HomeController())->doForm();
         } else {
             echo 'Puslapis nerastas';
         }
