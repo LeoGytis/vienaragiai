@@ -7,11 +7,9 @@ body * {
 }
 
 body {
-  background-image: url(/images/horses.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: sienna;
 }
 
 .navigation {
