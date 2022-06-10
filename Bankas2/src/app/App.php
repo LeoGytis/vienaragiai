@@ -2,107 +2,74 @@
 
 namespace Bankas2;
 
-use App\DB\JsonDB;
+use Bankas2\Controllers\HomeController;
+use Bankas2\Messages;
+// use Bankas2\DB\JsonDb;
 
-require __DIR__ . '/../vendor/autoload.php';
-define('URL', 'http://localhost/vienaragiai/021/src/');
-// gaunam duombaze
-$db = new JsonDB('us');
+class App
+{
 
-// $db->create(['name' => 'bebras', 'psw' => md5('123'), 'full_name' => 'Bebras Upinis']);
-// $db->create(['name' => 'lina', 'psw' => md5('123'), 'full_name' => 'Lina Linovaitė']);
-// $db->create(['name' => 'petras', 'psw' => md5('123'), 'full_name' => 'Peter Jonson']);
-
+    const DOMAIN = 'bankas2.lt';
+    private static $html;
 
 
-
-
-$uri = explode('/', str_replace('vienaragiai/021/src/', '', $_SERVER['REQUEST_URI']));
-array_shift($uri);
-$m = $_SERVER['REQUEST_METHOD'];
-
-
-
-
-
-if ('GET' == $m && count($uri) == 1 && $uri[0] === 'all') {
-    echo '<h1>ALL USERS</h1>';
-    foreach ($db->showAll() as $user) {
-?>
-        <div>ID: <?= $user['id'] ?>
-            <a href="<?= URL . 'user/' . $user['id'] ?>"> NAME: <?= $user['full_name'] ?></a>
-            <a href="<?= URL . 'edit/' . $user['id'] ?>">[EDIT]</a>
-            <form action="<?= URL . 'delete/' . $user['id'] ?>" method="post">
-                <button type="submit">DELETE</button>
-            </form>
-        </div>
-
-    <?php
+    public static function start()
+    {
+        session_start();
+        Messages::init();   //israsom kas buvo sesijoje
+        ob_start();         //bufferis surenka viska ir nieko i ekrana nerodo
+        $uri = explode('/', $_SERVER['REQUEST_URI']);   // suranda uri ir sudeda i array
+        array_shift($uri);                              // arba istrina slasha '/' ir sudeda i array
+        self::route($uri);
+        self::$html = ob_get_contents(); //pries isvalant kibira uzsaugau duomenis
+        ob_end_clean();            //isvalo bufferi
     }
-}
-if ('GET' == $m && count($uri) == 2 && $uri[0] === 'user') {
-    echo '<h1>ONE USERS</h1>';
-    $user = $db->show($uri[1]);
-    ?>
-    <div>ID: <?= $user['id'] ?>
-        NAME: <?= $user['full_name'] ?>
-    </div>
 
-<?php
+    public static function sent()
+    {
+        echo self::$html; // viska is-echoijina is bufferio
+    }
 
-}
+    public static function view(string $name, array $data = [])  //kreipiasi i view folderi
+    {
+        extract($data);     //paduoda ir priskiria is masyvo title
+        require __DIR__ . ' /../views/' . $name . '.php';
+    }
 
-if ('POST' == $m && count($uri) == 2 && $uri[0] === 'delete') {
-    $db->delete($uri[1]);
-    header('Location: ' . URL . 'all');
-    die;
-}
+    public static function json(array $data = [])
+    {
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($data);
+    }
 
-if ('GET' == $m && count($uri) == 2 && $uri[0] === 'edit') {
-    echo '<h1>EDIT USER</h1>';
-    $user = $db->show($uri[1]);
-?>
-    <div>ID: <?= $user['id'] ?>
+    public static function redirect($url = '')
+    {
+        header('Location: http://' . self::DOMAIN . '/' . $url);
+    }
 
-        <form action="<?= URL . 'edit/' . $user['id'] ?>" method="post">
-            <input type="text" name="name" value="<?= $user['name'] ?>">
-            <input type="text" name="full_name" value="<?= $user['full_name'] ?>">
-            <button type="submit">SAVE</button>
-        </form>
-    </div>
 
-<?php
+    private static function route(array $uri)
+    {
 
-}
+        $m = $_SERVER['REQUEST_METHOD'];    // is serverio paimtas request methodas
 
-if ('POST' == $m && count($uri) == 2 && $uri[0] === 'edit') {
-    $user = $db->show($uri[1]);
-    $user['name'] = $_POST['name'];
-    $user['full_name'] = $_POST['full_name'];
-    $db->update($uri[1], $user);
-    header('Location: ' . URL . 'all');
-    die;
-}
+        if (count($uri) == 1 && $uri[0] === '') {   // pradinis puslapis
+            return (new HomeController())->index(); //sukuriam nauja kontroleri i kreipiames i indexa
+        }
 
-if ('GET' == $m && count($uri) == 1 && $uri[0] === 'create') {
-    echo '<h1>create USER</h1>';
-?>
-    <form action="<?= URL . 'create' ?>" method="post">
-        name<input type="text" name="name">
-        pass<input type="text" name="psw">
-        fname<input type="text" name="full_name">
-        <button type="submit">CREATE</button>
-    </form>
-    </div>
-<?php
 
-}
+        if ('GET' == $m && count($uri) == 1 && $uri[0] === 'json') {   // gauti json faila
+            return (new HomeController())->indexJson();
+        }
 
-if ('POST' == $m && count($uri) == 1 && $uri[0] === 'create') {
-    $user['name'] = $_POST['name'];
-    $user['full_name'] = $_POST['full_name'];
-    $user['psw'] = md5($_POST['psw']);
-    $db->create($user);
-    header('Location: ' . URL . 'all');
-    die;
+        if ('GET' == $m && count($uri) == 1 && $uri[0] === 'form') {   // forma puslapis
+            return (new HomeController())->form();
+        }
+
+        if ('POST' == $m && count($uri) == 1 && $uri[0] === 'form') {   // forma puslapis
+            return (new HomeController())->doForm();
+        } else {
+            echo 'Puslapis nerastas';
+        }
+    }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Bankas2\DB;
+namespace Bankas2;
 
 interface DataBase
 {

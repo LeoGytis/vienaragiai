@@ -1,8 +1,10 @@
 <?php
 
-use Bankas2\DB\DataBase;
+namespace App\DB;
 
-class JsonDB implements DataBase
+use App\DB\DataBase;
+
+class JsonDB
 {
     private $data, $file;
 

@@ -10,18 +10,26 @@ class HomeController
 
     public static function index()
     {
-        return App::view('home', ['title' => 'BIT Bank International']);
+        return App::view('home', ['title' => 'Saskaitu sarasas']);
+    }
+
+    public static function indexJson()
+    {
+        return App::json([
+            'title' => 'Alabama',
+            'list' => 'sarasas'
+        ]);
     }
 
     public function form()
     {
-        return App::view('form', ['messages' => M::get()]);
+        return App::view('form', ['title' => 'Prideti klienta', 'messages' => M::get()]);
     }
 
     public function doForm()
     {
         M::add('Puiku', 'success');
         M::add($_POST['alabama'], 'success');
-        return App::redirect('forma');
+        return App::redirect('form');
     }
 }
