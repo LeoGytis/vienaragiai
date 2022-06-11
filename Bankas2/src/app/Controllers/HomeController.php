@@ -4,6 +4,8 @@ namespace Bankas2\Controllers;
 
 use Bankas2\App;
 use Bankas2\Messages as M;
+use Bankas2\DB\JsonDb;
+
 
 class HomeController
 {
@@ -15,7 +17,14 @@ class HomeController
 
     public static function index()
     {
-        return App::view('home', ['title' => 'Saskaitu sarasas']);
+        $db = new JsonDb('us');
+        // $db->create(['name' => 'bebras', 'psw' => md5('123'), 'full_name' => 'Bebras Upinis']);
+        // $db->create(['name' => 'lina', 'psw' => md5('123'), 'full_name' => 'Lina Linovaitė']);
+        // $db->create(['name' => 'petras', 'psw' => md5('123'), 'full_name' => 'Peter Jonson']);
+        $clients = json_decode(file_get_contents(__DIR__ . '/../DB/data/us.json'), true);
+        // echo '<pre>';
+        // print_r($clients);
+        return App::view('home', ['title' => 'Saskaitu sarasas'], $clients);
     }
 
 

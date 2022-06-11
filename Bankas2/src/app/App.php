@@ -3,6 +3,7 @@
 namespace Bankas2;
 
 use Bankas2\Controllers\HomeController;
+use Bankas\Controllers\LoginController;
 use Bankas2\Messages;
 use Bankas2\DB\JsonDb;
 
@@ -10,9 +11,10 @@ class App
 {
 
     const DOMAIN = 'bankas2.lt';
+    const APP = '/../DB/';
     private static $html;
 
-    $db = new JsonDb('members');
+
 
     public static function start()
     {
@@ -31,9 +33,10 @@ class App
         echo self::$html; // viska is-echoijina is bufferio
     }
 
-    public static function view(string $name, array $data = [])  //kreipiasi i view folderi
+    public static function view(string $name, array $title = [], $data = [])  //kreipiasi i view folderi
     {
-        extract($data);     //paduoda ir priskiria is masyvo title
+        extract($title);     //paduoda ir priskiria is masyvo title
+        extract($data);
         require __DIR__ . ' /../views/' . $name . '.php';
     }
 
@@ -54,7 +57,13 @@ class App
 
         $m = $_SERVER['REQUEST_METHOD'];    // is serverio paimtas request methodas
 
+        // if ('GET' == $m && count($uri) == 1 && $uri[0] === 'login') {
+
+        //     return (new LoginController)->showLogin();
+        // }
+
         if (count($uri) == 1 && $uri[0] === '') {   // pradinis puslapis
+
             return (new HomeController())->index(); //sukuriam nauja kontroleri i kreipiames i indexa
         }
 
