@@ -6,7 +6,6 @@ require __DIR__ . '/top.php';
 // echo '<pre>';
 // print_r($data);
 ?>
-<h1>Sweet</h1>
 <div class="list-column">
     <?php
     function sortBySurname($a, $b)

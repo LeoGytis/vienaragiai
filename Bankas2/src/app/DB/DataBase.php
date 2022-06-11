@@ -1,19 +1,19 @@
 <?php
 
-namespace Bankas2;
+namespace Bankas2\DB;
 
 interface DataBase
 {
-    // function create(array $userData): void;
+    function create(array $userData): void;
 
-    // function update(int
-    // $userId, array $userData): void;
+    function update(int
+    $userId, array $userData): void;
 
-    // function delete(int
-    // $userId): void;
+    function delete(int
+    $userId): void;
 
-    // function show(int
-    // $userId): array;
+    function show(int
+    $userId): array;
 
-    // function showAll(): array;
+    function showAll(): array;
 }

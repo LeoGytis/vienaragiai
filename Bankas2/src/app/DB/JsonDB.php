@@ -2,11 +2,10 @@
 
 namespace Bankas2\DB;
 
-// use App\DB\DataBase;
+use Bankas2\DB\DataBase;
 
-class JsonDB
+class JsonDB implements DataBase
 {
-    const KAZKAS = 'Valio';
     private $data, $file;  // duomenys is json
 
     public function __construct($file)  //sukuria faila jeigu nera
@@ -36,6 +35,7 @@ class JsonDB
     {
         $data['id'] = $this->getId();
         $this->data[] = $data;
+        // header('Location: ' . URL . 'form');
     }
 
     public function showAll(): array

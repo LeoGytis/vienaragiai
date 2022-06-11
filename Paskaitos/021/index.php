@@ -38,6 +38,7 @@ if ('GET' == $m && count($uri) == 1 && $uri[0] === 'all') {
     <?php
     }
 }
+
 if ('GET' == $m && count($uri) == 2 && $uri[0] === 'user') {
     echo '<h1>ONE USERS</h1>';
     $user = $db->show($uri[1]);

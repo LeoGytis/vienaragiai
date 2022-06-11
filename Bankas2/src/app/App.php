@@ -6,12 +6,14 @@ use Bankas2\Controllers\HomeController;
 use Bankas\Controllers\LoginController;
 use Bankas2\Messages;
 use Bankas2\DB\JsonDb;
+use Bankas2\DB\DataBase;
 
 class App
 {
 
     const DOMAIN = 'bankas2.lt';
     const APP = '/../DB/';
+    // define('URL', 'http://localhost/vienaragiai/021/src/');
     private static $html;
 
 
@@ -54,27 +56,19 @@ class App
 
     private static function route(array $uri)
     {
-
         $m = $_SERVER['REQUEST_METHOD'];    // is serverio paimtas request methodas
 
-        // if ('GET' == $m && count($uri) == 1 && $uri[0] === 'login') {
-
-        //     return (new LoginController)->showLogin();
-        // }
-
         if (count($uri) == 1 && $uri[0] === '') {   // pradinis puslapis
-
             return (new HomeController())->index(); //sukuriam nauja kontroleri i kreipiames i indexa
         }
 
+        // if ('GET' == $m && count($uri) == 1 && $uri[0] === 'json') {   // gauti json faila
+        //     return (new HomeController())->indexJson();
+        // }
 
-        if ('GET' == $m && count($uri) == 1 && $uri[0] === 'json') {   // gauti json faila
-            return (new HomeController())->indexJson();
-        }
-
-        if ('GET' == $m && count($uri) == 2 && $uri[0] === 'get-it') {   // gauti json faila
-            return (new HomeController())->getIt($uri[1]);
-        }
+        // if ('GET' == $m && count($uri) == 2 && $uri[0] === 'get-it') {   // gauti json faila
+        //     return (new HomeController())->getIt($uri[1]);
+        // }
 
         if ('GET' == $m && count($uri) == 1 && $uri[0] === 'form') {   // forma puslapis
             return (new HomeController())->form();
@@ -83,7 +77,7 @@ class App
         if ('POST' == $m && count($uri) == 1 && $uri[0] === 'form') {   // forma puslapis
             return (new HomeController())->doForm();
         } else {
-            echo 'Puslapis nerastas';
+            return (new HomeController())->notFound();
         }
     }
 }
