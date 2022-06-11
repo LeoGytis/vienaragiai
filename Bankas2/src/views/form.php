@@ -1,5 +1,7 @@
 <?php
 require __DIR__ . '/top.php';
+$iban = 'LT' . rand(40, 60) . '10100' . rand(10000000000, 99999999999);
+
 ?>
 
 <div class="addclient-column">
@@ -14,7 +16,7 @@ require __DIR__ . '/top.php';
         </div>
         <div class="addclient-row">
             <label class="label">Sąskaitos numeris</label>
-            <input type="text" name="saskaita" class="input" readonly>
+            <input type="text" name="saskaita" class="input" placeholder="<?= $iban ?>" value=<?= $iban ?> readonly>
         </div>
         <div class="addclient-row">
             <label class="label">Asmens kodas</label>

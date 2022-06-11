@@ -17,7 +17,6 @@ class HomeController
     public static function index()
     {
         $db = new JsonDb('clients');
-        // $clients = json_decode(file_get_contents(__DIR__ . '/../DB/data/us.json'), true);
         $clients = $db->showAll();
         return App::view('home', ['title' => 'Saskaitu sarasas'], $clients);
     }
@@ -51,5 +50,18 @@ class HomeController
     public function notFound()
     {
         return App::view('notfound', ['title' => 'Page not found']);
+    }
+
+    public function showUser(int $id)
+    {
+        $user = (new JsonDB('clients'))->show($id);
+        return App::view('showuser', ['title' => 'Kliento puslapis'], $user);
+    }
+
+    public function delete(int $id)
+    {
+        $deleteUser = (new JsonDB('clients'))->delete($id);  // kaip galima kitaip?
+        header('Location: http://bankas2.lt');
+        die;
     }
 }

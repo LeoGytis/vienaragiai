@@ -35,7 +35,6 @@ class JsonDB implements DataBase
     {
         $data['id'] = $this->getId();
         $this->data[] = $data;
-        // header('Location: ' . URL . 'form');
     }
 
     public function showAll(): array

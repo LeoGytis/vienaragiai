@@ -14,7 +14,7 @@
     <nav class="navigation">
         <div class="logo"><img src="/images/logo_img.png" alt="Logo"></div>
         <a href="/">Sąskaitų sąrašas</a>
-        <a href="form">Sąskaitos sukūrimas</a>
+        <a href="/form">Sąskaitos sukūrimas</a>
         <a href="addFunds">Pridėti lėšas</a>
         <a href="deductFunds">Nuskaičiuoti lėšas</a>
     </nav>
