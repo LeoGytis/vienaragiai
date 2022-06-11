@@ -8,10 +8,17 @@ use Bankas2\Messages as M;
 class HomeController
 {
 
+    public function getIt($param)
+    {
+        echo 'Parametras: ' . $param;
+    }
+
     public static function index()
     {
         return App::view('home', ['title' => 'Saskaitu sarasas']);
     }
+
+
 
     public static function indexJson()
     {

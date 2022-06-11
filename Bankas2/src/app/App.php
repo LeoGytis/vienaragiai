@@ -4,7 +4,7 @@ namespace Bankas2;
 
 use Bankas2\Controllers\HomeController;
 use Bankas2\Messages;
-// use Bankas2\DB\JsonDb;
+use Bankas2\DB\JsonDb;
 
 class App
 {
@@ -12,6 +12,7 @@ class App
     const DOMAIN = 'bankas2.lt';
     private static $html;
 
+    $db = new JsonDb('members');
 
     public static function start()
     {
@@ -60,6 +61,10 @@ class App
 
         if ('GET' == $m && count($uri) == 1 && $uri[0] === 'json') {   // gauti json faila
             return (new HomeController())->indexJson();
+        }
+
+        if ('GET' == $m && count($uri) == 2 && $uri[0] === 'get-it') {   // gauti json faila
+            return (new HomeController())->getIt($uri[1]);
         }
 
         if ('GET' == $m && count($uri) == 1 && $uri[0] === 'form') {   // forma puslapis
