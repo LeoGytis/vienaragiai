@@ -23,6 +23,10 @@ $iban = 'LT' . rand(40, 60) . '10100' . rand(10000000000, 99999999999);
             <label class="label">Asmens kodas</label>
             <input type="text" name="askodas" class="input" placeholder="Asmens kodas" required>
         </div>
+        <div class="addclient-row">
+            <label class="label">Slaptažodis</label>
+            <input type="password" name="password" class="input" required>
+        </div>
         <div>
             <input type="hidden" name="lesos" value="0">
         </div>

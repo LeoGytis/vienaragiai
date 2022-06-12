@@ -116,6 +116,15 @@ body {
   color: black;
 }
 
+.alert {
+  width: 400px;
+  margin-left: calc(50% - 200px);
+  margin-top: 20px;
+  font-size: 36px;
+  text-align: center;
+  color: darkred;
+}
+
 .funds-column {
   width: 600px;
   margin-left: calc(50% - 300px);

@@ -30,6 +30,7 @@ class HomeController
         $user['pavarde'] = $_POST['pavarde'];
         $user['saskaita'] = $_POST['saskaita'];
         $user['askodas'] = $_POST['askodas'];
+        $user['password'] = $_POST['password'];    //md5
         $user['lesos'] = $_POST['lesos'];
         M::add($user['vardas'] . ' ' . $user['pavarde'] . '<br> sąskaita sukurta', 'success');
         header('Location: /form');

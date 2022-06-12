@@ -1,16 +1,20 @@
 <?php
+
 namespace Bankas;
+
 use Bankas\Controllers\HomeController;
 use Bankas\Controllers\LoginController;
 use Bankas\Messages as M;
 
-class App {
+class App
+{
 
     const DOMAIN = 'bankas.lt';
     const APP = __DIR__ . '/../';
     private static $html;
 
-    public static function start() {
+    public static function start()
+    {
         session_start();
         Messages::init();
         ob_start();  // viskas eina i kibira - buffering, niekas ant ekrano neiseis
@@ -22,47 +26,57 @@ class App {
         ob_end_clean();  //isvalomi duomenys
     }
 
-    public static function sent() {
+    public static function sent()
+    {
         echo self::$html;
     }
 
-    public static function view(string $name, array $data = []) {
+    public static function view(string $name, array $data = [])
+    {
         extract($data); // cia atsiranda title
         return require __DIR__ . '/../views/' . $name . '.php';
     }
 
-    public static function json(array $data = []) {
-        header ('Content-Type: application/json; charset=utf-8');
+    public static function json(array $data = [])
+    {
+        header('Content-Type: application/json; charset=utf-8');
         echo json_encode($data);
     }
 
-    public static function redirect($url = '') {
+    public static function redirect($url = '')
+    {
         header('Location: http://' . self::DOMAIN . '/' . $url);
     }
 
-    public static function url($url = '') {
+    public static function url($url = '')
+    {
         return 'http://' . self::DOMAIN . '/' . $url;
     }
 
-    public static function authAdd(object $user) {
+    public static function authAdd(object $user)
+    {
         $_SESSION['auth'] = 1;
         $_SESSION['user'] = $user;
     }
 
     //istrina is sesijos
-    public static function authRem() {
+    public static function authRem()
+    {
         unset($_SESSION['auth'], $_SESSION['user']);
     }
 
-    public static function auth() : bool {
+    public static function auth(): bool
+    {
         return isset($_SESSION['auth']) && $_SESSION['auth'] == 1;
     }
 
-    public static function authName() : string {
-        return isset($_SESSION['user'])->full_name;
+    public static function authName(): string
+    {
+        return $_SESSION['user']->full_name;
     }
 
-    private static function route(array $uri) {
+    private static function route(array $uri)
+    {
 
         $m = $_SERVER['REQUEST_METHOD'];
 
@@ -74,7 +88,8 @@ class App {
             return (new LoginController())->doLogin();
         }
 
-        if ('GET' == $m && count($uri) == 1 && $uri[0] === 'logout') {
+        // logout methodas yra -->> POST
+        if ('POST' == $m && count($uri) == 1 && $uri[0] === 'logout') {
             return (new LoginController())->doLogout();
         }
 
@@ -95,12 +110,9 @@ class App {
             return (new HomeController())->doForm();
 
             echo 'Forma';
-        }
-
-        else {
+        } else {
 
             echo 'kita';
         }
-
     }
 }
