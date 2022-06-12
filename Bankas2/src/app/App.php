@@ -21,7 +21,7 @@ class App
         array_shift($uri);                              // arba istrina slasha '/' ir sudeda i array
         self::route($uri);
         self::$html = ob_get_contents(); //pries isvalant kibira uzsaugau duomenis
-        ob_end_clean();            //isvalo bufferi
+        ob_end_clean();                  //isvalo bufferi
     }
 
     public static function sent()
@@ -56,11 +56,6 @@ class App
         if ('GET' == $m && count($uri) == 2 && $uri[0] === 'showuser') {
             return (new HomeController())->showUser($uri[1]);
         }
-
-        if ('GET' == $m && count($uri) == 2 && $uri[0] === 'delete') {
-            return (new HomeController())->delete($uri[1]);
-        }
-
         if ('GET' == $m && count($uri) == 2 && $uri[0] === 'update') {
             return (new HomeController())->update($uri[1]);
         }
@@ -68,6 +63,9 @@ class App
             return (new HomeController())->doUpdate($uri[1]);
         }
 
+        if ('GET' == $m && count($uri) == 2 && $uri[0] === 'delete') {
+            return (new HomeController())->delete($uri[1]);
+        }
         // Jei nera tokio puslapio
         else {
             return (new HomeController())->notFound();

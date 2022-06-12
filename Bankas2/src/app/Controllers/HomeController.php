@@ -9,25 +9,14 @@ use Bankas2\DB\JsonDb;
 
 class HomeController
 {
-    // public function getIt($param)
-    // {
-    //     echo 'Parametras: ' . $param;
-    // }
 
     public static function index()
     {
-        $db = new JsonDb('clients');
-        $clients = $db->showAll();
+        $clients = (new JsonDb('clients'))->showAll();
+        // $db = new JsonDb('clients');
+        // $clients = $db->showAll();
         return App::view('home', ['title' => 'Saskaitu sarasas'], $clients);
     }
-
-    // public static function indexJson()
-    // {
-    //     return App::json([
-    //         'title' => 'Alabama',
-    //         'list' => 'sarasas'
-    //     ]);
-    // }
 
     public function form()
     {
@@ -58,13 +47,6 @@ class HomeController
         return App::view('showuser', ['title' => 'Kliento puslapis'], $user);
     }
 
-    public function delete(int $id)
-    {
-        $deleteUser = (new JsonDB('clients'))->delete($id);  // kaip galima kitaip?
-        header('Location: http://bankas2.lt');
-        die;
-    }
-
     public function update(int $id)
     {
 
@@ -84,5 +66,12 @@ class HomeController
         M::add($user['vardas'] . ' ' . $user['pavarde'] . '<br> klientas redaguotas', 'success');
         header('Location: /update/' . $id);
         return (new JsonDB('clients'))->update($id, $user);
+    }
+
+    public function delete(int $id)
+    {
+        $deleteUser = (new JsonDB('clients'))->delete($id);  // kaip galima kitaip?
+        header('Location: http://bankas2.lt');
+        die;
     }
 }
