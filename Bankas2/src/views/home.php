@@ -1,8 +1,6 @@
 <?php
 require __DIR__ . '/top.php';
 
-// echo '<pre>';
-// print_r($data);
 ?>
 <div class="list-column">
     <?php
@@ -24,7 +22,6 @@ require __DIR__ . '/top.php';
         echo $arr['askodas'] . '<br><br>';
         echo 'Lėšos: ' . $arr['lesos'] . '€' . '<br><br><br>';
         echo '<a href="/showuser/' . $arr['id'] . '">Pasirinkti klientą</a><br><br>';
-        echo '<a href="/delete/' . $arr['id'] . '">Ištrinti klientą</a><br><br>';
         echo '</div>';
     }
     ?>

@@ -10,13 +10,7 @@ use Bankas2\DB\DataBase;
 
 class App
 {
-
-    const DOMAIN = 'bankas2.lt';
-    // const APP = '/../DB/';
-    // define('URL', 'http://localhost/vienaragiai/021/src/');
     private static $html;
-
-
 
     public static function start()
     {
@@ -42,18 +36,6 @@ class App
         require __DIR__ . ' /../views/' . $name . '.php';
     }
 
-    // public static function json(array $data = [])
-    // {
-    //     header('Content-Type: application/json; charset=utf-8');
-    //     echo json_encode($data);
-    // }
-
-    // public static function redirect($url = '')
-    // {
-    //     header('Location: http://' . self::DOMAIN . '/' . $url);
-    // }
-
-
     private static function route(array $uri)
     {
         // serverio request methodas
@@ -62,14 +44,6 @@ class App
         if (count($uri) == 1 && $uri[0] === '') {
             return (new HomeController())->index();
         }
-
-        // if ('GET' == $m && count($uri) == 1 && $uri[0] === 'json') {   // gauti json faila
-        //     return (new HomeController())->indexJson();
-        // }
-
-        // if ('GET' == $m && count($uri) == 2 && $uri[0] === 'get-it') {   // gauti json faila
-        //     return (new HomeController())->getIt($uri[1]);
-        // }
 
         if ('GET' == $m && count($uri) == 1 && $uri[0] === 'form') {
             return (new HomeController())->form();

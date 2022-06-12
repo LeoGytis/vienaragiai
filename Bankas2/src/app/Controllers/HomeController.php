@@ -31,7 +31,7 @@ class HomeController
 
     public function form()
     {
-        return App::view('form', ['title' => 'Prideti klienta'], ['messages' => M::get()]);
+        return App::view('form', ['title' => 'Prideti klienta', 'messages' => M::get()]);
     }
 
     public function doForm()
@@ -69,7 +69,7 @@ class HomeController
     {
 
         $user = (new JsonDB('clients'))->show($id);
-        return App::view('update', ['title' => 'Redaguoti kliento duomenis'], $user);
+        return App::view('update', ['title' => 'Redaguoti kliento duomenis', 'messages' => M::get()], $user);
     }
 
     public function doUpdate(int $id)
@@ -81,7 +81,7 @@ class HomeController
         $user['saskaita'] = $_POST['saskaita'];
         $user['askodas'] = $_POST['askodas'];
         $user['lesos'] = $_POST['lesos'];
-        M::add($id . $user['vardas'] . ' ' . $user['pavarde'] . '<br> klientas redaguotas', 'success');
+        M::add($user['vardas'] . ' ' . $user['pavarde'] . '<br> klientas redaguotas', 'success');
         header('Location: /update/' . $id);
         return (new JsonDB('clients'))->update($id, $user);
     }

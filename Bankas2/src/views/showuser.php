@@ -1,8 +1,6 @@
 <?php
 require __DIR__ . '/top.php';
 
-// echo '<pre>';
-// print_r($data);
 ?>
 
 <div class="addclient-column">
@@ -12,8 +10,10 @@ require __DIR__ . '/top.php';
         echo $data['pavarde'] . '<br>';
         echo substr($data['saskaita'], 0, 4) . ' ' . substr($data['saskaita'], 4, 4) . ' ' . substr($data['saskaita'], 8, 4) . ' ' . substr($data['saskaita'], 12, 4) . ' ' . substr($data['saskaita'], 16, 4) . ' ' . '<br>';
         echo $data['askodas'] . '<br><br>';
-        echo 'Lėšos: ' . $data['lesos'] . '€' . '<br><br>';
+        echo 'Lėšos: ' . $data['lesos'] . '€' . '<br><br><br><br>';
         echo '<a href="/update/' . $data['id'] . '">Redaguoti duomenis</a><br><br>';
+        echo '<a href="/delete/' . $data['id'] . '">Ištrinti klientą</a><br><br>';
+
         ?>
     </div>
 </div>
