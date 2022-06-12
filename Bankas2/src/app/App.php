@@ -56,7 +56,8 @@ class App
 
     private static function route(array $uri)
     {
-        $m = $_SERVER['REQUEST_METHOD'];    // is serverio paimtas request methodas
+        // serverio request methodas
+        $m = $_SERVER['REQUEST_METHOD'];
 
         if (count($uri) == 1 && $uri[0] === '') {
             return (new HomeController())->index();
@@ -84,6 +85,13 @@ class App
 
         if ('GET' == $m && count($uri) == 2 && $uri[0] === 'delete') {
             return (new HomeController())->delete($uri[1]);
+        }
+
+        if ('GET' == $m && count($uri) == 2 && $uri[0] === 'update') {
+            return (new HomeController())->update($uri[1]);
+        }
+        if ('POST' == $m && count($uri) == 2 && $uri[0] === 'update') {
+            return (new HomeController())->doUpdate($uri[1]);
         }
 
         // Jei nera tokio puslapio

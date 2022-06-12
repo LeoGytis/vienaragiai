@@ -64,4 +64,25 @@ class HomeController
         header('Location: http://bankas2.lt');
         die;
     }
+
+    public function update(int $id)
+    {
+
+        $user = (new JsonDB('clients'))->show($id);
+        return App::view('update', ['title' => 'Redaguoti kliento duomenis'], $user);
+    }
+
+    public function doUpdate(int $id)
+    {
+        $user = array();
+        $user['id'] = $id;
+        $user['vardas'] = $_POST['vardas'];
+        $user['pavarde'] = $_POST['pavarde'];
+        $user['saskaita'] = $_POST['saskaita'];
+        $user['askodas'] = $_POST['askodas'];
+        $user['lesos'] = $_POST['lesos'];
+        M::add($id . $user['vardas'] . ' ' . $user['pavarde'] . '<br> klientas redaguotas', 'success');
+        header('Location: /update/' . $id);
+        return (new JsonDB('clients'))->update($id, $user);
+    }
 }

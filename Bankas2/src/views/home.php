@@ -6,8 +6,9 @@ require __DIR__ . '/top.php';
 ?>
 <div class="list-column">
     <?php
+    // Surusiuoti sarasa pagal pavarde
     function sortBySurname($a, $b)
-    { // Surusiuoti sarasa pagal pavarde
+    {
         $a = $a['pavarde'];
         $b = $b['pavarde'];
         if ($a == $b) return 0;
