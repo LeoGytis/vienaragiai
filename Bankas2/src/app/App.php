@@ -29,6 +29,7 @@ class App
         echo self::$html; // viska is-echoijina is bufferio  <<-- kam to reik ??
     }
 
+    //PERDARYTI VIEW DATA KREIPIMASI
     public static function view(string $name, array $title = [], $data = [])  //kreipiasi i view folderi
     {
         extract($title);     //paduoda ir priskiria is masyvo title

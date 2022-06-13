@@ -8,7 +8,7 @@ class JsonDB implements DataBase
 {
     private $data, $file;  // duomenys is json
 
-    public function __construct($file)  //sukuria faila jeigu nera
+    public function __construct($file)
     {
         $this->file = $file;
         if (!file_exists(__DIR__ . '/data/' . $file . '.json')) {
@@ -18,7 +18,7 @@ class JsonDB implements DataBase
         $this->data = json_decode(file_get_contents(__DIR__ . '/data/' . $file . '.json'), 1);
     }
 
-    public function __destruct()  //uzsaugo faila
+    public function __destruct()
     {
         file_put_contents(__DIR__ . '/data/' . $this->file . '.json', json_encode($this->data));
     }
@@ -33,7 +33,7 @@ class JsonDB implements DataBase
 
     public function create(array $data): void
     {
-        $data['id'] = $this->getId();
+        $data['id'] = $this->getId();  // kreipiasi i obejkta
         $this->data[] = $data;
     }
 

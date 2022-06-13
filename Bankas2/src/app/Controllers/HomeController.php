@@ -25,7 +25,7 @@ class HomeController
 
     public function doForm()
     {
-        $user = array();
+        $user = [];
         $user['vardas'] = $_POST['vardas'];
         $user['pavarde'] = $_POST['pavarde'];
         $user['saskaita'] = $_POST['saskaita'];
@@ -57,7 +57,7 @@ class HomeController
 
     public function doUpdate(int $id)
     {
-        $user = array();
+        $user = [];
         $user['id'] = $id;
         $user['vardas'] = $_POST['vardas'];
         $user['pavarde'] = $_POST['pavarde'];
@@ -71,7 +71,7 @@ class HomeController
 
     public function delete(int $id)
     {
-        $deleteUser = (new JsonDB('clients'))->delete($id);  // kaip galima kitaip?
+        (new JsonDB('clients'))->delete($id);
         header('Location: http://bankas2.lt');
         die;
     }

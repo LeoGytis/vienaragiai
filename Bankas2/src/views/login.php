@@ -13,7 +13,7 @@ require __DIR__ . '/top.php';
             <input type="password" name="password" class="input" required>
         </div>
         <div class="addclient-row">
-            <button type="submit" class="addclient-btn">LOGIN</button>
+            <button type="submit" class="addclient-btn">Prisijungti</button>
         </div>
     </form>
 </div>

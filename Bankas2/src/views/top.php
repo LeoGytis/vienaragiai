@@ -15,6 +15,6 @@
         <div class="logo"><img src="/images/logo_img.png" alt="Logo"></div>
         <a href="/">Sąskaitų sąrašas</a>
         <a href="/form">Sąskaitos sukūrimas</a>
-        <a href="/login">Login</a>
+        <a href="/login">Prisijungti</a>
     </nav>
     <?php require __DIR__ . '/messages.php';
