@@ -24,8 +24,9 @@ require __DIR__ . '/top.php';
             <input type="text" name="askodas" class="input" value="<?= $data['askodas'] ?>" required>
         </div>
         <div class="addclient-row">
-            <label class="label">Lėšos</label>
-            <input type="text" name="lesos" class="input" value="<?= $data['lesos'] ?>" readonly>
+            <!-- <label class="label">Lėšos</label> -->
+            <input type="hidden" name="lesos" value="<?= $data['lesos'] ?>">
+            <input type="hidden" name="password" value="<?= $data['password'] ?>">
         </div>
         <div class="addclient-row">
             <button type="submit" class="addclient-btn">REDAGUOTI</button>

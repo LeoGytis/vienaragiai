@@ -62,6 +62,7 @@ class HomeController
         $user['saskaita'] = $_POST['saskaita'];
         $user['askodas'] = $_POST['askodas'];
         $user['lesos'] = $_POST['lesos'];
+        $user['password'] = $_POST['password'];
         M::add($user['vardas'] . ' ' . $user['pavarde'] . '<br> klientas redaguotas', 'success');
         header('Location: /update/' . $id);
         return (new JsonDB('clients'))->update($id, $user);
