@@ -9,23 +9,23 @@ require __DIR__ . '/top.php';
     <form action="" method="post" class="addclient">
         <div class="addclient-row">
             <label class="label">Vardas</label>
-            <input type="text" name="vardas" class="input" placeholder="<?= $data['vardas'] ?>" required>
+            <input type="text" name="vardas" class="input" value="<?= $data['vardas'] ?>" required>
         </div>
         <div class="addclient-row">
             <label class="label">Pavardė</label>
-            <input type="text" name="pavarde" class="input" placeholder="<?= $data['pavarde'] ?>" required>
+            <input type="text" name="pavarde" class="input" value="<?= $data['pavarde'] ?>" required>
         </div>
         <div class="addclient-row">
             <label class="label">Sąskaitos numeris</label>
-            <input type="text" name="saskaita" class="input" placeholder="<?= $data['saskaita'] ?>" value="<?= $data['saskaita'] ?>" readonly>
+            <input type="text" name="saskaita" class="input" value="<?= $data['saskaita'] ?>" readonly>
         </div>
         <div class="addclient-row">
             <label class="label">Asmens kodas</label>
-            <input type="text" name="askodas" class="input" placeholder="<?= $data['askodas'] ?>" required>
+            <input type="text" name="askodas" class="input" value="<?= $data['askodas'] ?>" required>
         </div>
         <div class="addclient-row">
             <label class="label">Lėšos</label>
-            <input type="text" name="lesos" class="input" placeholder="<?= $data['lesos'] ?>" required>
+            <input type="text" name="lesos" class="input" value="<?= $data['lesos'] ?>" readonly>
         </div>
         <div class="addclient-row">
             <button type="submit" class="addclient-btn">REDAGUOTI</button>

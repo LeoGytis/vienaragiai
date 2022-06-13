@@ -12,10 +12,8 @@ class HomeController
 
     public static function index()
     {
-        $clients = (new JsonDb('clients'))->showAll();
-        // $db = new JsonDb('clients');
-        // $clients = $db->showAll();
-        return App::view('home', ['title' => 'Saskaitu sarasas'], $clients);
+        $users = (new JsonDb('clients'))->showAll();
+        return App::view('home', ['title' => 'Saskaitu sarasas', 'data' => $users]);
     }
 
     public function form()
@@ -45,14 +43,14 @@ class HomeController
     public function showUser(int $id)
     {
         $user = (new JsonDB('clients'))->show($id);
-        return App::view('showuser', ['title' => 'Kliento puslapis'], $user);
+        return App::view('showuser', ['title' => 'Kliento puslapis', 'data' => $user]);
     }
 
     public function update(int $id)
     {
 
         $user = (new JsonDB('clients'))->show($id);
-        return App::view('update', ['title' => 'Redaguoti kliento duomenis', 'messages' => M::get()], $user);
+        return App::view('update', ['title' => 'Redaguoti kliento duomenis', 'messages' => M::get(), 'data' => $user]);
     }
 
     public function doUpdate(int $id)

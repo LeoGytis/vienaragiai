@@ -30,10 +30,10 @@ class App
     }
 
     //PERDARYTI VIEW DATA KREIPIMASI
-    public static function view(string $name, array $title = [], $data = [])  //kreipiasi i view folderi
+    public static function view(string $name, array $data = [])  //kreipiasi i view folderi
     {
-        extract($title);     //paduoda ir priskiria is masyvo title
-        extract($data);
+        // extract($title);     //paduoda ir priskiria is masyvo title
+        extract($data);      // isskleidzia is masyvo visus elementus
         require __DIR__ . ' /../views/' . $name . '.php';
     }
 
