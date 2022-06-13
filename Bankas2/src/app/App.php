@@ -61,6 +61,7 @@ class App
         return isset($_SESSION['auth']) && $_SESSION['auth'] == 1;
     }
 
+    // ==================== Router ====================
     private static function route(array $uri)
     {
         // serverio request methodas

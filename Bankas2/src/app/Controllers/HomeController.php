@@ -28,7 +28,7 @@ class HomeController
         $user['surname'] = $_POST['surname'];
         $user['account_nr'] = $_POST['account_nr'];
         $user['social_id'] = $_POST['social_id'];
-        $user['password'] = $_POST['password'];    //md5
+        $user['password'] = md5($_POST['password']);    //<<--md5
         $user['funds'] = $_POST['funds'];
         M::add($user['name'] . ' ' . $user['surname'] . '<br> sąskaita sukurta', 'success');
         header('Location: /form');
@@ -62,7 +62,7 @@ class HomeController
         $user['account_nr'] = $_POST['account_nr'];
         $user['social_id'] = $_POST['social_id'];
         $user['funds'] = $_POST['funds'];
-        $user['password'] = $_POST['password'];
+        $user['password'] = md5($_POST['password']);
         M::add($user['name'] . ' ' . $user['surname'] . '<br> klientas redaguotas', 'success');
         header('Location: /update/' . $id);
         return (new JsonDB('clients'))->update($id, $user);
