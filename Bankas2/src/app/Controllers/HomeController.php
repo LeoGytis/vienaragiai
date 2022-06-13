@@ -24,13 +24,13 @@ class HomeController
     public function doForm()
     {
         $user = [];
-        $user['vardas'] = $_POST['vardas'];
-        $user['pavarde'] = $_POST['pavarde'];
-        $user['saskaita'] = $_POST['saskaita'];
-        $user['askodas'] = $_POST['askodas'];
+        $user['name'] = $_POST['name'];
+        $user['surname'] = $_POST['surname'];
+        $user['account_nr'] = $_POST['account_nr'];
+        $user['social_id'] = $_POST['social_id'];
         $user['password'] = $_POST['password'];    //md5
-        $user['lesos'] = $_POST['lesos'];
-        M::add($user['vardas'] . ' ' . $user['pavarde'] . '<br> sąskaita sukurta', 'success');
+        $user['funds'] = $_POST['funds'];
+        M::add($user['name'] . ' ' . $user['surname'] . '<br> sąskaita sukurta', 'success');
         header('Location: /form');
         return (new JsonDB('clients'))->create($user);
     }
@@ -57,13 +57,13 @@ class HomeController
     {
         $user = [];
         $user['id'] = $id;
-        $user['vardas'] = $_POST['vardas'];
-        $user['pavarde'] = $_POST['pavarde'];
-        $user['saskaita'] = $_POST['saskaita'];
-        $user['askodas'] = $_POST['askodas'];
-        $user['lesos'] = $_POST['lesos'];
+        $user['name'] = $_POST['name'];
+        $user['surname'] = $_POST['surname'];
+        $user['account_nr'] = $_POST['account_nr'];
+        $user['social_id'] = $_POST['social_id'];
+        $user['funds'] = $_POST['funds'];
         $user['password'] = $_POST['password'];
-        M::add($user['vardas'] . ' ' . $user['pavarde'] . '<br> klientas redaguotas', 'success');
+        M::add($user['name'] . ' ' . $user['surname'] . '<br> klientas redaguotas', 'success');
         header('Location: /update/' . $id);
         return (new JsonDB('clients'))->update($id, $user);
     }

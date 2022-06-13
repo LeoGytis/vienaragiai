@@ -6,7 +6,7 @@ require __DIR__ . '/top.php';
     <form action="" method="post" class="addclient">
         <div class="addclient-row">
             <label class="label">Asmens kodas</label>
-            <input type="text" name="askodas" class="input" required>
+            <input type="text" name="social_id" class="input" required>
         </div>
         <div class="addclient-row">
             <label class="label">Slaptažodis</label>

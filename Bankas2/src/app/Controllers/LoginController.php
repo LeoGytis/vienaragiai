@@ -20,7 +20,7 @@ class LoginController
     {
         $users = json_decode(file_get_contents(__DIR__ . '/../DB/data/clients.json')); // istraukia objetkta
         foreach ($users as $user) {
-            if ($_POST['askodas'] != $user->askodas) {
+            if ($_POST['social_id'] != $user->social_id) {
                 continue;
             }
             if ($_POST['password'] != $user->password) {      //md5
