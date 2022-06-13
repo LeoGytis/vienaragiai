@@ -11,8 +11,8 @@ class LoginController
     public function showLogin()
     {
         $users = json_decode(file_get_contents(__DIR__ . '/../../data/clients.json')); // istraukia objetkta
-        echo '<pre>';
-        print_r($users);
+        // echo '<pre>';
+        // print_r($users);
         return App::view('login', ['title' => 'Login to system', 'messages' => M::get()]);
     }
 
@@ -28,8 +28,8 @@ class LoginController
                 return App::redirect('login');
             } else {
                 App::authAdd($user);
-                M::add('Sveikas prisijungęs, ' . $user->name . ' ' . $user->surname, 'success');
-                return App::redirect('form');
+                M::add('Sveikas prisijungęs,<br>' . $user->name . ' ' . $user->surname, 'success');
+                return header('Location: /showuser/' . $user->id);
             }
         }
         M::add('Blogas prisijungimo vardas ar slaptažodis', 'alert');

@@ -21,11 +21,11 @@ require __DIR__ . '/top.php';
         echo substr($arr['account_nr'], 0, 4) . ' ' . substr($arr['account_nr'], 4, 4) . ' ' . substr($arr['account_nr'], 8, 4) . ' ' . substr($arr['account_nr'], 12, 4) . ' ' . substr($arr['account_nr'], 16, 4) . ' ' . '<br>';
         echo $arr['social_id'] . '<br><br>';
         echo 'Lėšos: ' . $arr['funds'] . '€' . '<br><br><br>';
-        echo '<a href="/showuser/' . $arr['id'] . '">Pasirinkti klientą</a><br><br>';
+        echo '<a class="list-btn"href="/showuser/' . $arr['id'] . '">Pasirinkti klientą</a><br><br>';
         echo '</div>';
     }
     ?>
+</div>
 
-
-    <?php
-    require __DIR__ . '/bottom.php';
+<?php
+require __DIR__ . '/bottom.php';

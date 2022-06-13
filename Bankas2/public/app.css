@@ -44,6 +44,24 @@ body {
   font-size: 26px;
 }
 
+.success {
+  width: 400px;
+  margin-left: calc(50% - 200px);
+  margin-top: 20px;
+  font-size: 36px;
+  text-align: center;
+  color: black;
+}
+
+.alert {
+  width: 400px;
+  margin-left: calc(50% - 200px);
+  margin-top: 20px;
+  font-size: 36px;
+  text-align: center;
+  color: black;
+}
+
 .addclient-column {
   display: flex;
   justify-content: center;
@@ -105,24 +123,6 @@ body {
   border-radius: 5px;
   cursor: pointer;
   border: 1px solid goldenrod;
-}
-
-.success {
-  width: 400px;
-  margin-left: calc(50% - 200px);
-  margin-top: 20px;
-  font-size: 36px;
-  text-align: center;
-  color: black;
-}
-
-.alert {
-  width: 400px;
-  margin-left: calc(50% - 200px);
-  margin-top: 20px;
-  font-size: 36px;
-  text-align: center;
-  color: darkred;
 }
 
 .funds-column {

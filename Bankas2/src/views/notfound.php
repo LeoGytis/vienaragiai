@@ -9,5 +9,4 @@ require __DIR__ . '/top.php';
 </div>
 
 <?php
-require __DIR__ . '/messages.php';
 require __DIR__ . '/bottom.php';

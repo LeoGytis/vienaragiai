@@ -1,8 +1,6 @@
 <?php
 require __DIR__ . '/top.php';
 
-// echo '<pre>';
-// print_r($data);
 ?>
 <h3 class="success">Kliento ID: <?= $data['id'] ?></h3>
 <div class="addclient-column">
@@ -24,9 +22,8 @@ require __DIR__ . '/top.php';
             <input type="text" name="social_id" class="input" value="<?= $data['social_id'] ?>" required>
         </div>
         <div class="addclient-row">
-            <!-- <label class="label">Lėšos</label> -->
             <input type="hidden" name="funds" value="<?= $data['funds'] ?>">
-            <input type="hidden" name="password" value="<?= $data['password'] ?>">
+            <input type="hidden" name="password" value="<?= md5($data['password']) ?>"> <!-- md5 -->
         </div>
         <div class="addclient-row">
             <button type="submit" class="addclient-btn">REDAGUOTI</button>

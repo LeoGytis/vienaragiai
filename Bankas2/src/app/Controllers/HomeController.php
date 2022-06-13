@@ -43,7 +43,7 @@ class HomeController
     public function showUser(int $id)
     {
         $user = (new JsonDB('clients'))->show($id);
-        return App::view('showuser', ['title' => 'Kliento puslapis', 'data' => $user]);
+        return App::view('showuser', ['title' => 'Kliento puslapis', 'messages' => M::get(), 'data' => $user]);
     }
 
     public function update(int $id)
@@ -62,7 +62,7 @@ class HomeController
         $user['account_nr'] = $_POST['account_nr'];
         $user['social_id'] = $_POST['social_id'];
         $user['funds'] = $_POST['funds'];
-        $user['password'] = md5($_POST['password']);
+        $user['password'] = $_POST['password'];    //<<-- md5
         M::add($user['name'] . ' ' . $user['surname'] . '<br> klientas redaguotas', 'success');
         header('Location: /update/' . $id);
         return (new JsonDB('clients'))->update($id, $user);
