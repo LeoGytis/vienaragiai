@@ -23,7 +23,7 @@ require __DIR__ . '/top.php';
         </div>
         <div class="addclient-row">
             <input type="hidden" name="funds" value="<?= $data['funds'] ?>">
-            <input type="hidden" name="password" value="<?= md5($data['password']) ?>"> <!-- md5 -->
+            <input type="hidden" name="password" value="<?= $data['password'] ?>"> <!-- md5 -->
         </div>
         <div class="addclient-row">
             <button type="submit" class="addclient-btn">REDAGUOTI</button>

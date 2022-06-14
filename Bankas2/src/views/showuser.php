@@ -2,8 +2,6 @@
 require __DIR__ . '/top.php';
 
 ?>
-
-
 <div class="addclient-column">
     <div class="client">
         <?php
@@ -14,7 +12,6 @@ require __DIR__ . '/top.php';
         echo 'Lėšos: ' . $data['funds'] . '€' . '<br><br><br><br>';
         echo '<a href="/update/' . $data['id'] . '">Redaguoti duomenis</a><br><br>';
         echo '<a href="/delete/' . $data['id'] . '">Ištrinti klientą</a><br><br>';
-        require __DIR__ . '/logout.php';
         ?>
     </div>
 </div>

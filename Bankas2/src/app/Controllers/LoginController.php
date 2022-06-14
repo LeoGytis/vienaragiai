@@ -11,8 +11,8 @@ class LoginController
     public function showLogin()
     {
         $users = json_decode(file_get_contents(__DIR__ . '/../../data/clients.json')); // istraukia objetkta
-        // echo '<pre>';
-        // print_r($users);
+        echo '<pre>';
+        print_r($users);
         return App::view('login', ['title' => 'Login to system', 'messages' => M::get()]);
     }
 

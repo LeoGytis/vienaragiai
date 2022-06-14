@@ -40,11 +40,6 @@ class App
         header('Location: http://bankas2.lt/' . $url);
     }
 
-    public static function url($url = '')
-    {
-        return 'http://bankas2.lt/' . $url; //<<-- KODEL REIK SITO?
-    }
-
     // ==================== Authorization ====================
     public static function authAdd(object $user)
     {

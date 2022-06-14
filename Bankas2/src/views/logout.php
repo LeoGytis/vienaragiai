@@ -6,10 +6,10 @@ use Bankas2\App; ?>
 
     <span>SOCIAL ID: <?= App::authName() ?></span>
 
-    <form action="<?= App::url('logout') ?>" method="post">
+    <form action="<?= App::redirect('logout') ?>" method="post">
         <button class="addclient-btn" type="submit">Logout</button>
     </form>
 
 <?php else : ?>
-    <a href="<?= App::url('login') ?>">Login</a>
+    <a href="<?= App::redirect('login') ?>">Login</a>
 <?php endif ?>
