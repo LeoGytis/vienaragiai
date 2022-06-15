@@ -6,7 +6,7 @@ use Bankas2\DB\DataBase;
 
 class JsonDB implements DataBase
 {
-    private $data, $file;  // duomenys is json
+    private $data, $file;
 
     public function __construct($file)
     {

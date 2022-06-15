@@ -6,7 +6,7 @@ use Bankas2\Controllers\AuthController;
 use Bankas2\Controllers\HomeController;
 use Bankas2\Controllers\LoginController;
 use Bankas2\Messages as M;
-
+use Bankas2\Validator;
 
 class App
 {
@@ -26,6 +26,8 @@ class App
 
     public static function sent()
     {
+        // echo $_POST['social_id'];
+        // print_r($_POST);
         echo self::$html; // viska is-echoijina is bufferio 
     }
 
@@ -102,7 +104,13 @@ class App
         }
 
         if ('POST' == $m && count($uri) == 1 && $uri[0] === 'form') {
-            return (new HomeController())->doForm();
+            echo $_POST['social_id'];
+            print_r($_POST);
+            if ((new Validator('clients'))->isSoicalIdSame($_POST['social_id'])) {
+                M::add('Toks asmens kodas jau yra.', 'alert');
+                return self::redirect('form');
+            } else
+                return (new HomeController())->doForm();
         }
 
         if ('GET' == $m && count($uri) == 2 && $uri[0] === 'showuser') {

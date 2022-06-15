@@ -37,5 +37,4 @@ $iban = 'LT' . rand(40, 60) . '10100' . rand(10000000000, 99999999999);
 </div>
 
 <?php
-require __DIR__ . '/messages.php';
 require __DIR__ . '/bottom.php';
