@@ -3,13 +3,13 @@
 use Bankas2\App; ?>
 
 <?php if (App::authCheck()) : ?>
-
-    <span>SOCIAL ID: <?= App::authName() ?></span>
-
-    <form action="<?= App::redirect('logout') ?>" method="post">
-        <button class="addclient-btn" type="submit">Logout</button>
-    </form>
+    <div>
+        <!-- <span>Tu esi prisijungęs, kaip: <?= $_SESSION['user']->name . ' ' . $_SESSION['user']->surname ?></span> -->
+        <form action="<?= App::url('logout') ?>" method="post">
+            <button class="list-btn" type="submit">Atsijungti</button>
+        </form>
+    </div>
 
 <?php else : ?>
-    <a href="<?= App::redirect('login') ?>">Login</a>
+    <a href="<?= App::url('login') ?>">Prisijungti</a>
 <?php endif ?>

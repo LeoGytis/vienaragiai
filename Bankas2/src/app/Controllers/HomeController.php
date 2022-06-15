@@ -13,7 +13,7 @@ class HomeController
     public static function index()
     {
         $users = (new JsonDb('clients'))->showAll();
-        return App::view('home', ['title' => 'Saskaitu sarasas', 'data' => $users]);
+        return App::view('home', ['title' => 'Saskaitu sarasas', 'messages' => M::get(), 'data' => $users]);
     }
 
     public function form()
@@ -35,11 +35,6 @@ class HomeController
         return (new JsonDB('clients'))->create($user);
     }
 
-    public function notFound()
-    {
-        return App::view('notfound', ['title' => 'Page not found']);
-    }
-
     public function showUser(int $id)
     {
         $user = (new JsonDB('clients'))->show($id);
@@ -48,7 +43,6 @@ class HomeController
 
     public function update(int $id)
     {
-
         $user = (new JsonDB('clients'))->show($id);
         return App::view('update', ['title' => 'Redaguoti kliento duomenis', 'messages' => M::get(), 'data' => $user]);
     }
@@ -73,5 +67,10 @@ class HomeController
         (new JsonDB('clients'))->delete($id);
         header('Location: http://bankas2.lt');
         die;
+    }
+
+    public function notFound()
+    {
+        return App::view('notfound', ['title' => 'Page not found']);
     }
 }

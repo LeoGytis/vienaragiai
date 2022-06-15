@@ -1,7 +1,6 @@
 <?php
 require __DIR__ . '/top.php';
 ?>
-
 <div class="addclient-column">
     <form action="" method="post" class="addclient">
         <div class="addclient-row">
@@ -19,5 +18,4 @@ require __DIR__ . '/top.php';
 </div>
 
 <?php
-require __DIR__ . '/messages.php';
 require __DIR__ . '/bottom.php';

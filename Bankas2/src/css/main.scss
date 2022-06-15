@@ -61,3 +61,18 @@ body {
     text-align: center;
     color: black;
 }
+
+.logout-column {
+    justify-items: center;
+    align-items: center;
+    row-gap: 50px;
+    width: 400px;
+    padding: 20px;
+    float: right;
+    // margin-left: calc(50% - 700px);
+    border: 3px solid goldenrod;
+    border-radius: 20px;
+    color: white;
+    background: rgba(37, 28, 25, 0.85);
+    margin-top: 0;
+}

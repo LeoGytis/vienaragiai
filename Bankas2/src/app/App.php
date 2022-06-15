@@ -5,7 +5,7 @@ namespace Bankas2;
 use Bankas2\Controllers\AuthController;
 use Bankas2\Controllers\HomeController;
 use Bankas2\Controllers\LoginController;
-use Bankas2\Messages;
+use Bankas2\Messages as M;
 
 
 class App
@@ -17,8 +17,8 @@ class App
         session_start();
         Messages::init();   //israsom kas buvo sesijoje
         ob_start();         //bufferis surenka viska ir nieko i ekrana nerodo
-        $uri = explode('/', $_SERVER['REQUEST_URI']);   // suranda uri ir sudeda i array
-        array_shift($uri);                              // arba istrina slasha '/' ir sudeda i array
+        $uri = explode('/', $_SERVER['REQUEST_URI']);   // suranda uri ir sudeda kiekviena  kas "/" i array
+        array_shift($uri);                              // istrina pirma array reiksme ir suindexuoja per naujo
         self::route($uri);
         self::$html = ob_get_contents(); //pries isvalant kibira uzsaugau duomenis
         ob_end_clean();                  //isvalo bufferi
@@ -26,7 +26,7 @@ class App
 
     public static function sent()
     {
-        echo self::$html; // viska is-echoijina is bufferio  <<-- kam to reik ??
+        echo self::$html; // viska is-echoijina is bufferio 
     }
 
     public static function view(string $name, array $data = [])  //kreipiasi i view folderi
@@ -38,6 +38,11 @@ class App
     public static function redirect($url = '')
     {
         header('Location: http://bankas2.lt/' . $url);
+    }
+
+    public static function url($url = '')
+    {
+        return 'http://bankas2.lt/' . $url;
     }
 
     // ==================== Authorization ====================
@@ -65,13 +70,14 @@ class App
     // ==================== Router ====================
     private static function route(array $uri)
     {
-        // serverio request methodas
+        // serverio request methodas GET ar POST
         $m = $_SERVER['REQUEST_METHOD'];
 
         if ('GET' == $m && count($uri) == 1 && $uri[0] === 'login') {
-            // if (self::authCheck()) {  //jei prisijunges - grazini i pradini
-            //     return self::redirect();
-            // }
+            if (self::authCheck()) {  //jei prisijunges - grazini i pradini
+                M::add('Tu jau esi prisijungęs!', 'alert');
+                return self::redirect();
+            }
             return (new LoginController())->showLogin();
         }
 
@@ -85,6 +91,9 @@ class App
         }
 
         if (count($uri) == 1 && $uri[0] === '') {
+            if (!self::authCheck()) {  // jeigu useris neautorizuotas grazinam i login
+                return (new LoginController())->showLogin();
+            }
             return (new HomeController())->index();
         }
 
@@ -97,17 +106,13 @@ class App
         }
 
         if ('GET' == $m && count($uri) == 2 && $uri[0] === 'showuser') {
-            // if (!self::authCheck()) {  // jeigu useris neautorizuotas grazinam i login
-            //     return self::redirect('login');
-            // }
             return (new HomeController())->showUser($uri[1]);
         }
+
         if ('GET' == $m && count($uri) == 2 && $uri[0] === 'update') {
-            // if (!self::authCheck()) {  // jeigu useris neautorizuotas grazinam i login
-            //     return self::redirect('login');
-            // }
             return (new HomeController())->update($uri[1]);
         }
+
         if ('POST' == $m && count($uri) == 2 && $uri[0] === 'update') {
             return (new HomeController())->doUpdate($uri[1]);
         }

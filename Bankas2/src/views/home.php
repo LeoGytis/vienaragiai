@@ -1,6 +1,5 @@
 <?php
 require __DIR__ . '/top.php';
-
 ?>
 <div class="list-column">
     <?php
