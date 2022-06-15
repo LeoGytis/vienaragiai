@@ -72,7 +72,7 @@ class App
     // ==================== Router ====================
     private static function route(array $uri)
     {
-        // serverio request methodas GET ar POST
+        // serverio request methodas GET arba POST
         $m = $_SERVER['REQUEST_METHOD'];
 
         if ('GET' == $m && count($uri) == 1 && $uri[0] === 'login') {
@@ -104,10 +104,16 @@ class App
         }
 
         if ('POST' == $m && count($uri) == 1 && $uri[0] === 'form') {
-            echo $_POST['social_id'];
-            print_r($_POST);
-            if ((new Validator('clients'))->isSoicalIdSame($_POST['social_id'])) {
+            if ((new Validator('clients'))->nameLengthCheck($_POST['name'], $_POST['surname'])) {
+                M::add('Vardas ir pavardė turi turėti bent 4 simbolius.', 'alert');
+                return self::redirect('form');
+            }
+            if ((new Validator('clients'))->socialIDcheck($_POST['social_id'])) {
                 M::add('Toks asmens kodas jau yra.', 'alert');
+                return self::redirect('form');
+            }
+            if (!(new Validator('clients'))->socialIDvalidation($_POST['social_id'])) {
+                M::add('Netinkamai įvestas asmens kodas', 'alert');
                 return self::redirect('form');
             } else
                 return (new HomeController())->doForm();

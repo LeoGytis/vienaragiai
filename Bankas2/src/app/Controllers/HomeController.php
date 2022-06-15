@@ -30,7 +30,7 @@ class HomeController
         $user['social_id'] = $_POST['social_id'];
         $user['password'] = md5($_POST['password']);    //<<--md5
         $user['funds'] = $_POST['funds'];
-        M::add($user['name'] . ' ' . $user['surname'] . '<br> sąskaita sukurta', 'success');
+        M::add($user['name'] . ' ' . $user['surname'] . '<br> sąskaita sukurta ', 'success');
         header('Location: /form');
         return (new JsonDB('clients'))->create($user);
     }
