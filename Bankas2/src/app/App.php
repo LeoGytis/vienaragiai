@@ -6,6 +6,7 @@ use Bankas2\Controllers\AuthController;
 use Bankas2\Controllers\HomeController;
 use Bankas2\Controllers\LoginController;
 use Bankas2\Messages as M;
+use Bankas2\Services;
 use Bankas2\Validator;
 
 class App
@@ -26,6 +27,8 @@ class App
 
     public static function sent()
     {
+        echo $_POST['currency'];
+
         echo self::$html; // viska is-echoijina is bufferio 
     }
 
@@ -108,6 +111,14 @@ class App
         }
 
         if ('GET' == $m && count($uri) == 2 && $uri[0] === 'showuser') {
+            return (new HomeController())->showUser($uri[1]);
+        }
+        if ('POST' == $m && count($uri) == 2 && $uri[0] === 'showuser') {
+            // echo $_POST['currency'];
+            $currency = Services::getCurrencyRate($_POST['currency']);
+            echo $currency;
+            M::add($currency . 'valiuta', 'alert');
+            // return self::redirect('showuser/96');
             return (new HomeController())->showUser($uri[1]);
         }
 
