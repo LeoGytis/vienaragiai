@@ -1,44 +1,62 @@
-.funds-column {
-    width: 600px;
-    margin-left: calc(50% - 300px);
+.showuser-column {
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+    margin-left: calc(50% - 400px);
     margin-top: 20px;
     margin-bottom: 800px;
     padding: 25px;
     padding-top: 20px;
-    font-size: 20px;
-    font-weight: 600;
-    text-align: center;
-    color: white;
     border: 3px solid goldenrod;
-    border-radius: 20px;
     border-radius: 10px;
     background-color: rgba(26, 21, 10, 0.95);
     
 }
 
-.funds-client {
-    display: flex;
-    flex-direction: column;
+.showuser {
+    width: 350px;
+    font-size: 18px;
+    font-weight: 400;
     padding: 20px;
-    font-size: 24px;
-    font-weight: 600;
     color: white;
+    background-color: rgba(0, 139, 139, 0.377);
 }
 
-.funds-form {
+.showuser > a {
+    font-size: 18px;
+    color: skyblue;
+    text-decoration: none;
+}
+
+.funds-edit {
+    width: 350px;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: left;
+    padding: 20px;
+    color: white; 
+    background-color: rgba(153, 205, 50, 0.37);
+}
+.funds{
+    width: 350px;
+    font-size: 30px;
+    font-weight: 500; 
+}
+
+.showuser-form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.funds-input {
+.showuser-input {
     width: 100px;
     border: none;
     padding: 5px;
     margin-top: 15px;
 }
 
-.funds-btn {
+.showuser-btn {
     color: white;
     background-color: rgba(218, 165, 32, 0.2);
     margin-top: 15px;
@@ -48,7 +66,7 @@
     border-radius: 5px;
 }
 
-.funds-btn:hover {
+.showuser-btn:hover {
     color: white;
     background-color: rgba(218, 165, 32, 0.6);
     margin-top: 15px;

@@ -27,8 +27,7 @@ class App
 
     public static function sent()
     {
-        echo $_POST['currency'];
-
+        // echo $_POST['currency'];
         echo self::$html; // viska is-echoijina is bufferio 
     }
 
