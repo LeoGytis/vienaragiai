@@ -20,7 +20,6 @@ $m = $_SERVER['REQUEST_METHOD'];
 
 
 if ($m == 'GET' && count($uri) == 1 && $uri[0] == 'animals') {
-
     $out = $db->showAll('farm');
 }
 
