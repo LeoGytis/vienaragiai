@@ -26,8 +26,6 @@ class App
 
     public static function sent()
     {
-        // echo $_POST['social_id'];
-        // print_r($_POST);
         echo self::$html; // viska is-echoijina is bufferio 
     }
 
@@ -112,7 +110,7 @@ class App
                 M::add('Toks asmens kodas jau yra.', 'alert');
                 return self::redirect('form');
             }
-            if (!(new Validator('clients'))->socialIDvalidation($_POST['social_id'])) {
+            if ((new Validator('clients'))->socialIDvalidation($_POST['social_id'])) {
                 M::add('Netinkamai įvestas asmens kodas', 'alert');
                 return self::redirect('form');
             } else

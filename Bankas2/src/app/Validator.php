@@ -32,9 +32,7 @@ class Validator
 
     public function socialIDvalidation(int $id)
     {
-        // substr($id, 1, 1) === 3 || substr($id, 1, 1) === 4 || nedabaitgatas social ID
-        // if (substr($id, 1, 1) !== 3 && substr($id, 1, 1) !== 4 || substr($id, 3, 2) > 12 || substr($id, 5, 2) > 31 || strlen($id) !== 11) {
-        if (substr($id, 1, 1) === 3 || substr($id, 1, 1) === 4 || substr($id, 3, 2) <= 12 || substr($id, 5, 2) <= 31 || strlen($id) === 11) {
+        if ((int)substr($id, 0, 1) != 3 && (int)substr($id, 0, 1) != 4 || (int)substr($id, 3, 2) > 12 || (int)substr($id, 5, 2) > 31 || (int)strlen($id) != 11) {
             return true;
         } else return false;
     }
