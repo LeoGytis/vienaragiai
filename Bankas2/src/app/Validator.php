@@ -19,7 +19,7 @@ class Validator
     {
         foreach ($this->data as $data) {
             if ($data['social_id'] == $id) {
-                return false;
+                return true;
                 break;
             }
         }
@@ -43,7 +43,7 @@ class Validator
             M::add('Vardas ir pavardė turi turėti bent 4 simbolius.', 'alert');
             return true;
         }
-        if (!self::isSameSocialId($post_data['social_id'])) {
+        if (self::isSameSocialId($post_data['social_id'])) {
             M::add('Toks asmens kodas jau yra.', 'alert');
             return true;
         }

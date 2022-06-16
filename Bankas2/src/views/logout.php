@@ -6,7 +6,7 @@ use Bankas2\App; ?>
     <div>
         <!-- <span>Tu esi prisijungęs, kaip: <?= $_SESSION['user']->name . ' ' . $_SESSION['user']->surname ?></span> -->
         <form action="<?= App::url('logout') ?>" method="post">
-            <button class="list-btn" type="submit">Atsijungti</button>
+            <button class="list-btn" style="margin-bottom: 15px; margin-left: 25px;" type="submit">Atsijungti</button>
         </form>
     </div>
 

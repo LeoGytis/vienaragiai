@@ -76,3 +76,24 @@ body {
     background: rgba(37, 28, 25, 0.85);
     margin-top: 0;
 }
+
+.log-btn {
+    color: white;
+    background-color: rgba(218, 165, 32, 0.3);
+    padding: 5px 25px;
+    border: 1px solid goldenrod;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: -10px;
+}
+
+.log-btn:hover {
+    color: white;
+    background-color: rgba(218, 165, 32, 0.60);
+    padding-top: 5px 25px;
+    border: 1px solid goldenrod;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    margin-bottom: -10px;
+}
