@@ -14,7 +14,7 @@ function List() {
           <ul class="list-group">
             {animals.map((a) => (
               <li class="list-group-item" key="{a.id}>{a.animal}">
-                An item
+                {a.animal} weight: {a.weight}
               </li>
             ))}
           </ul>

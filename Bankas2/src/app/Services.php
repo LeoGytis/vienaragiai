@@ -30,4 +30,8 @@ class Services
         // return App::view('showuser', ['title' => 'Kliento puslapis', 'messages' => $rates->rates->$currency]);
         return $rates->rates->$currency;
     }
+
+    public static function exchangeCurrency()
+    {
+    }
 }

@@ -113,11 +113,11 @@ class App
             return (new HomeController())->showUser($uri[1]);
         }
         if ('POST' == $m && count($uri) == 2 && $uri[0] === 'showuser') {
-            // echo $_POST['currency'];
+            echo $_POST['currency'];
             $currency = Services::getCurrencyRate($_POST['currency']);
             echo $currency;
             M::add($currency . 'valiuta', 'alert');
-            // return self::redirect('showuser/96');
+            return self::redirect('showuser/96');
             return (new HomeController())->showUser($uri[1]);
         }
 

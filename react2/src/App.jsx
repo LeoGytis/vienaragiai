@@ -10,7 +10,12 @@ import axios from "axios";
 function App() {
   const [animals, setAnimals] = useState([]);
 
-  useEffect(() => {}, []);
+  //useEffect pasileidzia tada kai uzsikrauna komponenetas
+  useEffect(() => {
+    axios
+      .get("http://localhost/vienaragiai/react2_server/animals")
+      .then((res) => setAnimals(res.data));
+  }, []);
 
   return (
     <DataContext.Provider value={{ animals }}>
