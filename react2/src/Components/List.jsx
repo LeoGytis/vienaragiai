@@ -11,10 +11,10 @@ function List() {
           <h2>List</h2>
         </div>
         <div className="card-body">
-          <ul class="list-group">
+          <ul className="list-group">
             {animals.map((a) => (
-              <li class="list-group-item" key="{a.id}>{a.animal}">
-                {a.animal} weight: {a.weight}
+              <li className="list-group-item" key={a.id}>
+                <b>{a.animal}:</b> Weight:{a.weight}kg
               </li>
             ))}
           </ul>
