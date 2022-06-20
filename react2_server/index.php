@@ -25,7 +25,13 @@ if ($m == 'POST' && count($uri) == 1 && $uri[0] == 'animals') {
     $rawData = file_get_contents("php://input");  //gauni streama kuri issiuntei
     $data = json_decode($rawData, 1);
     $db->create($data);
-    $out = ['msg' => 'Animal was created'];
+    $out = ['msg' => 'Valio! Animal was created!'];
+}
+
+if ($m == 'DELETE' && count($uri) == 2 && $uri[0] == 'animals') {
+
+    $db->delete($uri[1]);
+    $out = ['msg' => 'Valio! Animal was deleted'];
 }
 
 
@@ -33,7 +39,7 @@ $out = json_encode($out);
 
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST');
+header('Access-Control-Allow-Methods: GET, POST, DELETE, PUT');
 header("Access-Control-Allow-Headers: Authorization, Content-Type, X-Requested-With");
 
 
