@@ -151,7 +151,7 @@ class App
             return self::convertToJson($clients);
         }
 
-        if ('POST' == $m && count($uri) == 2 && $uri[0] === 'api' && $uri[1] === 'addclient') {
+        if ('POST' == $m && count($uri) == 2 && $uri[0] === 'api' && $uri[1] === 'add') {
             $rawData = file_get_contents("php://input");  //gauni streama kuri issiuntei
             $data = json_decode($rawData, 1);    // ALABAMA kaip objekta kurt?
             (new JsonDb('clients'))->create($data);
@@ -159,6 +159,12 @@ class App
 
         if ('DELETE' == $m && count($uri) == 3 && $uri[0] == 'api' && $uri[1] === 'delete') {
             (new JsonDb('clients'))->delete($uri[2]);
+        }
+
+        if ('PUT' == $m && count($uri) == 3 && $uri[0] == 'api' && $uri[1] == 'edit') {
+            $rawData = file_get_contents("php://input");
+            $data = json_decode($rawData, 1);
+            (new JsonDb('clients'))->update($uri[2], $data);
         }
 
 

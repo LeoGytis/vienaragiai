@@ -26,17 +26,23 @@ function App() {
   useEffect(() => {
     if (addClient === null) return;
     axios
-      .post("http://bankas2.lt/api/addclient", addClient)
+      .post("http://bankas2.lt/api/add", addClient)
       .then(() => setLastTimeUpdate(Date.now()));
   }, [addClient]);
 
   useEffect(() => {
-    console.log(deleteClient);
     if (deleteClient === null) return;
     axios
       .delete("http://bankas2.lt/api/delete/" + deleteClient.id)
       .then(() => setLastTimeUpdate(Date.now()));
   }, [deleteClient]);
+
+  useEffect(() => {
+    if (editClient === null) return;
+    axios
+      .put("http://bankas2.lt/api/edit/" + editClient.id, editClient)
+      .then(() => setLastTimeUpdate(Date.now()));
+  }, [editClient]);
 
   return (
     <DataContext.Provider

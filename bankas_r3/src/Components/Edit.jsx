@@ -2,13 +2,11 @@ import { useContext, useState, useEffect } from "react";
 import DataContext from "./DataContext";
 
 function Edit() {
-  // const { modalAnimal, setModalAnimal, setEditAnimal } = useContext(DataContext);
   const { modalClient, setModalClient, setEditClient } =
     useContext(DataContext);
 
   const [name, setName] = useState("");
   const [funds, setFunds] = useState("");
-  // const [funds, setWeight] = useState('');
 
   const close = () => {
     setModalClient(null);
