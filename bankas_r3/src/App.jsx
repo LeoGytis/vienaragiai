@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import "./App.scss";
 import "./bootstrap.css";
+import "./App.scss";
 import DataContext from "./Components/DataContext";
 import List from "./Components/List";
 import Create from "./Components/Create";

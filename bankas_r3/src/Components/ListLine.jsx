@@ -25,16 +25,12 @@ function ListLine({ client }) {
         <span>Funds: {client.funds}€</span>
 
         <div className="one-client__buttons">
-          <button
-            type="button"
-            className="btn btn-outline-success mr-3"
-            onClick={edit}
-          >
+          <button type="button" className="btn btn-info mr-3" onClick={edit}>
             Edit
           </button>
           <button
             type="button"
-            className="btn btn-outline-danger"
+            className="btn btn-outline-secondary"
             onClick={remove}
           >
             Delete

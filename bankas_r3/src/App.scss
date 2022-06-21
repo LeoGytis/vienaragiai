@@ -19,6 +19,13 @@
   }
 }
 
+.card-header {
+// background-color: rgba(20, 85, 90, 0.5);
+// background-color: rgba(23, 163, 184, 0.729);
+background: rgb(22,124,132);
+background: linear-gradient(143deg, rgba(22,124,132,0.8606793059020483) 21%, rgba(20,85,90,0.9587185215883228) 94%);
+}
+
 .modal {
   display: block;
   background-color: rgba(0, 0, 0, 0.5);

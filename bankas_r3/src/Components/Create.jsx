@@ -86,11 +86,7 @@ function Create() {
               How much does the client you have?
             </small>
           </div>
-          <button
-            type="button"
-            className="btn btn-outline-success"
-            onClick={create}
-          >
+          <button type="button" className="btn btn-info" onClick={create}>
             Create
           </button>
         </div>

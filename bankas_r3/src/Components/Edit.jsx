@@ -6,6 +6,9 @@ function Edit() {
     useContext(DataContext);
 
   const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [account_nr, setAccount_nr] = useState("");
+  const [social_id, setSocial_id] = useState("");
   const [funds, setFunds] = useState("");
 
   const close = () => {
@@ -15,11 +18,21 @@ function Edit() {
   useEffect(() => {
     if (null === modalClient) return;
     setName(modalClient.name);
+    setSurname(modalClient.surname);
+    setAccount_nr(modalClient.account_nr);
+    setSocial_id(modalClient.social_id);
     setFunds(modalClient.funds);
   }, [modalClient]);
 
   const edit = () => {
-    setEditClient({ name, funds, id: modalClient.id });
+    setEditClient({
+      name,
+      surname,
+      funds,
+      account_nr,
+      social_id,
+      id: modalClient.id,
+    });
     setModalClient(null);
   };
 
@@ -48,21 +61,42 @@ function Edit() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
-                  <small className="form-text text-muted">
-                    Please enter some nice animal (small donkey etc.).
-                  </small>
                 </div>
                 <div className="form-group">
-                  <label>Animal weight</label>
+                  <label>Last name</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={surname}
+                    onChange={(e) => setSurname(e.target.value)}
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Account number</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={account_nr}
+                    onChange={(e) => setAccount_nr(e.target.value)}
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Social ID number</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={social_id}
+                    onChange={(e) => setSocial_id(e.target.value)}
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Clients funds</label>
                   <input
                     type="text"
                     className="form-control"
                     value={funds}
                     onChange={(e) => setFunds(e.target.value)}
                   />
-                  <small className="form-text text-muted">
-                    How much is the fish (Scooter).
-                  </small>
                 </div>
               </div>
             </div>
