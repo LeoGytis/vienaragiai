@@ -57,6 +57,7 @@ class JsonDB implements DataBase
         foreach ($this->data as $key => $data) {
             if ($data['id'] == $id) {
                 unset($this->data[$key]);
+                $this->data = array_values($this->data);
                 break;
             }
         }
@@ -66,6 +67,7 @@ class JsonDB implements DataBase
     {
         foreach ($this->data as $key => $value) {
             if ($value['id'] == $id) {
+                $data['id'] = $id;
                 $this->data[$key] = $data;
                 break;
             }

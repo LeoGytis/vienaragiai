@@ -5,6 +5,7 @@ namespace Bankas2;
 use Bankas2\Controllers\AuthController;
 use Bankas2\Controllers\HomeController;
 use Bankas2\Controllers\LoginController;
+use Bankas2\DB\JsonDB;
 use Bankas2\Messages as M;
 use Bankas2\Services;
 use Bankas2\Validator;
@@ -15,6 +16,10 @@ class App
 
     public static function start()
     {
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Methods: GET, POST, DELETE, PUT');
+        header("Access-Control-Allow-Headers: Authorization, Content-Type, X-Requested-With");
+        header('Content-Type: application/json');
         session_start();
         Messages::init();   //israsom kas buvo sesijoje
         ob_start();         //bufferis surenka viska ir nieko i ekrana nerodo
@@ -35,6 +40,11 @@ class App
     {
         extract($data);      // isskleidzia is masyvo visus elementus
         require __DIR__ . ' /../views/' . $name . '.php';
+    }
+
+    public static function convertToJSON(array $data = [])   //iskoduoja data i json formata
+    {
+        echo json_encode($data);
     }
 
     public static function redirect($url = '')
@@ -117,7 +127,7 @@ class App
             $currency = Services::getCurrencyRate($_POST['currency']);
             echo $currency;
             M::add($currency . 'valiuta', 'alert');
-            return self::redirect('showuser/96');
+            return self::redirect('showuser/96');   // <<-- cia nesutvarkyta
             return (new HomeController())->showUser($uri[1]);
         }
 
@@ -132,7 +142,27 @@ class App
         if ('GET' == $m && count($uri) == 2 && $uri[0] === 'delete') {
             return (new HomeController())->delete($uri[1]);
         }
-        // Jei nera tokio puslapio
+
+
+        // ==================== API ====================
+
+        if ('GET' == $m && count($uri) == 2 && $uri[0] === 'api' && $uri[1] === 'home') {
+            $clients = (new JsonDb('clients'))->showAll();
+            return self::convertToJson($clients);
+        }
+
+        if ('POST' == $m && count($uri) == 2 && $uri[0] === 'api' && $uri[1] === 'addclient') {
+            $rawData = file_get_contents("php://input");  //gauni streama kuri issiuntei
+            $data = json_decode($rawData, 1);    // ALABAMA kaip objekta kurt?
+            (new JsonDb('clients'))->create($data);
+        }
+
+        if ('DELETE' == $m && count($uri) == 3 && $uri[0] == 'api' && $uri[1] === 'delete') {
+            (new JsonDb('clients'))->delete($uri[2]);
+        }
+
+
+        // ==================== 404 ====================
         else {
             return (new HomeController())->notFound();
         }
