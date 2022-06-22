@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+
+button {
+  width: 200px;
+  height: 60px;
+  border: none;
+  outline: none;
+  background-color: skyblue;
+  color: white;
+  border-radius: 7px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  font-family: 'Courier New', Courier, monospace;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 40px;
+  font-family: 'Courier New', Courier, monospace;
+  color: pink;
+}
