@@ -33,7 +33,10 @@ class JsonDB implements DataBase
 
     public function create(array $data): void
     {
+        $iban = 'LT' . rand(40, 60) . '10100' . rand(10000000000, 99999999999);
         $data['id'] = $this->getId();  // kreipiasi i obejkta
+        $data['account_nr'] = $iban;
+        $data['funds'] = 0;
         $this->data[] = $data;
     }
 

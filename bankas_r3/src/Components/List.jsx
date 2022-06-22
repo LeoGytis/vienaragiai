@@ -3,7 +3,7 @@ import DataContext from "./DataContext";
 import ListLine from "./ListLine";
 
 function List() {
-  const { clients } = useContext(DataContext);
+  const { clients, message } = useContext(DataContext);
 
   return (
     <div className="col-8">
@@ -13,6 +13,9 @@ function List() {
         </div>
         <div className="card-body">
           <ul className="list-group">
+            <div class="alert alert-info text-center" role="alert">
+              {message}
+            </div>
             {clients.map((value) => (
               <ListLine key={value.id} client={value}></ListLine>
             ))}

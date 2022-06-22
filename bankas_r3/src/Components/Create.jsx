@@ -7,17 +7,17 @@ function Create() {
 
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
-  const [account_nr, setAccount_nr] = useState("");
+  // const [account_nr, setAccount_nr] = useState("");
   const [social_id, setSocial_id] = useState("");
-  const [funds, setFunds] = useState("");
+  // const [funds, setFunds] = useState("");
 
   const create = () => {
-    setAddClient({ name, surname, account_nr, social_id, funds });
+    setAddClient({ name, surname, social_id });
     setName(""); //paspaudus mygtuka isvalo input value
     setSurname("");
-    setAccount_nr("");
+    // setAccount_nr("");
     setSocial_id("");
-    setFunds("");
+    // setFunds("");
   };
 
   return (
@@ -28,6 +28,8 @@ function Create() {
         </div>
         <div className="card-body">
           <div className="form-group">
+            <div class="alert alert-info text-center" role="alert"></div>
+
             <label>Name:</label>
             <input
               type="text"
@@ -35,9 +37,6 @@ function Create() {
               value={name}
               onChange={(e) => setName(e.target.value)} //pasaudus i state irasoma nauja reiksme
             />
-            <small className="form-text text-muted">
-              Type in name of the client.
-            </small>
           </div>
           <div className="form-group">
             <label>Surname:</label>
@@ -47,11 +46,8 @@ function Create() {
               value={surname}
               onChange={(e) => setSurname(e.target.value)}
             />
-            <small className="form-text text-muted">
-              Type in last name of the client.
-            </small>
           </div>
-          <div className="form-group">
+          {/* <div className="form-group">
             <label>Accout number:</label>
             <input
               type="text"
@@ -62,7 +58,7 @@ function Create() {
             <small className="form-text text-muted">
               (LT80 0101 2255 3666 etc.)
             </small>
-          </div>
+          </div> */}
           <div className="form-group">
             <label>Social ID number:</label>
             <input
@@ -71,10 +67,10 @@ function Create() {
               value={social_id}
               onChange={(e) => setSocial_id(e.target.value)}
             />
-            <small className="form-text text-muted">(a/k: 38505220088)</small>
+            <small className="form-text text-muted">(38505220088 etc.)</small>
           </div>
 
-          <div className="form-group">
+          {/* <div className="form-group">
             <label>Starting funds:</label>
             <input
               type="text"
@@ -85,7 +81,7 @@ function Create() {
             <small className="form-text text-muted">
               Starting funds of the client.
             </small>
-          </div>
+          </div> */}
           <button type="button" className="btn btn-info" onClick={create}>
             Create
           </button>

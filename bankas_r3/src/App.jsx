@@ -18,6 +18,7 @@ function App() {
   const [editClient, setEditClient] = useState(null);
 
   const [modalClient, setModalClient] = useState(null);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     axios.get("http://bankas2.lt/api/home").then((res) => setClients(res.data));
@@ -25,16 +26,18 @@ function App() {
 
   useEffect(() => {
     if (addClient === null) return;
-    axios
-      .post("http://bankas2.lt/api/add", addClient)
-      .then(() => setLastTimeUpdate(Date.now()));
+    axios.post("http://bankas2.lt/api/add", addClient).then(() => {
+      setLastTimeUpdate(Date.now());
+      setMessage("New client was created");
+    });
   }, [addClient]);
 
   useEffect(() => {
     if (deleteClient === null) return;
-    axios
-      .delete("http://bankas2.lt/api/delete/" + deleteClient.id)
-      .then(() => setLastTimeUpdate(Date.now()));
+    axios.delete("http://bankas2.lt/api/delete/" + deleteClient.id).then(() => {
+      setLastTimeUpdate(Date.now());
+      setMessage("New client was deleted");
+    });
   }, [deleteClient]);
 
   useEffect(() => {
@@ -47,6 +50,7 @@ function App() {
   return (
     <DataContext.Provider
       value={{
+        message,
         clients,
         setAddClient,
         setDeleteClient,
@@ -58,7 +62,7 @@ function App() {
       <div className="container">
         <div className="row">
           <Create />
-          <List />
+          <List></List>
         </div>
       </div>
       <Edit></Edit>

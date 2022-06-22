@@ -53,7 +53,7 @@ class HomeController
         $user['id'] = $id;
         $user['name'] = $_POST['name'];
         $user['surname'] = $_POST['surname'];
-        $user['account_nr'] = $_POST['account_nr'];
+        $user['account_nr'] = $_POST['account_nr'];  //keiciau duomenu JsonDB account ir funds
         $user['social_id'] = $_POST['social_id'];
         $user['funds'] = $_POST['funds'];
         $user['password'] = $_POST['password'];    //<<-- md5
