@@ -16,11 +16,11 @@ class App
 
     public static function start()
     {
+        session_start();
         header('Access-Control-Allow-Origin: *');
         header('Access-Control-Allow-Methods: GET, POST, DELETE, PUT');
         header("Access-Control-Allow-Headers: Authorization, Content-Type, X-Requested-With");
         header('Content-Type: application/json');
-        session_start();
         Messages::init();   //israsom kas buvo sesijoje
         ob_start();         //bufferis surenka viska ir nieko i ekrana nerodo
         $uri = explode('/', $_SERVER['REQUEST_URI']);   // suranda uri ir sudeda kiekviena  kas "/" i array
@@ -161,7 +161,7 @@ class App
             (new JsonDb('clients'))->delete($uri[2]);
         }
 
-        if ('PUT' == $m && count($uri) == 3 && $uri[0] == 'api' && $uri[1] == 'edit') {
+        if ('PUT' == $m && count($uri) == 3 && $uri[0] == 'api' && $uri[1] === 'edit') {
             $rawData = file_get_contents("php://input");
             $data = json_decode($rawData, 1);
             (new JsonDb('clients'))->update($uri[2], $data);

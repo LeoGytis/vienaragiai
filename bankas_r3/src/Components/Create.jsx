@@ -36,7 +36,7 @@ function Create() {
               onChange={(e) => setName(e.target.value)} //pasaudus i state irasoma nauja reiksme
             />
             <small className="form-text text-muted">
-              Type name of the cliente.
+              Type in name of the client.
             </small>
           </div>
           <div className="form-group">
@@ -48,7 +48,7 @@ function Create() {
               onChange={(e) => setSurname(e.target.value)}
             />
             <small className="form-text text-muted">
-              Type last name of the cliente.
+              Type in last name of the client.
             </small>
           </div>
           <div className="form-group">
@@ -60,7 +60,7 @@ function Create() {
               onChange={(e) => setAccount_nr(e.target.value)}
             />
             <small className="form-text text-muted">
-              Type in account nr of the cliente (LT80 0101 2255 3666 etc.).
+              (LT80 0101 2255 3666 etc.)
             </small>
           </div>
           <div className="form-group">
@@ -71,7 +71,7 @@ function Create() {
               value={social_id}
               onChange={(e) => setSocial_id(e.target.value)}
             />
-            <small className="form-text text-muted">Social ID code.</small>
+            <small className="form-text text-muted">(a/k: 38505220088)</small>
           </div>
 
           <div className="form-group">
@@ -83,7 +83,7 @@ function Create() {
               onChange={(e) => setFunds(e.target.value)}
             />
             <small className="form-text text-muted">
-              How much does the client you have?
+              Starting funds of the client.
             </small>
           </div>
           <button type="button" className="btn btn-info" onClick={create}>

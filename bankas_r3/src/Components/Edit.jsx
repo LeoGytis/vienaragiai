@@ -102,19 +102,8 @@ function Edit() {
             </div>
           </div>
           <div className="modal-footer">
-            <button
-              type="button"
-              className="btn btn-outline-success"
-              onClick={edit}
-            >
+            <button type="button" className="btn btn-info" onClick={edit}>
               Save changes
-            </button>
-            <button
-              type="button"
-              className="btn btn-outline-secondary"
-              onClick={close}
-            >
-              Close
             </button>
           </div>
         </div>

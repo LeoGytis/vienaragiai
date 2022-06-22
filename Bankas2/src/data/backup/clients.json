@@ -1,1 +1,66 @@
-[{"name":"Gytis","surname":"Leonavi\u010dius","account_nr":"LT571010047145464656","social_id":"38503150022","password":"202cb962ac59075b964b07152d234b70","funds":"0","id":1},{"name":"Petras","surname":"Petraitis","account_nr":"LT461010074451413353","social_id":"38612318822","password":"202cb962ac59075b964b07152d234b70","funds":"0","id":2},{"name":"Jonas","surname":"Jonaitis","account_nr":"LT441010090913965314","social_id":"38503150088","password":"202cb962ac59075b964b07152d234b70","funds":"0","id":3},{"name":"Tomas","surname":"Tomaitis","account_nr":"LT511010046781090360","social_id":"38503150000","password":"202cb962ac59075b964b07152d234b70","funds":"0","id":4},{"name":"Julius","surname":"Julaitis","account_nr":"LT421010065070177159","social_id":"38503150077","password":"202cb962ac59075b964b07152d234b70","funds":"0","id":5}]
+[
+  {
+    "name": "Gytis",
+    "surname": "Leonavi\u010dius",
+    "funds": "3500000",
+    "account_nr": "LT571010047145464656",
+    "social_id": "38503150022",
+    "id": 1
+  },
+  {
+    "name": "Petras",
+    "surname": "Petraitis",
+    "funds": "3500",
+    "account_nr": "LT461010074451413353",
+    "social_id": "38612318822",
+    "id": 2
+  },
+  {
+    "name": "Jonas",
+    "surname": "Petraitis",
+    "funds": "6876",
+    "account_nr": "LT441010090913965314",
+    "social_id": "38503150088",
+    "id": 3
+  },
+  {
+    "name": "Tomas",
+    "surname": "Tomaitis",
+    "funds": "3434",
+    "account_nr": "LT511010046781090360",
+    "social_id": "38503150000",
+    "id": 4
+  },
+  {
+    "name": "Kestas",
+    "surname": "Skrebe",
+    "account_nr": "LT80101033334444",
+    "social_id": "38502140033",
+    "funds": "350",
+    "id": 11
+  },
+  {
+    "name": "Paulius",
+    "surname": "Tabulevicius",
+    "account_nr": "LT80101035358585",
+    "social_id": "38502162233",
+    "funds": "2000",
+    "id": 12
+  },
+  {
+    "name": "Monika",
+    "surname": "Monikaviciute",
+    "account_nr": "LT55101033336987",
+    "social_id": "39503253399",
+    "funds": "200",
+    "id": 13
+  },
+  {
+    "name": "Jurga",
+    "surname": "Jurgileviciute",
+    "account_nr": "LT4510106699887744",
+    "social_id": "48703158866",
+    "funds": "650",
+    "id": 14
+  }
+]
