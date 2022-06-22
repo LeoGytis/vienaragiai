@@ -12,6 +12,7 @@ use Bankas2\Validator;
 
 class App
 {
+    private static $db;
     private static $html;
 
     public static function start()
