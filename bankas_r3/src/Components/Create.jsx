@@ -21,7 +21,7 @@ function Create() {
   };
 
   return (
-    <div className="col-4">
+    <div className="col-4 background-image">
       <div className="card mt-4">
         <div className="card-header">
           <h2>Add new client</h2>
