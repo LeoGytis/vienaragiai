@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import "./bootstrap.css";
 import "./App.scss";
 import DataContext from "./Components/DataContext";
+import Login from "./Components/Login";
+import Home from "./Components/Home";
 import List from "./Components/List";
 import Create from "./Components/Create";
 import Edit from "./Components/Edit";
-
-// import Create from "./Components/Create";
 import axios from "axios";
+import { authConfig, logout } from "./Functions/auth";
 
 function App() {
   const [lastTimeUpdate, setLastTimeUpdate] = useState(Date.now()); // timeris
@@ -19,6 +20,25 @@ function App() {
 
   const [modalClient, setModalClient] = useState(null);
   const [message, setMessage] = useState("");
+
+  const [user, setUser] = useState(null);
+  const [refresh, setRefresh] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost/vienaragiai/bankas2/api/auth", authConfig())
+      .then((res) => {
+        if (res.data.user) {
+          setUser(res.data.user);
+          // setTimeout(() => {
+          //   logout();
+          //   setRefresh(r => !r);  // timeris kad islogintu
+          // }, 7000);
+        } else {
+          setUser(null);
+        }
+      });
+  }, [refresh]);
 
   useEffect(() => {
     axios.get("http://bankas2.lt/api/home").then((res) => setClients(res.data));
@@ -61,8 +81,11 @@ function App() {
     >
       <div className="container">
         <div className="row">
+          {/* {user ? <List /> : <Login setRefresh={setRefresh} />} */}
+
+          {/* <Home></Home> */}
           <Create />
-          <List></List>
+          <List />
         </div>
       </div>
       <Edit></Edit>

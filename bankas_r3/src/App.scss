@@ -30,9 +30,25 @@ background: rgb(22,124,132);
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.body {
+// .body {
     // background-image: url(../public/images/back3.jpg);
     // background-position: center;
     // background-size: cover;
     // background-repeat: no-repeat;
+// }
+
+.nice-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 400px;
+}
+
+.nice-input input {
+  height: 20px;
+  font-size: 20px;
+}
+
+button.up {
+  margin-top: 20px;
 }
