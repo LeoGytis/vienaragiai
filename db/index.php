@@ -19,26 +19,40 @@ $pdo = new PDO($dsn, $user, $pass, $options);
 // READ
 // SELECT column1, column2, ...
 // FROM table_name;
+// ORDER - rikiavimas
+// DESC - rikiavimas atvirkstine tvarka
+// WHERE type = 3 (tiktais tipo 3 'palmes')
 
-$sql = "
+// Kreipimasis i mySQL pateikti duomenis 
+$sql = "                            
     SELECT id, title, height, type
     FROM trees
-    ORDER BY type, height DESC
-    
+    ORDER BY height DESC
 ";
+
+// I duomenu baze issiuncia uzklausa
 $stmt = $pdo->query($sql);
 
+// echo '<ul>';
+// while ($row = $stmt->fetch()) {
+//     echo '<li>' . $row['title'] . ' ' . $row['height'];
+// }
+// echo '</ul>';
+
+// Gaunamas objektas i kuri yra uzkoduotas 
 $trees = $stmt->fetchAll();
+echo '<pre>';
+// print_r($trees);
 
 echo '<ul>';
 foreach ($trees as $tree) {
-    echo '<li>' . $tree['id'] . ' ' . $tree['title'] . ' ' . $tree['height'] . ' ' . ['Lapuotis', 'Sygliuotis', 'Palme'][$tree['type'] - 1] . '</li>';
+    echo '<li>' . $tree['id'] . ' ' . $tree['title'] . ' ' . $tree['height'] . ' ' . ['Lapuotis', 'Spygliuotis', 'Palme'][$tree['type'] - 1] . '</li>';
 }
 echo '</ul>';
 
 
 $sql = "
-    SELECT type, sum(height) AS height_sum, count(id) as trees_count, GROUP_CONCAT(title, '^O-O^') AS titles
+    SELECT type, sum(height) AS height_sum, count(id) as trees_count, GROUP_CONCAT(title, ' -->>') AS titles
     FROM trees
     GROUP BY type
     
@@ -46,9 +60,13 @@ $sql = "
 $stmt = $pdo->query($sql);
 
 $trees = $stmt->fetchAll();
+print_r($trees);
+
+
+// echo $tree['height_sum'];
 
 echo '<ul>';
 foreach ($trees as $tree) {
-    echo '<li>' . $tree['height_sum'] . ' ' . $tree['trees_count'] . ' ' . $tree['titles'] . ' ' . ['Lapuotis', 'Sygliuotis', 'Palme'][$tree['type'] - 1] . '</li>';
+    echo '<li>' . $tree['height_sum'] . ' ' . $tree['trees_count'] . ' ' . $tree['titles'] . ' ' . ['Lapuotis', 'Spygliuotis', 'Palme'][$tree['type'] - 1] . '</li>';
 }
 echo '</ul>';
