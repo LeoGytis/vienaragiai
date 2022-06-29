@@ -15,6 +15,40 @@ $options = [
 
 $pdo = new PDO($dsn, $user, $pass, $options);
 
+?>
+
+<fieldset>
+    <legend>CREATE</legend>
+    <form method="post">
+        Title <input type="text" name="title">
+        Height <input type="text" name="height">
+        Type <select name="type">
+            <option value="1">Lapas</option>
+            <option value="2">Spyglys</option>
+            <option value="3">Palme</option>
+        </select>
+        <input type="hidden" name="_method" value="post">
+        <button type="submit">Create</button>
+    </form>
+</fieldset>
+
+
+<?php
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // CREATE
+    if ($_POST['_method'] == 'post') {
+        $sql = "
+        INSERT INTO trees
+        (title, height, type)
+        VALUES ('" . $_POST['title'] . "'," . $_POST['height'] . "," . $_POST['type'] . ")
+        ";
+    }
+    $pdo->query($sql);
+    header('Location: http://localhost/vienaragiai/db/');
+    die;
+}
+
 
 // READ
 // SELECT column1, column2, ...
