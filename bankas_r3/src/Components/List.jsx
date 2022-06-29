@@ -13,7 +13,7 @@ function List() {
         </div>
         <div className="card-body">
           <ul className="list-group">
-            <div class="alert alert-info text-center" role="alert">
+            <div className="alert alert-info text-center" role="alert">
               {message}
             </div>
             {clients.map((value) => (

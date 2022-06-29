@@ -19,11 +19,12 @@ class App
     {
         session_start();
 
-
         header('Access-Control-Allow-Origin: *');
+        // header('Access-Control-Allow-Origin: http://localhost:3000');
         header('Access-Control-Allow-Methods: GET, POST, DELETE, PUT');
         header("Access-Control-Allow-Headers: Authorization, Content-Type, X-Requested-With");
         header('Content-Type: application/json');
+        header('Access-Control-Allow-Credentials: true');
         Messages::init();   //israsom kas buvo sesijoje
         ob_start();         //bufferis surenka viska ir nieko i ekrana nerodo
         $uri = explode('/', $_SERVER['REQUEST_URI']);   // suranda uri ir sudeda kiekviena  kas "/" i array
@@ -147,13 +148,14 @@ class App
         }
 
 
-        // ==================== API ====================
+        // ==================== LOGIN ====================
 
-        if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-            header('Access-Control-Allow-Origin: *');
-            header("Access-Control-Allow-Headers: Authorization, Content-Type, X-Requested-With");
-            die;
-        }
+        // if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+        //     header('Access-Control-Allow-Origin: *');
+        //     header('Access-Control-Allow-Origin: http://localhost:3000');
+        //     header("Access-Control-Allow-Headers: Authorization, Content-Type, X-Requested-With");
+        //     die;
+        // }
 
         function getUser()
         {
@@ -181,9 +183,11 @@ class App
             }
         }
 
-        if ('GET' == $m && count($uri) == 2 && $uri[0] === 'api' && $uri[1] === 'login') {
+        // if ('GET' == $m && count($uri) == 2 && $uri[0] === 'api' && $uri[1] === 'login') {
+        if ($_GET['url'] == 'login') {
             $rawData = file_get_contents("php://input");
             $data = json_decode($rawData, 1);
+            echo $data['name'];
             $db = new JsonDb('us');
             $users = $db->showAll();
 
@@ -200,7 +204,7 @@ class App
             echo json_encode(['msg' => 'error']);
         }
 
-        // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        // ==================== API ====================
 
         if ('GET' == $m && count($uri) == 2 && $uri[0] === 'api' && $uri[1] === 'home') {
             $clients = (new JsonDb('clients'))->showAll();
@@ -224,9 +228,9 @@ class App
         }
 
 
-        // ==================== 404 ====================
-        else {
-            return (new HomeController())->notFound();
-        }
+        // // ==================== 404 ====================
+        // else {
+        //     return (new HomeController())->notFound();
+        // }
     }
 }

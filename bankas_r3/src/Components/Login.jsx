@@ -15,17 +15,15 @@ function Login({ setRefresh }) {
   useEffect(() => {
     if (loginData === null) return;
     axios
-      .post(
-        "http://localhost/vienaragiai/bankas2/api/login",
-        loginData,
-        authConfig()
-      )
+      .post("http://bankas2.lt/api/?url=login", loginData, authConfig())
       .then((res) => {
         if (res.data.token) {
           login(res.data.token);
           setRefresh((r) => !r);
+          console.log("ISMETA");
         }
         console.log(res.data);
+        console.log("NEISMETA");
       });
   }, [loginData, setRefresh]);
 
@@ -40,7 +38,7 @@ function Login({ setRefresh }) {
         ></input>
       </div>
       <div className="nice-input">
-        PASS:{" "}
+        PASSWORD:{" "}
         <input
           type="password"
           value={pass}

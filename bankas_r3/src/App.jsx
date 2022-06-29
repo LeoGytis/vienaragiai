@@ -11,6 +11,7 @@ import axios from "axios";
 import { authConfig, logout } from "./Functions/auth";
 
 function App() {
+  axios.defaults.withCredentials = true;
   const [lastTimeUpdate, setLastTimeUpdate] = useState(Date.now()); // timeris
 
   const [clients, setClients] = useState([]);
@@ -25,19 +26,14 @@ function App() {
   const [refresh, setRefresh] = useState(true);
 
   useEffect(() => {
-    axios
-      .get("http://localhost/vienaragiai/bankas2/api/auth", authConfig())
-      .then((res) => {
-        if (res.data.user) {
-          setUser(res.data.user);
-          // setTimeout(() => {
-          //   logout();
-          //   setRefresh(r => !r);  // timeris kad islogintu
-          // }, 7000);
-        } else {
-          setUser(null);
-        }
-      });
+    axios.get("http://bankas2.lt/api/auth", authConfig()).then((res) => {
+      if (res.data.user) {
+        setUser(res.data.user);
+        setRefresh((r) => !r);
+      } else {
+        setUser(null);
+      }
+    });
   }, [refresh]);
 
   useEffect(() => {
@@ -81,11 +77,12 @@ function App() {
     >
       <div className="container">
         <div className="row">
-          {/* {user ? <List /> : <Login setRefresh={setRefresh} />} */}
+          {user ? <List /> : <Login setRefresh={setRefresh} />}
+
+          {/* <Create />
+          <List /> */}
 
           {/* <Home></Home> */}
-          <Create />
-          <List />
         </div>
       </div>
       <Edit></Edit>
