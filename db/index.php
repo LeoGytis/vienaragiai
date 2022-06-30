@@ -125,10 +125,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // WHERE type = 3 (tiktais tipo 3 'palmes')
 
 // Kreipimasis i mySQL pateikti duomenis 
-$sql = "                            
-    SELECT id, title, height, type
-    FROM trees
-    ORDER BY height DESC
+$sql = "SELECT id, title, height, type
+        FROM trees
+        ORDER BY height DESC
 ";
 
 // I duomenu baze issiuncia uzklausa
@@ -152,11 +151,9 @@ foreach ($trees as $tree) {
 echo '</ul>';
 
 
-$sql = "
-    SELECT type, sum(height) AS height_sum, count(id) as trees_count, GROUP_CONCAT(title, ' -->>') AS titles
-    FROM trees
-    GROUP BY type
-    
+$sql = "SELECT type, sum(height) AS height_sum, count(id) as trees_count, GROUP_CONCAT(title, ' -->>') AS titles
+        FROM trees
+        GROUP BY type
 ";
 $stmt = $pdo->query($sql);
 

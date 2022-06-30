@@ -29,10 +29,10 @@ $pdo = new PDO($dsn, $user, $pass, $options);
 // WHERE type = 3 (tiktais tipo 3 'palmes')
 
 // Kreipimasis i mySQL pateikti duomenis 
-$sql = "                            
-    SELECT id, title, height, type
-    FROM trees
-    ORDER BY height DESC
+$sql = "SELECT tt.id, tt.title, ty.title AS type_title, height
+        FROM type_trees AS tt
+        RIGHT JOIN types AS ty
+        ON tt.type = ty.id
 ";
 
 // I duomenu baze issiuncia uzklausa
@@ -49,28 +49,9 @@ $trees = $stmt->fetchAll();
 echo '<pre>';
 // print_r($trees);
 
-echo '<ul>';
-foreach ($trees as $tree) {
-    echo '<li>' . $tree['id'] . ' ' . $tree['title'] . ' ' . $tree['height'] . ' ' . ['Lapuotis', 'Spygliuotis', 'Palme'][$tree['type'] - 1] . '</li>';
-}
-echo '</ul>';
-
-
-$sql = "
-    SELECT type, sum(height) AS height_sum, count(id) as trees_count, GROUP_CONCAT(title, ' -->>') AS titles
-    FROM trees
-    GROUP BY type
-    
-";
-$stmt = $pdo->query($sql);
-
-$trees = $stmt->fetchAll();
-// print_r($trees);
-
-// echo $tree['height_sum'];
 
 echo '<ul>';
 foreach ($trees as $tree) {
-    echo '<li>' . $tree['height_sum'] . ' ' . $tree['trees_count'] . ' ' . $tree['titles'] . ' ' . ['Lapuotis', 'Spygliuotis', 'Palme'][$tree['type'] - 1] . '</li>';
+    echo '<li>' . $tree['id'] . ' ' . $tree['title'] . ' ' . $tree['height'] . ' ' . ($tree['type_title'] ? $tree['type_title'] : '---') . '</li>';
 }
 echo '</ul>';
