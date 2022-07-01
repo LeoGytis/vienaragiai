@@ -18,5 +18,8 @@ $viedras->prideti1Akmeni();
 var_dump($viedras);
 
 echo '<br>--------<br>';
-$viedras->pridetiDaugAkmenu(556);
+$viedras->pridetiDaugAkmenu(5);
 var_dump($viedras);
+
+echo '<br>--------<br>';
+echo $viedras->kiekPririnktaAkmenu();

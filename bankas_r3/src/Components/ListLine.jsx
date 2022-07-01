@@ -2,7 +2,8 @@ import { useContext } from "react";
 import DataContext from "./DataContext";
 
 function ListLine({ client }) {
-  const { setDeleteClient, setModalClient } = useContext(DataContext); // kam cia tas modalas?
+  const { setDeleteClient, setModalClient, setModalFunds } =
+    useContext(DataContext); // kam cia tas modalas?
 
   const remove = () => {
     setDeleteClient(client);
@@ -10,6 +11,10 @@ function ListLine({ client }) {
 
   const edit = () => {
     setModalClient(client);
+  };
+
+  const funds = () => {
+    setModalFunds(client);
   };
 
   return (
@@ -22,7 +27,16 @@ function ListLine({ client }) {
           <br />
           {client.social_id}
         </div>
-        <span>Funds: {client.funds}€</span>
+        <div className="d-flex flex-column bd-highlight text-center mb-3">
+          <span className="font-weight-bold mt-3 mb-2">{client.funds}€</span>
+          <button
+            type="button"
+            className="btn btn-outline-info p-1"
+            onClick={funds}
+          >
+            Funds
+          </button>
+        </div>
 
         <div className="one-client__buttons">
           <button type="button" className="btn btn-info mr-3" onClick={edit}>

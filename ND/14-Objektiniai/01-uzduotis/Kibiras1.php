@@ -10,9 +10,10 @@ class Kibiras1
     }
     public function pridetiDaugAkmenu(int $kiekis)
     {
-        $this->akmenuKiekis += $kiekis; 
+        $this->akmenuKiekis += $kiekis;
     }
     public function kiekPririnktaAkmenu()
     {
+        return $this->akmenuKiekis;
     }
 }

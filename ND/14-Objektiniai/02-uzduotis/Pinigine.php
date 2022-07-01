@@ -12,15 +12,14 @@ class Pinigine
         echo 'Metaliniai pinigai: ' . number_format((float)$this->metaliniaiPinigai, 2, '.', '');
     }
 
-    public function idet(int $kiekis)
+    public function idet($kiekis)
     {
         if ($kiekis < 2) {
             $this->metaliniaiPinigai += $kiekis;
-        } 
-        else $this->popieriniaiPinigai += $kiekis;
+        } else $this->popieriniaiPinigai += $kiekis;
     }
 
-    public function skaiciuoti() 
+    public function skaiciuoti()
     {
         echo '<br>--------<br>';
         echo 'Pinigu suma: ' . ($this->popieriniaiPinigai + $this->metaliniaiPinigai);

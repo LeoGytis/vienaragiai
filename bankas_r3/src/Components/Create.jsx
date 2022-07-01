@@ -7,17 +7,13 @@ function Create() {
 
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
-  // const [account_nr, setAccount_nr] = useState("");
   const [social_id, setSocial_id] = useState("");
-  // const [funds, setFunds] = useState("");
 
   const create = () => {
     setAddClient({ name, surname, social_id });
     setName(""); //paspaudus mygtuka isvalo input value
     setSurname("");
-    // setAccount_nr("");
     setSocial_id("");
-    // setFunds("");
   };
 
   return (
@@ -47,18 +43,6 @@ function Create() {
               onChange={(e) => setSurname(e.target.value)}
             />
           </div>
-          {/* <div className="form-group">
-            <label>Accout number:</label>
-            <input
-              type="text"
-              className="form-control"
-              value={account_nr}
-              onChange={(e) => setAccount_nr(e.target.value)}
-            />
-            <small className="form-text text-muted">
-              (LT80 0101 2255 3666 etc.)
-            </small>
-          </div> */}
           <div className="form-group">
             <label>Social ID number:</label>
             <input
@@ -69,19 +53,6 @@ function Create() {
             />
             <small className="form-text text-muted">(38505220088 etc.)</small>
           </div>
-
-          {/* <div className="form-group">
-            <label>Starting funds:</label>
-            <input
-              type="text"
-              className="form-control"
-              value={funds}
-              onChange={(e) => setFunds(e.target.value)}
-            />
-            <small className="form-text text-muted">
-              Starting funds of the client.
-            </small>
-          </div> */}
           <button type="button" className="btn btn-info" onClick={create}>
             Create
           </button>

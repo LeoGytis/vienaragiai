@@ -19,8 +19,8 @@ class App
     {
         session_start();
 
-        header('Access-Control-Allow-Origin: *');
-        // header('Access-Control-Allow-Origin: http://localhost:3000');
+        // header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Origin: http://localhost:3000');
         header('Access-Control-Allow-Methods: GET, POST, DELETE, PUT');
         header("Access-Control-Allow-Headers: Authorization, Content-Type, X-Requested-With");
         header('Content-Type: application/json');
@@ -150,12 +150,12 @@ class App
 
         // ==================== LOGIN ====================
 
-        // if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-        //     header('Access-Control-Allow-Origin: *');
-        //     header('Access-Control-Allow-Origin: http://localhost:3000');
-        //     header("Access-Control-Allow-Headers: Authorization, Content-Type, X-Requested-With");
-        //     die;
-        // }
+        if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+            // header('Access-Control-Allow-Origin: *');
+            header('Access-Control-Allow-Origin: http://localhost:3000');
+            header("Access-Control-Allow-Headers: Authorization, Content-Type, X-Requested-With");
+            die;
+        }
 
         function getUser()
         {
@@ -173,7 +173,6 @@ class App
             return null;
         }
 
-
         if ('GET' == $m && count($uri) == 2 && $uri[0] === 'api' && $uri[1] === 'auth') {
             $user = getUser();
             if ($user) {
@@ -183,11 +182,9 @@ class App
             }
         }
 
-        // if ('GET' == $m && count($uri) == 2 && $uri[0] === 'api' && $uri[1] === 'login') {
-        if ($_GET['url'] == 'login') {
+        if ('POST' == $m && count($uri) == 2 && $uri[0] === 'api' && $uri[1] === 'login') {
             $rawData = file_get_contents("php://input");
             $data = json_decode($rawData, 1);
-            echo $data['name'];
             $db = new JsonDb('us');
             $users = $db->showAll();
 
@@ -222,6 +219,12 @@ class App
         }
 
         if ('PUT' == $m && count($uri) == 3 && $uri[0] == 'api' && $uri[1] === 'edit') {
+            $rawData = file_get_contents("php://input");
+            $data = json_decode($rawData, 1);
+            (new JsonDb('clients'))->update($uri[2], $data);
+        }
+
+        if ('PUT' == $m && count($uri) == 3 && $uri[0] == 'api' && $uri[1] === 'editfunds') {
             $rawData = file_get_contents("php://input");
             $data = json_decode($rawData, 1);
             (new JsonDb('clients'))->update($uri[2], $data);

@@ -1,9 +1,10 @@
 import axios from "axios";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useContext, useState, useEffect } from "react";
+import DataContext from "./DataContext";
 import { authConfig, login } from "../Functions/auth";
 
 function Login({ setRefresh }) {
+  // const { lastTimeUpdate, setLastTimeUpdate } = useContext(DataContext);
   const [loginData, setLoginData] = useState(null);
   const [name, setName] = useState("");
   const [pass, setPass] = useState("");
@@ -15,15 +16,16 @@ function Login({ setRefresh }) {
   useEffect(() => {
     if (loginData === null) return;
     axios
-      .post("http://bankas2.lt/api/?url=login", loginData, authConfig())
+      .post("http://bankas2.lt/api/login", loginData, authConfig())
       .then((res) => {
         if (res.data.token) {
           login(res.data.token);
+          // setLastTimeUpdate(Date.now());
+
           setRefresh((r) => !r);
           console.log("ISMETA");
         }
-        console.log(res.data);
-        console.log("NEISMETA");
+        console.log("NERA TOKENO");
       });
   }, [loginData, setRefresh]);
 

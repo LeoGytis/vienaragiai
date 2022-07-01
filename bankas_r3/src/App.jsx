@@ -6,6 +6,7 @@ import Login from "./Components/Login";
 import Home from "./Components/Home";
 import List from "./Components/List";
 import Create from "./Components/Create";
+import Funds from "./Components/Funds";
 import Edit from "./Components/Edit";
 import axios from "axios";
 import { authConfig, logout } from "./Functions/auth";
@@ -22,6 +23,9 @@ function App() {
   const [modalClient, setModalClient] = useState(null);
   const [message, setMessage] = useState("");
 
+  const [modalFunds, setModalFunds] = useState(null);
+  const [editFunds, setEditFunds] = useState(null);
+
   const [user, setUser] = useState(null);
   const [refresh, setRefresh] = useState(true);
 
@@ -29,6 +33,8 @@ function App() {
     axios.get("http://bankas2.lt/api/auth", authConfig()).then((res) => {
       if (res.data.user) {
         setUser(res.data.user);
+        // setLastTimeUpdate(Date.now());
+
         setRefresh((r) => !r);
       } else {
         setUser(null);
@@ -63,6 +69,13 @@ function App() {
       .then(() => setLastTimeUpdate(Date.now()));
   }, [editClient]);
 
+  useEffect(() => {
+    if (editFunds === null) return;
+    axios
+      .put("http://bankas2.lt/api/editfunds/" + editFunds.id, editFunds)
+      .then(() => setLastTimeUpdate(Date.now()));
+  }, [editFunds]);
+
   return (
     <DataContext.Provider
       value={{
@@ -73,10 +86,20 @@ function App() {
         modalClient,
         setModalClient,
         setEditClient,
+        modalFunds,
+        setModalFunds,
+        setEditFunds,
+        lastTimeUpdate,
+        setLastTimeUpdate,
       }}
     >
       <div className="container">
         <div className="row">
+          {/* {user ? (
+            <Home user={user} setRefresh={setRefresh} />
+          ) : (
+            <Login setRefresh={setRefresh} />
+          )} */}
           {user ? <List /> : <Login setRefresh={setRefresh} />}
 
           {/* <Create />
@@ -85,6 +108,7 @@ function App() {
           {/* <Home></Home> */}
         </div>
       </div>
+      <Funds></Funds>
       <Edit></Edit>
     </DataContext.Provider>
   );
