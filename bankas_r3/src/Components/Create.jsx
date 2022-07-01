@@ -24,7 +24,7 @@ function Create() {
         </div>
         <div className="card-body">
           <div className="form-group">
-            <div class="alert alert-info text-center" role="alert"></div>
+            <div className="alert alert-info text-center" role="alert"></div>
 
             <label>Name:</label>
             <input

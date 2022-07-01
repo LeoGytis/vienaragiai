@@ -27,20 +27,17 @@ function App() {
   const [editFunds, setEditFunds] = useState(null);
 
   const [user, setUser] = useState(null);
-  const [refresh, setRefresh] = useState(true);
+  // const [refresh, setRefresh] = useState(true);
 
   useEffect(() => {
     axios.get("http://bankas2.lt/api/auth", authConfig()).then((res) => {
       if (res.data.user) {
         setUser(res.data.user);
-        setLastTimeUpdate(Date.now());
-
-        // setRefresh((r) => !r);
       } else {
         setUser(null);
       }
     });
-  }, [refresh]);
+  }, [lastTimeUpdate]);
 
   useEffect(() => {
     axios.get("http://bankas2.lt/api/home").then((res) => setClients(res.data));
@@ -89,23 +86,19 @@ function App() {
         modalFunds,
         setModalFunds,
         setEditFunds,
-        lastTimeUpdate,
         setLastTimeUpdate,
       }}
     >
       <div className="container">
         <div className="row">
-          {/* {user ? (
-            <Home user={user} setRefresh={setRefresh} />
+          {user ? (
+            <>
+              <Create />
+              <List />
+            </>
           ) : (
-            <Login setRefresh={setRefresh} />
-          )} */}
-          {user ? <List /> : <Login />}
-
-          <Create />
-          {/* <List /> */}
-
-          {/* <Home></Home> */}
+            <Login />
+          )}
         </div>
       </div>
       <Funds></Funds>

@@ -4,7 +4,7 @@ import DataContext from "./DataContext";
 import { authConfig, login } from "../Functions/auth";
 
 function Login({ setRefresh }) {
-  // const { lastTimeUpdate, setLastTimeUpdate } = useContext(DataContext);
+  const { setLastTimeUpdate } = useContext(DataContext);
   const [loginData, setLoginData] = useState(null);
   const [name, setName] = useState("");
   const [pass, setPass] = useState("");
@@ -20,7 +20,7 @@ function Login({ setRefresh }) {
       .then((res) => {
         if (res.data.token) {
           login(res.data.token);
-          // setLastTimeUpdate(Date.now());
+          setLastTimeUpdate(Date.now());
 
           setRefresh((r) => !r);
           console.log("ISMETA");
@@ -28,7 +28,7 @@ function Login({ setRefresh }) {
         console.log(res.data);
         console.log("NERA TOKENO");
       });
-  }, [loginData, setRefresh]);
+  }, [loginData, setLastTimeUpdate]);
 
   return (
     <>
