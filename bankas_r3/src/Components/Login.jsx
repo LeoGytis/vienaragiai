@@ -25,6 +25,7 @@ function Login({ setRefresh }) {
           setRefresh((r) => !r);
           console.log("ISMETA");
         }
+        console.log(res.data);
         console.log("NERA TOKENO");
       });
   }, [loginData, setRefresh]);

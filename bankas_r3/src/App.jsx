@@ -33,9 +33,9 @@ function App() {
     axios.get("http://bankas2.lt/api/auth", authConfig()).then((res) => {
       if (res.data.user) {
         setUser(res.data.user);
-        // setLastTimeUpdate(Date.now());
+        setLastTimeUpdate(Date.now());
 
-        setRefresh((r) => !r);
+        // setRefresh((r) => !r);
       } else {
         setUser(null);
       }
@@ -100,10 +100,10 @@ function App() {
           ) : (
             <Login setRefresh={setRefresh} />
           )} */}
-          {user ? <List /> : <Login setRefresh={setRefresh} />}
+          {user ? <List /> : <Login />}
 
-          {/* <Create />
-          <List /> */}
+          <Create />
+          {/* <List /> */}
 
           {/* <Home></Home> */}
         </div>
