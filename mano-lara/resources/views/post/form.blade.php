@@ -8,3 +8,8 @@
     @csrf
     <button type="submit">skirtumas</button>
 </form>
+<ul>
+    @foreach ($colors as $color)
+    <li>{{$color->id}}: {{$color->color}}</li>
+    @endforeach
+</ul>

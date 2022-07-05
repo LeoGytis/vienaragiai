@@ -31,6 +31,13 @@ class AnimalController extends Controller
 // laravel new mano-lara (nekurti didziosiomis raidemis)
 // php artisan make:controller AnimalController
 
+// --------- MAKE MODEL ------------
+// php artisan make:model Color --all
+// php artisan migrate 
+
 // --------- LARA DUMP ----------
 // composer require --dev beyondcode/laravel-dump-server
 // php artisan dump-server
+
+
+// Color => colors 1:20:20
