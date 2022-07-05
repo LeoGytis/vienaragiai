@@ -27,7 +27,10 @@ class AnimalController extends Controller
     }
 }
 
+// --------- LARA START ------------
+// laravel new mano-lara (nekurti didziosiomis raidemis)
+// php artisan make:controller AnimalController
 
 // --------- LARA DUMP ----------
-//composer require --dev beyondcode/laravel-dump-server
-//php artisan dump-server
+// composer require --dev beyondcode/laravel-dump-server
+// php artisan dump-server

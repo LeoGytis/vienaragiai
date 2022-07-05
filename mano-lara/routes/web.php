@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnimalController;
+use App\Http\Controllers\SumaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,6 @@ Route::get('/barsukas', [AnimalController::class, 'barsukas']);   //[kontrolerio
 Route::get('/briedis/{id}', [AnimalController::class, 'briedis']);
 
 Route::get('/suma/{a}/{b?}', [AnimalController::class, 'suma']); // ? nurodo optional
+
+Route::get('/skirtumas', [SumaController::class, 'skirtumas'])->name('forma');
+Route::post('/skirtumas', [SumaController::class, 'skaiciuoti'])->name('skaiciuokle');
