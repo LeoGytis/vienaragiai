@@ -32,12 +32,9 @@ class AnimalController extends Controller
 // php artisan make:controller AnimalController
 
 // --------- MAKE MODEL ------------
-// php artisan make:model Color --all
+// php artisan make:model Color --all  (nerasyti --Colors-- daugiskaita)(rasyti is Didziosios raides)
 // php artisan migrate 
 
 // --------- LARA DUMP ----------
 // composer require --dev beyondcode/laravel-dump-server
 // php artisan dump-server
-
-
-// Color => colors 1:20:20

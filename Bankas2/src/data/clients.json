@@ -1,1 +1,26 @@
-[{"name":"Petras","surname":"Petraitis","funds":"3500","account_nr":"LT461010074451413353","social_id":"38612318822","id":2},{"name":"Tomas","surname":"Tomaitis","funds":"3434","account_nr":"LT511010046781090360","social_id":"38503150000","id":4},{"name":"Gytis","surname":"Leonavicius","social_id":"38503256655","id":32,"account_nr":"LT521010048193130737","funds":0}]
+[
+  {
+    "name": "Petras",
+    "surname": "Petraitis",
+    "funds": "3500",
+    "account_nr": "LT461010074451413353",
+    "social_id": "38612318822",
+    "id": 2
+  },
+  {
+    "name": "Tomas",
+    "surname": "Tomaitis",
+    "funds": "3434",
+    "account_nr": "LT511010046781090360",
+    "social_id": "38503150000",
+    "id": 4
+  },
+  {
+    "name": "Gytis",
+    "surname": "Leonavicius",
+    "social_id": "38503256655",
+    "id": 32,
+    "account_nr": "LT521010048193130737",
+    "funds": 0
+  }
+]

@@ -18,5 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/showclients', fn () => 'Valio, bebrams!');
-Route::get('/showclients', [C::class, 'rodyk']);
+Route::get('/showclients', [C::class, 'index']);
