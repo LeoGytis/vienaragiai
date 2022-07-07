@@ -1,3 +1,7 @@
+@extends('main')
+
+@section('content')
+
 @if($ro !== '')
 <h1>Rezultatas: {{$ro}}</h1>
 @endif
@@ -13,3 +17,8 @@
     <li>{{$color->id}}: {{$color->color}}</li>
     @endforeach
 </ul>
+@endsection
+
+@section('title')
+Bla bla bla here we go!
+@endsection
