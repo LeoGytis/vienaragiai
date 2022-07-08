@@ -18,4 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/showclients', [C::class, 'index']);
+Route::get('/clients', [C::class, 'index'])->name('clients-index');
+Route::get('/clients/create', [C::class, 'create']);
+Route::post('/clients', [C::class, 'store'])->name('clients-store');

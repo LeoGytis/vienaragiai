@@ -17,7 +17,6 @@ class ClientController extends Controller
     public function index()
     {
         $clients = Client::all();   // kaip pasiekia duomenu baze???
-
         return view('client.index', ['clients' => $clients]);
     }
 
@@ -28,7 +27,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('client.create');
     }
 
     /**
@@ -39,7 +38,15 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $iban = 'LT' . rand(40, 60) . '10100' . rand(10000000000, 99999999999);
+        $client = new Client;
+        $client->name = $request->name;
+        $client->surname = $request->surname;
+        $client->account_nr = $iban;
+        $client->social_id = $request->social_id;
+        $client->funds = 0;
+        $client->save();
+        return redirect()->route('clients-index');
     }
 
     /**
