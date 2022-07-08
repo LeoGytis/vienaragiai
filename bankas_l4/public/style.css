@@ -1,3 +1,46 @@
-body {
-    color: brown;
-}
+.one-client {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+/* .one-client > .content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+  } */
+  .h2 {
+        color: darkslategray;
+        padding-left: 10px;
+  }
+  .one-client-buttons {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+  }
+  
+  /* .card-header {
+  background: rgb(22,124,132);
+  background: linear-gradient(143deg, rgba(22,124,132,0.8606793059020483) 21%, rgba(20,85,90,0.9587185215883228) 94%);
+  } */
+  
+  .modal {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .nice-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+  }
+  
+  .nice-input input {
+    height: 20px;
+    font-size: 20px;
+  }
+  
+  button.up {
+    margin-top: 20px;
+  }

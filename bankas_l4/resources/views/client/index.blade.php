@@ -2,7 +2,7 @@
 
 @section('index-content')
 
-<div class="col-8">
+<div class="col-10">
     <a href="{{route('clients-create')}}">Add client</a>
     <div class="card mt-4">
         <div class="card-header">
@@ -15,15 +15,19 @@
                 @foreach($clients as $client)
                 <li class="list-group-item">
                     <div class="one-client">
-                        <div class="one-client__content">
+                        <div>
                             <b>{{$client->name}} {{$client->surname}}</b><br>
                             {{$client->account_nr}}<br>
                             {{$client->social_id}}<br>
-                            {{$client->funds}}€<br>
                         </div>
-                        <div class="one-client__buttons">
+                        <div class="d-flex flex-column bd-highlight text-center mb-3">
+                            <span class="font-weight-bold mt-3 mb-2">{{$client->funds}}€</span>
+                            <button type="button" class="btn btn-outline-info p-1" onClick={funds}>
+                                Funds
+                            </button>
+                        </div>
+                        <div class="one-client-buttons">
                             <a class="btn btn-info mr-3" href="{{route('clients-edit', $client)}}" role="button">Edit</a>
-
                             <form action="{{route('clients-delete', $client)}}" method="post">
                                 @csrf
                                 @method('delete')

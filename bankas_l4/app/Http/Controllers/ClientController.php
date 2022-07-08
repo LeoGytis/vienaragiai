@@ -40,10 +40,10 @@ class ClientController extends Controller
     {
         $iban = 'LT' . rand(40, 60) . '10100' . rand(10000000000, 99999999999);
         $client = new Client;
-        $client->name = $request->name;
-        $client->surname = $request->surname;
+        $client->name = $request->name_input;
+        $client->surname = $request->surname_input;
         $client->account_nr = $iban;
-        $client->social_id = $request->social_id;
+        $client->social_id = $request->social_id_input;
         $client->funds = 0;
         $client->save();
         return redirect()->route('clients-index');

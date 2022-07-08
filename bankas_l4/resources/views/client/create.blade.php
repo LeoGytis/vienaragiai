@@ -2,7 +2,7 @@
 
 @section('create-content')
 
-<div class="col-4 background-image">
+<div class="col-4">
     <div class="card mt-4">
         <div class="card-header">
             <h2>Add new client</h2>
@@ -12,13 +12,13 @@
                 <div class="alert alert-info text-center" role="alert"></div>
                 <form action="{{route('clients-store')}}" method="post">
                     <label>Name:</label>
-                    <input type="text" name="name">
+                    <input class="form-control mb-3" type="text" name="name_input">
                     <label>Surname:</label>
-                    <input type="text" name="surname">
+                    <input class="form-control mb-3" type="text" name="surname_input">
                     <label>Social ID:</label>
-                    <input type="text" name="social_id">
+                    <input class="form-control mb-3" type="text" name="social_id_input">
                     @csrf
-                    <button type="submit">Create</button>
+                    <button class="btn btn-info mt-4" type="submit">Create</button>
                 </form>
             </div>
         </div>
