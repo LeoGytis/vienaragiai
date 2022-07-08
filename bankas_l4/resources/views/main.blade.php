@@ -14,6 +14,7 @@
         <div class="row">
             @yield('index-content')
             @yield('create-content')
+            @yield('edit-content')
         </div>
     </div>
 

@@ -68,7 +68,7 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        //
+        return view('client.edit', ['client' => $client]);
     }
 
     /**
@@ -80,7 +80,11 @@ class ClientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
-        //
+        $client->name = $request->name_input;
+        $client->surname = $request->surname_input;
+        $client->social_id = $request->social_id_input;
+        $client->save();
+        return redirect()->route('clients-index');
     }
 
     /**
@@ -91,6 +95,7 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
-        //
+        $client->delete();
+        return redirect()->route('clients-index');
     }
 }

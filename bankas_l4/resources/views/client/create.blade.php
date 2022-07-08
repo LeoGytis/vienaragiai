@@ -1,13 +1,15 @@
+@extends('main')
+
 @section('create-content')
 
-<div className="col-4 background-image">
-    <div className="card mt-4">
-        <div className="card-header">
+<div class="col-4 background-image">
+    <div class="card mt-4">
+        <div class="card-header">
             <h2>Add new client</h2>
         </div>
-        <div className="card-body">
-            <div className="form-group">
-                <div className="alert alert-info text-center" role="alert"></div>
+        <div class="card-body">
+            <div class="form-group">
+                <div class="alert alert-info text-center" role="alert"></div>
                 <form action="{{route('clients-store')}}" method="post">
                     <label>Name:</label>
                     <input type="text" name="name">
