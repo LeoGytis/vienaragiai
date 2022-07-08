@@ -19,10 +19,13 @@
     align-items: center;
 }
   
-  /* .card-header {
-  background: rgb(22,124,132);
-  background: linear-gradient(143deg, rgba(22,124,132,0.8606793059020483) 21%, rgba(20,85,90,0.9587185215883228) 94%);
-  } */
+.card-header {
+    background: rgb(22,124,132);
+    background: linear-gradient(143deg, rgba(22,124,132,0.8606793059020483) 21%, rgba(20,85,90,0.9587185215883228) 94%);
+}
+.thin-line {
+    padding: 0.1rem 1.25rem;
+}
   
   .modal {
     display: block;

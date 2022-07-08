@@ -10,8 +10,7 @@
         </div>
         <div class="card-body">
             <ul class="list-group">
-                <div class="alert alert-info text-center" role="alert">
-                </div>
+                <div class="alert card-header thin-line" role="alert"></div>
                 @foreach($clients as $client)
                 <li class="list-group-item">
                     <div class="one-client">
@@ -39,6 +38,7 @@
                     </div>
                 </li>
                 @endforeach
+                <div class="alert card-header thin-line mt-3" role="alert"></div>
             </ul>
         </div>
     </div>

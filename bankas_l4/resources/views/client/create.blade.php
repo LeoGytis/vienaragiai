@@ -9,7 +9,7 @@
         </div>
         <div class="card-body">
             <div class="form-group">
-                <div class="alert alert-info text-center" role="alert"></div>
+                <div class="alert card-header thin-line" role="alert"></div>
                 <form action="{{route('clients-store')}}" method="post">
                     <label>Name:</label>
                     <input class="form-control mb-3" type="text" name="name_input">
@@ -18,8 +18,11 @@
                     <label>Social ID:</label>
                     <input class="form-control mb-3" type="text" name="social_id_input">
                     @csrf
-                    <button class="btn btn-info mt-4" type="submit">Create</button>
+                    <div class="alert card-header thin-line mt-4" role="alert"></div>
+
+                    <button class="btn btn-info card-header mt-4" type="submit">Create</button>
                 </form>
+
             </div>
         </div>
     </div>
