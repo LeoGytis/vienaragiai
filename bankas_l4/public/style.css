@@ -3,21 +3,21 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-  }
+}
 /* .one-client > .content {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-  } */
-  .h2 {
-        color: darkslategray;
-        padding-left: 10px;
-  }
-  .one-client-buttons {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-  }
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+} */
+.h2 {
+    color: darkslategray;
+    padding-left: 10px;
+}
+.one-client-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
   
   /* .card-header {
   background: rgb(22,124,132);

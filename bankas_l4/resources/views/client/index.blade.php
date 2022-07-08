@@ -2,7 +2,7 @@
 
 @section('index-content')
 
-<div class="col-10">
+<div class="col-10 mx-auto">
     <a href="{{route('clients-create')}}">Add client</a>
     <div class="card mt-4">
         <div class="card-header">

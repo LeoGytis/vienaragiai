@@ -2,25 +2,26 @@
 
 @section('edit-content')
 
-<div className="col-4 background-image">
-    <div className="card mt-4">
-        <div className="card-header">
+<div class="col-4 mx-auto">
+    <div class="card mt-4">
+        <div class="card-header">
             <h2>Edit client</h2>
         </div>
-        <div className="card-body">
-            <div className="form-group">
-                <div className="alert alert-info text-center" role="alert"></div>
+        <div class="card-body">
+            <div class="form-group">
+                <div class="alert alert-info text-center"></div>
                 <form action="{{route('clients-update', $client)}}" method="post">
                     <label>Name:</label>
-                    <input type="text" name="name_input" value="{{$client->name}}">
+                    <input class="form-control mb-3" type="text" name="name_input" value="{{$client->name}}">
                     <label>Surname:</label>
-                    <input type="text" name="surname_input" value="{{$client->surname}}">
+                    <input class="form-control mb-3" type="text" name="surname_input" value="{{$client->surname}}">
                     <label>Social ID:</label>
-                    <input type="text" name="social_id_input" value="{{$client->social_id}}">
+                    <input class="form-control mb-3" type="text" name="social_id_input" value="{{$client->social_id}}">
                     @csrf
                     @method('put')
-                    <button type="submit">Edit</button>
+                    <button class="col-3 btn btn-info mt-4 mb-4" type="submit">Edit</button>
                 </form>
+                <div class="alert alert-info text-center"></div>
             </div>
         </div>
     </div>

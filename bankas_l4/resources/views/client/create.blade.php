@@ -2,7 +2,7 @@
 
 @section('create-content')
 
-<div class="col-4">
+<div class="col-4 mx-auto">
     <div class="card mt-4">
         <div class="card-header">
             <h2>Add new client</h2>
