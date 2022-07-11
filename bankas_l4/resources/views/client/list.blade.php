@@ -2,24 +2,36 @@
 
 @section('content')
 
+
+
 <div class="col-10 mx-auto">
-    <a href="{{route('clients-create')}}">Add client</a>
     <div class="card mt-4">
+
         <div class="card-header">
             <h2>Clients List</h2>
         </div>
         <div class="card-body">
+            <div class="thin-line text-center mb-3">
+                @include('msg')
+            </div>
+            <div class="mb-3">
+                Sort by:
+                <a class="btn btn-outline-info mr-3" href="{{route('clients-index', ['sort' => 'name-asc'])}}" role="button">Name A-Z</a>
+                <a class="btn btn-outline-info mr-3" href="{{route('clients-index', ['sort' => 'name-desc'])}}" role="button">Name Z-A</a>
+                <a class="btn btn-outline-info mr-3" href="{{route('clients-index', ['sort' => 'surname'])}}" role="button">Lastname</a>
+                <a class="btn btn-outline-info mr-3" href="{{route('clients-index', ['sort' => 'age'])}}" role="button">Age</a>
+                <a class="btn btn-outline-info mr-3" href="{{route('clients-index', ['sort' => 'funds'])}}" role="button">Funds</a>
+            </div>
             <ul class="list-group">
-                <div class="thin-line text-center mb-3">
-                    @include('msg')
-                </div>
+
                 @foreach($clients as $client)
-                <li class="list-group-item">
+                <li class="list-group-item list-group-item-action">
                     <div class="one-client">
                         <div>
                             <b>{{$client->name}} {{$client->surname}}</b><br>
                             {{$client->account_nr}}<br>
                             {{$client->social_id}}<br>
+                            <a class="btn btn-outline-info mr-3" href="{{route('clients-show', $client->id)}}" role="button">More info</a>
                         </div>
                         <div class="d-flex flex-column bd-highlight text-center mb-3">
                             <span class="font-weight-bold mt-3 mb-2">{{$client->funds}}€</span>
@@ -40,7 +52,7 @@
                     </div>
                 </li>
                 @endforeach
-                <div class="alert card-header thin-line mt-3"></div>
+                <div class="thin-line mt-3"></div>
             </ul>
         </div>
     </div>

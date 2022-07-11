@@ -14,9 +14,20 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $clients = Client::all();   // kaip pasiekia duomenu baze???
+        // $clients = Client::all(); // paprasta uzklausa is duomenu bazes -> grazina kolekciju bloka
+        // $clients = Client::where('id', '>', 10)->orderBy('name', 'asc')->get(); //kur ID daugiau uz 10
+        // $clients = Client::orderBy('name', 'asc')->get();
+
+        $clients = match ($request->sort) {
+            'name-asc' => Client::orderBy('name', 'asc')->get(),
+            'name-desc' => Client::orderBy('name', 'desc')->get(),
+            'surname' => Client::orderBy('surname', 'asc')->get(),
+            'age' => Client::orderBy('social_id', 'asc')->get(),
+            'funds' => Client::orderBy('funds', 'asc')->get(),
+            default => Client::all()
+        };
         return view('client.list', ['clients' => $clients]);
     }
 
@@ -55,9 +66,11 @@ class ClientController extends Controller
      * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function show(Client $client)
+    public function show(int $clientId)
     {
-        //
+        $client = Client::where('id', '=', $clientId)->first(); //uzklausa grazina viena rezultata
+
+        return view('client.show', ['client' => $client]);
     }
 
     /**

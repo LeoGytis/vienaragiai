@@ -15,15 +15,13 @@ use App\Http\Controllers\FundsController as Funds;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/clients', [C::class, 'index'])->name('clients-index');
 Route::get('/clients/create', [C::class, 'create'])->name('clients-create');
 Route::post('/clients', [C::class, 'store'])->name('clients-store');
 Route::get('/clients/edit/{client}', [C::class, 'edit'])->name('clients-edit');
 Route::put('/clients/{client}', [C::class, 'update'])->name('clients-update');
 Route::delete('/clients/{client}', [C::class, 'destroy'])->name('clients-delete');
+
+Route::get('/clients/show/{id}', [C::class, 'show'])->name('clients-show');
 
 Route::get('/clients/funds', [Funds::class, '']);

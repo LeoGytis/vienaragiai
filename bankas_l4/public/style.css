@@ -25,10 +25,12 @@
 .pop-msg {
   color: white;
   font-size: 20px;
-
 }
 
-  
+.nav-logo {
+  width: 200px;
+}
+
 .modal {
   display: block;
   background-color: rgba(0, 0, 0, 0.5);
