@@ -46,7 +46,7 @@ class ClientController extends Controller
         $client->social_id = $request->social_id_input;
         $client->funds = 0;
         $client->save();
-        return redirect()->route('clients-index')->with('success', 'Client was creted');
+        return redirect()->route('clients-index')->with('success', 'New client was creted');
     }
 
     /**
@@ -68,7 +68,7 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        return view('client.edit', ['client' => $client]);
+        return view('client.edit', ['client' => $client])->with('success', 'You have edited a client');
     }
 
     /**
