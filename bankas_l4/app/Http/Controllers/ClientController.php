@@ -17,7 +17,7 @@ class ClientController extends Controller
     public function index()
     {
         $clients = Client::all();   // kaip pasiekia duomenu baze???
-        return view('client.index', ['clients' => $clients]);
+        return view('client.list', ['clients' => $clients]);
     }
 
     /**
@@ -68,7 +68,7 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        return view('client.edit', ['client' => $client])->with('success', 'You have edited a client');
+        return view('client.edit', ['client' => $client]);
     }
 
     /**
@@ -84,7 +84,7 @@ class ClientController extends Controller
         $client->surname = $request->surname_input;
         $client->social_id = $request->social_id_input;
         $client->save();
-        return redirect()->route('clients-index');
+        return redirect()->route('clients-index')->with('success', 'You have edited the client');
     }
 
     /**
@@ -96,6 +96,6 @@ class ClientController extends Controller
     public function destroy(Client $client)
     {
         $client->delete();
-        return redirect()->route('clients-index');
+        return redirect()->route('clients-index')->with('success', 'You have deleted the client');
     }
 }
