@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('index-content')
+@section('content')
 
 <div class="col-10 mx-auto">
     <a href="{{route('clients-create')}}">Add client</a>
@@ -10,7 +10,9 @@
         </div>
         <div class="card-body">
             <ul class="list-group">
-                <div class="alert card-header thin-line" role="alert"></div>
+                <div class="thin-line text-center mb-3">
+                    @include('msg')
+                </div>
                 @foreach($clients as $client)
                 <li class="list-group-item">
                     <div class="one-client">
@@ -38,7 +40,7 @@
                     </div>
                 </li>
                 @endforeach
-                <div class="alert card-header thin-line mt-3" role="alert"></div>
+                <div class="alert card-header thin-line mt-3"></div>
             </ul>
         </div>
     </div>

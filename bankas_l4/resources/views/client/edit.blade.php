@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('edit-content')
+@section('content')
 
 <div class="col-4 mx-auto">
     <div class="card mt-4">

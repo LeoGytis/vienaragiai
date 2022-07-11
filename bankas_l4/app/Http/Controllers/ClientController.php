@@ -46,7 +46,7 @@ class ClientController extends Controller
         $client->social_id = $request->social_id_input;
         $client->funds = 0;
         $client->save();
-        return redirect()->route('clients-index');
+        return redirect()->route('clients-index')->with('success', 'Client was creted');
     }
 
     /**

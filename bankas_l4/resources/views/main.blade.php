@@ -11,9 +11,7 @@
 <body>
     <div class="container">
         <div class="row">
-            @yield('index-content')
-            @yield('create-content')
-            @yield('edit-content')
+            @yield('content')
         </div>
     </div>
 

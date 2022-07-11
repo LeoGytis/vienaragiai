@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController as C; //nepamirsti pasi'usinti
+use App\Http\Controllers\FundsController as Funds;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,5 @@ Route::post('/clients', [C::class, 'store'])->name('clients-store');
 Route::get('/clients/edit/{client}', [C::class, 'edit'])->name('clients-edit');
 Route::put('/clients/{client}', [C::class, 'update'])->name('clients-update');
 Route::delete('/clients/{client}', [C::class, 'destroy'])->name('clients-delete');
+
+Route::get('/clients/funds', [Funds::class, '']);
