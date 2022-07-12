@@ -9,7 +9,7 @@
     <title>Makena Investing @yield('title')</title>
 </head>
 <body>
-    @include('nav')
+    @include('parts.nav')
     <div class="container">
         <div class="row">
             @yield('content')
