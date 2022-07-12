@@ -4,12 +4,12 @@
 
 <div class="col-10 mx-auto">
     <div class="card mt-4">
-        <div class="card-header">
+        <div class="card-header card-color">
             <h2>Clients List</h2>
         </div>
         <div class="card-body">
-            <div class="thin-line text-center mb-3">
-                @include('msg')
+            <div class="thin-line card-color text-center mb-3">
+                @include('.parts.msg')
             </div>
             <div class="mb-3">
                 @include('parts.sort')
@@ -23,11 +23,11 @@
                             <b>{{$client->name}} {{$client->surname}}</b><br>
                             {{$client->account_nr}}<br>
                             {{$client->social_id}}<br>
-                            <a class="btn btn-outline-info mr-3" href="{{route('clients-show', $client->id)}}" role="button">More info</a>
+                            <a class="btn btn-outline-info btn-sm" href="{{route('clients-show', $client->id)}}" role="button">More info</a>
                         </div>
                         <div class="d-flex flex-column bd-highlight text-center mb-3">
                             <span class="font-weight-bold mt-3 mb-2">{{$client->funds}}€</span>
-                            <button type="button" class="btn btn-outline-info p-1" onClick={funds}>
+                            <button type="button" class="btn btn-outline-info p-1">
                                 Funds
                             </button>
                         </div>
@@ -44,7 +44,7 @@
                     </div>
                 </li>
                 @endforeach
-                <div class="thin-line mt-3"></div>
+                <div class="thin-line card-color mt-3"></div>
             </ul>
         </div>
     </div>
