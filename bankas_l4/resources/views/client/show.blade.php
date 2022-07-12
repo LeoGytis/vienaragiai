@@ -8,9 +8,8 @@
             <h2>{{$client->name}} {{$client->surname}}</h2>
         </div>
         <div class="card-body">
+            <div class="thin-line card-color text-center mb-3"></div>
             <ul class="list-group">
-                <div class="thin-line text-center mb-3">
-                </div>
                 <li class="list-group-item">
                     <div class="one-client">
                         <div>
@@ -23,8 +22,9 @@
                         </div>
                     </div>
                 </li>
-                <div class="thin-line mt-3"></div>
+                <div class="thin-line card-color text-center mt-3"></div>
             </ul>
         </div>
     </div>
-    @endsection
+</div>
+@endsection

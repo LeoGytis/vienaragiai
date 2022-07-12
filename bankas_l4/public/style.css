@@ -29,7 +29,15 @@
   width: 300px;
 }
 
-.modal {
-  display: block;
-  background-color: rgba(0, 0, 0, 0.5);
+.droppy {
+  display: inline-block;
 }
+
+.drop-pop{
+  display: none
+}
+ 
+.droppy:hover  .drop-pop{
+  display: inline-block;
+}
+

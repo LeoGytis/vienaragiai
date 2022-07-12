@@ -15,6 +15,8 @@ use App\Http\Controllers\FundsController as Funds;
 |
 */
 
+// ========================== CLIENTS ==========================
+
 Route::get('/clients', [C::class, 'index'])->name('clients-index');
 Route::get('/clients/create', [C::class, 'create'])->name('clients-create');
 Route::post('/clients', [C::class, 'store'])->name('clients-store');
@@ -23,5 +25,8 @@ Route::put('/clients/{client}', [C::class, 'update'])->name('clients-update');
 Route::delete('/clients/{client}', [C::class, 'destroy'])->name('clients-delete');
 Route::get('/clients/show/{id}', [C::class, 'show'])->name('clients-show');
 
-Route::get('/clients/funds/{id}', [Funds::class, 'funds'])->name('clients-funds');
-Route::get('/clients/funds', [Funds::class, '']);
+// ========================== FUNDS ==========================
+
+Route::get('/clients/funds/{client}', [C::class, 'funds'])->name('clients-funds');
+Route::put('/clients/addfunds/{client}', [C::class, 'addfunds'])->name('clients-addfunds');
+Route::put('/clients/withdrawfunds/{client}', [C::class, 'withdrawfunds'])->name('clients-withdrawfunds');

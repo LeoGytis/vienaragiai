@@ -1,30 +1,49 @@
 @extends('main')
 
+@section('title')
+- transfer your money no the universe!
+@endsection
+
 @section('content')
 
-<div class="col-10 mx-auto">
+<div class="col-6 mx-auto">
     <div class="card mt-4">
         <div class="card-header card-color">
-            <h2>{{$client->name}} {{$client->surname}}</h2>
+            <h2>Transfer your money</h2>
         </div>
         <div class="card-body">
+            <div class="thin-line card-color text-center mb-3">
+                @include('.parts.msg')
+            </div>
             <ul class="list-group">
-                <div class="thin-line text-center mb-3">
-                </div>
                 <li class="list-group-item">
                     <div class="one-client">
                         <div>
-                            Account number: {{$client->account_nr}}<br>
-                            Social ID: {{$client->social_id}}<br>
-                            Created at: {{$client->created_at}}<br>
+                            <b>{{$client->name}} {{$client->surname}}</b><br>
+                            {{$client->account_nr}}<br>
                         </div>
                         <div class="d-flex flex-column bd-highlight text-center mb-3">
                             <span class="font-weight-bold mt-3 mb-2">{{$client->funds}}€</span>
                         </div>
                     </div>
                 </li>
-                <div class="thin-line mt-3"></div>
             </ul>
+            <div class="thin-line card-color text-center mt-3"></div>
+            <form action="{{route('clients-addfunds', $client)}}" method="post">
+                <label>Add or withdraw money:</label>
+                <input class="form-control mb-3" type="text" name="addfunds_input">
+                @csrf
+                @method('put')
+                <button class="col-4 btn btn-info card-header card-color mt-4 mb-4" type="submit">Add</button>
+            </form>
+            <form action="{{route('clients-withdrawfunds', $client)}}" method="post">
+                <label>Add or withdraw money:</label>
+                <input class="form-control mb-3" type="text" name="withdrawfunds_input">
+                @csrf
+                @method('put')
+                <button class="col-4 btn btn-info card-header card-color mt-4 mb-4" type="submit">withdraw</button>
+            </form>
         </div>
     </div>
-    @endsection
+</div>
+@endsection

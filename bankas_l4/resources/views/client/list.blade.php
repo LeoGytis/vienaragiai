@@ -22,17 +22,11 @@
                         <div>
                             <b>{{$client->name}} {{$client->surname}}</b><br>
                             {{$client->account_nr}}<br>
-                            {{$client->social_id}}<br>
                             <a class="btn btn-outline-info btn-sm" href="{{route('clients-show', $client->id)}}" role="button">More info</a>
                         </div>
-                        <div class="d-flex flex-column bd-highlight text-center mb-3">
-                            <span class="font-weight-bold mt-3 mb-2">{{$client->funds}}€</span>
-                            <button type="button" class="btn btn-outline-info p-1">
-                                Funds
-                            </button>
-                        </div>
+                        <a class="btn btn-outline-info pr-4 pl-4 font-weight-bold" href="{{route('clients-funds', $client)}}">{{$client->funds}}€</a>
                         <div class="one-client-buttons">
-                            <a class="btn btn-info mr-3" href="{{route('clients-edit', $client)}}" role="button">Edit</a>
+                            <a class="btn btn-info mr-3" href="{{route('clients-edit', $client)}}">Edit</a>
                             <form action="{{route('clients-delete', $client)}}" method="post">
                                 @csrf
                                 @method('delete')

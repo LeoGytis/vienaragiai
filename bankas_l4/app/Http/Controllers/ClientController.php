@@ -23,9 +23,10 @@ class ClientController extends Controller
         $clients = match ($request->sort) {
             'name-asc' => Client::orderBy('name', 'asc')->get(),
             'name-desc' => Client::orderBy('name', 'desc')->get(),
-            'surname' => Client::orderBy('surname', 'asc')->get(),
-            'age' => Client::orderBy('social_id', 'asc')->get(),
-            'funds' => Client::orderBy('funds', 'asc')->get(),
+            'surname-asc' => Client::orderBy('surname', 'asc')->get(),
+            'surname-desc' => Client::orderBy('surname', 'desc')->get(),
+            'funds-asc' => Client::orderBy('funds', 'asc')->get(),
+            'funds-desc' => Client::orderBy('funds', 'desc')->get(),
             default => Client::all()
         };
         return view('client.list', ['clients' => $clients]);
@@ -108,7 +109,32 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
+        if ($client->funds > 0) {
+            return redirect()->route('clients-index')->with('success', 'This client still has money in the account');
+        }
         $client->delete();
         return redirect()->route('clients-index')->with('success', 'You have deleted the client');
+    }
+
+    public function funds(Client $client)
+    {
+        return view('client.funds', ['client' => $client]);
+    }
+
+    public function addFunds(Request $request, Client $client)
+    {
+        $client->funds += $request->addfunds_input;
+        $client->save();
+        return redirect()->route('clients-funds', $client)->with('success', '$$$ You have added the money $$$');
+    }
+
+    public function withdrawFunds(Request $request, Client $client)
+    {
+        if ($client->funds - $request->addfunds_input < 0) {
+            return redirect()->route('clients-funds', $client)->with('success', 'Can not withdraw so much money!');
+        }
+        $client->funds -= $request->addfunds_input;
+        $client->save();
+        return redirect()->route('clients-funds', $client)->with('success', 'Money is gone!');
     }
 }
