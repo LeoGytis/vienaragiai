@@ -130,10 +130,10 @@ class ClientController extends Controller
 
     public function withdrawFunds(Request $request, Client $client)
     {
-        if ($client->funds - $request->addfunds_input < 0) {
+        if ($client->funds - $request->withdrawfunds_input < 0) {
             return redirect()->route('clients-funds', $client)->with('success', 'Can not withdraw so much money!');
         }
-        $client->funds -= $request->addfunds_input;
+        $client->funds -= $request->withdrawfunds_input;
         $client->save();
         return redirect()->route('clients-funds', $client)->with('success', 'Money is gone!');
     }
