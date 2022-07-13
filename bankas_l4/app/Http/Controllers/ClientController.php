@@ -137,4 +137,19 @@ class ClientController extends Controller
         $client->save();
         return redirect()->route('clients-funds', $client)->with('success', 'Money is gone!');
     }
+
+    public function editFunds(Request $request, Client $client)
+    {
+        switch ($request->input('action')) {
+            case 'add':
+                $client->funds += $request->addfunds_input;
+                $client->save();
+                return redirect()->route('clients-funds', $client)->with('success', '$$$ You have added the money $$$');
+                break;
+
+            case 'withdraw':
+                // Preview model
+                break;
+        }
+    }
 }

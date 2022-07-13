@@ -5,7 +5,9 @@
         </a>
     </div>
     <div class="ml-5">
+       
         <a class="btn btn-info card-color ml-5 p-2" href="{{route('clients-create')}}">Add client</a>
         <a class="btn btn-info card-color ml-2 p-2" href="{{route('clients-index')}}">Client list</a>
+        
     </div>
 </nav>

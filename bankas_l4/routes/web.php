@@ -15,6 +15,11 @@ use App\Http\Controllers\FundsController as Funds;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
+
 // ========================== CLIENTS ==========================
 
 Route::get('/clients', [C::class, 'index'])->name('clients-index');
@@ -30,3 +35,10 @@ Route::get('/clients/show/{id}', [C::class, 'show'])->name('clients-show');
 Route::get('/clients/funds/{client}', [C::class, 'funds'])->name('clients-funds');
 Route::put('/clients/addfunds/{client}', [C::class, 'addfunds'])->name('clients-addfunds');
 Route::put('/clients/withdrawfunds/{client}', [C::class, 'withdrawfunds'])->name('clients-withdrawfunds');
+
+
+Route::put('/clients/editfunds/{client}', [C::class, 'editfunds'])->name('clients-editfunds');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

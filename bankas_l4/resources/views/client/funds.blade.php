@@ -29,7 +29,20 @@
                 </li>
             </ul>
             <div class="thin-line card-color text-center mt-3"></div>
-            <form action="{{route('clients-addfunds', $client)}}" method="post">
+            <form  method="put">
+                <label>Add or withdraw money:</label>
+                <input class="form-control mb-3" type="text" name="addfunds_input">
+                @csrf
+                {{-- @method('put') --}}
+                <button type="submit" name="action" value="add" class="col-4 btn btn-info card-header card-color mt-4 mb-4">Add</button>
+                <button type="submit" name="action" value="withdraw" class="col-4 btn btn-info card-header card-color mt-4 mb-4">Withdraw</button>
+
+            </form>
+
+
+
+
+            {{-- <form action="{{route('clients-addfunds', $client)}}" method="post">
                 <label>Add or withdraw money:</label>
                 <input class="form-control mb-3" type="text" name="addfunds_input">
                 @csrf
@@ -41,8 +54,8 @@
                 <input class="form-control mb-3" type="text" name="withdrawfunds_input">
                 @csrf
                 @method('put')
-                <button class="col-4 btn btn-info card-header card-color mt-4 mb-4" type="submit">withdraw</button>
-            </form>
+                <button class="col-4 btn btn-info card-header card-color mt-4 mb-4" type="submit">Withdraw</button>
+            </form> --}}
         </div>
     </div>
 </div>
