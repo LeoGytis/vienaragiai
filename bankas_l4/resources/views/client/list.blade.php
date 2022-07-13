@@ -22,7 +22,7 @@
                         <div>
                             <b>{{$client->name}} {{$client->surname}}</b><br>
                             {{$client->account_nr}}<br>
-                            <a class="btn btn-outline-info btn-sm" href="{{route('clients-show', $client->id)}}" role="button">More info</a>
+                            <a class="btn btn-link btn-sm pl-0" href="{{route('clients-show', $client->id)}}" role="button">More info</a>
                         </div>
                         <a class="btn btn-outline-info pr-4 pl-4 font-weight-bold" href="{{route('clients-funds', $client)}}">{{$client->funds}}€</a>
                         <div class="one-client-buttons">
