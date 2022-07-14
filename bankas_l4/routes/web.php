@@ -41,4 +41,5 @@ Route::put('/clients/editfunds/{client}', [C::class, 'editfunds'])->name('client
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [C::class, 'index'])->name('clients-index');
