@@ -1,4 +1,3 @@
--- Create client pasirinkti kliento spalva
 -- Logo besisukantis
 -- Filtruoti pagal spalvas
 -- Puslapiavimas
