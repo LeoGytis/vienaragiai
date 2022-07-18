@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 15);
+            $table->string('name', 25);
             $table->string('surname', 25);
             $table->float('funds', 12, 2);
             $table->string('account_nr', 20);

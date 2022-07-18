@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
+        $faker = Faker::create('lt_LT');
 
         // ========================== COLORS ==========================
 
@@ -47,7 +47,7 @@ class DatabaseSeeder extends Seeder
             $social_id = rand(3, 4) . rand(0, 99) . sprintf("%02d", rand(1, 12)) . sprintf("%02d", rand(1, 31)) . rand(0000, 9999);
 
             DB::table('clients')->insert([
-                'name' => $name[rand(0, count($name) - 1)],
+                'name' => $faker->firstNameMale,
                 'surname' => $surname[rand(0, count($surname) - 1)],
                 'funds' => rand(0, 10000),
                 'account_nr' => $faker->iban('LT'),
