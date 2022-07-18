@@ -25,6 +25,7 @@
                             <a class="btn btn-link btn-sm pl-0" href="{{route('clients-show', $client->id)}}" role="button">More info</a>
                         </div>
                         <a class="btn btn-outline-info pr-4 pl-4 font-weight-bold" href="{{route('clients-funds', $client)}}">{{$client->funds}}€</a>
+                        @if (Auth::user()->role > 9)
                         <div class="one-client-buttons">
                             <a class="btn btn-info mr-3" href="{{route('clients-edit', $client)}}">Edit</a>
                             <form action="{{route('clients-delete', $client)}}" method="post">
@@ -35,6 +36,7 @@
                                 </button>
                             </form>
                         </div>
+                        @endif
                     </div>
                 </li>
                 @endforeach

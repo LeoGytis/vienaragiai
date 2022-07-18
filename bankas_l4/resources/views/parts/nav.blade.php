@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
-        <a href="http://localhost/vienaragiai/bankas_l4/public/clients">
+        <a href="http://localhost/vienaragiai/bankas_l4/public/home">
             <img class="nav-logo mr-5" src="/vienaragiai/bankas_l4/public/images/logo1.png">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

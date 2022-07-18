@@ -23,12 +23,14 @@ class DatabaseSeeder extends Seeder
         $surname = ['Jonaitis', 'Petraitis', 'Jurgaitis', 'Antanaitis', 'Tomaitis', 'Romaitis'];
 
         foreach (range(1, 10) as $_) {
+            $social_id = rand(3, 4) . rand(0, 99) . sprintf("%02d", rand(1, 12)) . sprintf("%02d", rand(1, 31)) . rand(0000, 9999);
+
             DB::table('clients')->insert([
-                'name' => $faker->firstNameMale,
-                'surname' => $faker->lastName,
+                'name' => $name[rand(0, count($name) - 1)],
+                'surname' => $surname[rand(0, count($surname) - 1)],
                 'funds' => rand(0, 10000),
                 'account_nr' => $faker->iban('LT'),
-                'social_id' => rand(3, 4) . rand(0, 99) . rand(0, 12318888),
+                'social_id' => $social_id,
             ]);
         }
 

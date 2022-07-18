@@ -1,0 +1,4 @@
+-- Sukurti nauja spalvu CRUD arba seeder
+-- Sujungti spalvas su clientais
+-- Logo besisukantis
+-- Client created at: date

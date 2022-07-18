@@ -25,7 +25,7 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <a href="{{ url('/clients') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
@@ -36,7 +36,7 @@
                 </div>
             @endif
 
-            <a href="http://localhost/vienaragiai/bankas_l4/public/clients">
+            <a href="http://localhost/vienaragiai/bankas_l4/public/login">
                 <img class="first-logo mr-5" src="/vienaragiai/bankas_l4/public/images/main-logo.png">
             </a>
             
