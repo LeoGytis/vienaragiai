@@ -19,6 +19,27 @@ class DatabaseSeeder extends Seeder
     {
         $faker = Faker::create();
 
+        // ========================== COLORS ==========================
+
+        $color = ['greenyellow', 'skyblue', 'goldenrod'];
+
+        DB::table('colors')->insert([
+            'name' => 'greenyellow',
+        ]);
+
+        DB::table('colors')->insert([
+            'name' => 'skyblue',
+        ]);
+
+        DB::table('colors')->insert([
+            'name' => 'gold',
+        ]);
+        DB::table('colors')->insert([
+            'name' => 'lightcoral',
+        ]);
+
+        // ========================== CLIENTS ==========================
+
         $name = ['Jonas', 'Petras', 'Jurgis', 'Antanas', 'Tomas', 'Romas'];
         $surname = ['Jonaitis', 'Petraitis', 'Jurgaitis', 'Antanaitis', 'Tomaitis', 'Romaitis'];
 
@@ -31,8 +52,12 @@ class DatabaseSeeder extends Seeder
                 'funds' => rand(0, 10000),
                 'account_nr' => $faker->iban('LT'),
                 'social_id' => $social_id,
+                'created_at' => date('Y-m-d H:i:s'),
+                'color_id' => rand(1, 4),
             ]);
         }
+
+        // ========================== USERS ==========================
 
         DB::table('users')->insert([
             'name' => 'Mu Mu',
@@ -47,6 +72,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('123'),
             'role' => 10,
         ]);
+
         DB::table('users')->insert([
             'name' => 'Gytis Leonavicius',
             'email' => 'leogytis@gmail.com',

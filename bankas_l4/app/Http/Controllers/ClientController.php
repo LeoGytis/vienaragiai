@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use Illuminate\Http\Request;
+use App\Models\Color;
 // use App\Http\Requests\StoreClientRequest;
 // use App\Http\Requests\UpdateClientRequest;
 
@@ -45,7 +46,8 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('client.create');
+        $colors = Color::all();
+        return view('client.create', ['colors' => $colors]);
     }
 
     /**
@@ -62,6 +64,7 @@ class ClientController extends Controller
         $client->surname = $request->surname_input;
         $client->account_nr = $iban;
         $client->social_id = $request->social_id_input;
+        $client->color_id = $request->color_id_input;
         $client->funds = 0;
         $client->save();
         return redirect()->route('clients-index')->with('success', 'New client was creted');
@@ -88,7 +91,8 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        return view('client.edit', ['client' => $client]);
+        $colors = Color::all();
+        return view('client.edit', ['client' => $client, 'colors' => $colors]);
     }
 
     /**
@@ -103,6 +107,7 @@ class ClientController extends Controller
         $client->name = $request->name_input;
         $client->surname = $request->surname_input;
         $client->social_id = $request->social_id_input;
+        $client->color_id = $request->color_id_input;
         $client->save();
         return redirect()->route('clients-index')->with('success', 'You have edited the client');
     }

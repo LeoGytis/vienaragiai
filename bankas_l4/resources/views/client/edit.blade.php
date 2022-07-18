@@ -21,6 +21,12 @@
                     <input class="form-control mb-3" type="text" name="surname_input" value="{{$client->surname}}">
                     <label>Social ID:</label>
                     <input class="form-control mb-3" type="text" name="social_id_input" value="{{$client->social_id}}">
+                    <label>Color:</label>
+                    <select name="color_id_input" class="ml-3" >
+                        @foreach ($colors as $color) 
+                            <option value="{{$color->id}}" style="background-color: {{$color->name}}" @if($color->id == $client->color_id)selected @endif>{{$color->name}}</option>
+                        @endforeach
+                    </select>
                     @csrf
                     @method('put')
                     <div class="thin-line card-color mb-4"></div>

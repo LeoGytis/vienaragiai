@@ -21,6 +21,12 @@
                     <input class="form-control mb-3" type="text" name="surname_input">
                     <label>Social ID:</label>
                     <input class="form-control mb-3" type="text" name="social_id_input">
+                    <label>Color:</label>
+                    <select name="color_id_input" class="ml-3" >
+                        @foreach ($colors as $color) 
+                            <option value="{{$color->id}}" style="background-color: {{$color->name}}">{{$color->name}}</option>
+                        @endforeach
+                    </select>
                     @csrf
                     <div class="thin-line card-color mt-4"></div>
                     <button class="btn btn-info card-header card-color mt-4" type="submit">Create</button>
