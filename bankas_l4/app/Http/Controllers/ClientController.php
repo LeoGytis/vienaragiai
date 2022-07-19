@@ -36,6 +36,7 @@ class ClientController extends Controller
             'funds-desc' => Client::orderBy('funds', 'desc')->get(),
             default => Client::all()
         };
+
         return view('client.list', ['clients' => $clients]);
     }
 

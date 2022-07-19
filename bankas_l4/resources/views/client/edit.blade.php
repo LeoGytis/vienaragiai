@@ -30,7 +30,9 @@
                     @csrf
                     @method('put')
                     <div class="thin-line card-color mb-4"></div>
-                    <button class="col-4 btn btn-info card-header card-color mt-4 mb-4" type="submit">Edit</button>
+                    <div class="d-flex justify-content-center">
+                        <button class="col-4 btn btn-info card-header card-color" type="submit">Edit</button>
+                    </div>
                 </form>
             </div>
         </div>

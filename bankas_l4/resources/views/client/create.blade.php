@@ -29,7 +29,9 @@
                     </select>
                     @csrf
                     <div class="thin-line card-color mt-4"></div>
-                    <button class="btn btn-info card-header card-color mt-4" type="submit">Create</button>
+                    <div class="d-flex justify-content-center">
+                        <button class="btn btn-info card-header card-color mt-4" type="submit">Create</button>
+                    </div>
                 </form>
 
             </div>

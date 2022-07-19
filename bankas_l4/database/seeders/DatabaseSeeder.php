@@ -24,18 +24,18 @@ class DatabaseSeeder extends Seeder
         $color = ['greenyellow', 'skyblue', 'goldenrod'];
 
         DB::table('colors')->insert([
-            'name' => 'greenyellow',
+            'name' => 'darkseagreen',
         ]);
 
         DB::table('colors')->insert([
-            'name' => 'skyblue',
+            'name' => 'khaki',
         ]);
 
         DB::table('colors')->insert([
-            'name' => 'gold',
+            'name' => 'moccasin',
         ]);
         DB::table('colors')->insert([
-            'name' => 'lightcoral',
+            'name' => 'honeydew',
         ]);
 
         // ========================== CLIENTS ==========================
