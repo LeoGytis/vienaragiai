@@ -1,7 +1,3 @@
-.first-logo {
-  width: 800px;
-}
-
 .card-color {
   background: rgb(22,124,132);
   background: linear-gradient(143deg, rgba(22,124,132,0.8606793059020483) 21%, rgba(20,85,90,0.9587185215883228) 94%);
@@ -45,4 +41,32 @@
 .droppy:hover  .drop-pop{
   display: inline-block;
 }
+.logo-place {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
+.logo-spin {
+  margin-bottom: 50px;
+  width: 200px;
+  height: 200px;
+  animation-name: spin;
+  animation-duration: 20000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+  /* transform: rotate(3deg); */
+   /* transform: rotate(0.3rad);/ */
+   /* transform: rotate(3grad); */ 
+   /* transform: rotate(.03turn);  */
+}
+
+@keyframes spin {
+  from {
+      transform:rotate(0deg);
+  }
+  to {
+      transform:rotate(360deg);
+  }
+}

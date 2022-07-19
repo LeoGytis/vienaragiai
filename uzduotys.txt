@@ -1,3 +1,7 @@
--- Logo besisukantis
 -- Filtruoti pagal spalvas
+-- Search
 -- Puslapiavimas
+
+
+--Daktaras
+--Telesoftas
