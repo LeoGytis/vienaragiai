@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AutoshopController as Auto;
+use App\Http\Controllers\AutoshopController as Autoshop;
 use App\Http\Controllers\ServiceController as Service;
 use App\Http\Controllers\MechanicController as Mechanic;
 use App\Http\Controllers\ClientController as Client;
@@ -29,11 +29,24 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // ========================== AUTOSHOPS ==========================
 
 Route::group(['prefix' => 'autoshops'], function () {
-    Route::get('', [Auto::class, 'index'])->name('auto.index');
-    Route::get('create', [Auto::class, 'create'])->name('auto.create');
-    Route::post('store', [Auto::class, 'store'])->name('auto.store');
-    Route::get('edit/{auto}', [Auto::class, 'edit'])->name('auto.edit');
-    Route::post('update/{auto}', [Auto::class, 'update'])->name('auto.update');
-    Route::post('delete/{auto}', [Auto::class, 'destroy'])->name('auto.destroy');
-    Route::get('show/{auto}', [Auto::class, 'show'])->name('auto.show');
+    Route::get('', [Autoshop::class, 'index'])->name('autoshop.index');
+    Route::get('create', [Autoshop::class, 'create'])->name('autoshop.create');
+    Route::post('store', [Autoshop::class, 'store'])->name('autoshop.store');
+    Route::get('edit/{autoshop}', [Autoshop::class, 'edit'])->name('autoshop.edit');
+    Route::post('update/{autoshop}', [Autoshop::class, 'update'])->name('autoshop.update');
+    Route::post('delete/{autoshop}', [Autoshop::class, 'destroy'])->name('autoshop.destroy');
+    Route::get('show/{autoshop}', [Autoshop::class, 'show'])->name('autoshop.show');
+});
+
+
+// ========================== SERVICES ==========================
+
+Route::group(['prefix' => 'services'], function () {
+    Route::get('', [Service::class, 'index'])->name('service.index');
+    Route::get('create', [Service::class, 'create'])->name('service.create');
+    Route::post('store', [Service::class, 'store'])->name('service.store');
+    Route::get('edit/{service}', [Service::class, 'edit'])->name('service.edit');
+    Route::post('update/{service}', [Service::class, 'update'])->name('service.update');
+    Route::post('delete/{service}', [Service::class, 'destroy'])->name('service.destroy');
+    Route::get('show/{service}', [Service::class, 'show'])->name('service.show');
 });

@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('time');
-            $table->string('price');
+            $table->integer('time');
+            $table->integer('price');
             $table->unsignedBigInteger('autoshop_id');
             $table->foreign('autoshop_id')->references('id')->on('autoshops');
             $table->timestamps();

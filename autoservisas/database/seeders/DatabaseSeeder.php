@@ -8,8 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Faker\Factory as Faker;
 
-
-
+use function Symfony\Component\String\s;
 
 class DatabaseSeeder extends Seeder
 {
@@ -25,9 +24,21 @@ class DatabaseSeeder extends Seeder
         // ========================== AUTOSHOPS ==========================
         foreach (range(1, 10) as $_) {
             DB::table('autoshops')->insert([
-                'name' => $faker->firstNameMale . ' ' . $faker->lastNameMale,
+                'name' => $faker->company,
                 'address' => $faker->address,
                 'phone_nr' => $faker->phoneNumber,
+            ]);
+        }
+
+        // ========================== AUTOSHOPS ==========================
+        foreach (range(1, 10) as $_) {
+            $services = ['Tires change', 'Oil/Fluid Leak Inspection', 'Battery diagnostic', 'Break pad replacement', 'Car belt change', 'Vacuum Pump Repair', 'Speedometer Cable Repair', 'Endgine diagnostic', 'Paint job', 'Cooling System Flush', 'Fuel Pump Replacement'];
+
+            DB::table('services')->insert([
+                'name' => $services[rand(0, count($services) - 1)],
+                'time' => rand(10, 120),
+                'price' => rand(20, 200),
+                'autoshop_id' => rand(1, 10),
             ]);
         }
 

@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Autoshop;
-use App\Http\Requests\StoreAutoshopRequest;
-use App\Http\Requests\UpdateAutoshopRequest;
+use Illuminate\Http\Request;
+// use App\Http\Requests\StoreAutoshopRequest;   // NEREIKIA
+// use App\Http\Requests\UpdateAutoshopRequest;  // NEREIKIA
 
 class AutoshopController extends Controller
 {
@@ -15,7 +16,8 @@ class AutoshopController extends Controller
      */
     public function index()
     {
-        //
+        $autoshops = Autoshop::all();
+        return view('autoshop.index', ['autoshops' => $autoshops]);
     }
 
     /**
@@ -25,7 +27,7 @@ class AutoshopController extends Controller
      */
     public function create()
     {
-        //
+        return view('autoshop.create');
     }
 
     /**
@@ -34,9 +36,14 @@ class AutoshopController extends Controller
      * @param  \App\Http\Requests\StoreAutoshopRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAutoshopRequest $request)
+    public function store(Request $request)
     {
-        //
+        $autoshop = new Autoshop;
+        $autoshop->name = $request->autoshop_name;
+        $autoshop->address = $request->autoshop_address;
+        $autoshop->phone_nr = $request->autoshop_phone_nr;
+        $autoshop->save();
+        return redirect()->route('autoshop.index');
     }
 
     /**
@@ -58,7 +65,7 @@ class AutoshopController extends Controller
      */
     public function edit(Autoshop $autoshop)
     {
-        //
+        return view('autoshop.edit', ['autoshop' => $autoshop]);
     }
 
     /**
@@ -68,9 +75,13 @@ class AutoshopController extends Controller
      * @param  \App\Models\Autoshop  $autoshop
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAutoshopRequest $request, Autoshop $autoshop)
+    public function update(Request $request, Autoshop $autoshop)
     {
-        //
+        $autoshop->name = $request->autoshop_name;
+        $autoshop->address = $request->autoshop_address;
+        $autoshop->phone_nr = $request->autoshop_phone_nr;
+        $autoshop->save();
+        return redirect()->route('autoshop.index');
     }
 
     /**
@@ -81,6 +92,7 @@ class AutoshopController extends Controller
      */
     public function destroy(Autoshop $autoshop)
     {
-        //
+        $autoshop->delete();
+        return redirect()->route('autoshop.index');
     }
 }
