@@ -22,9 +22,10 @@
                     <label>Social ID:</label>
                     <input class="form-control mb-3" type="text" name="social_id_input">
                     <label>Color:</label>
-                    <select name="color_id_input" class="ml-3" >
-                        @foreach ($colors as $color) 
-                            <option value="{{$color->id}}" style="background-color: {{$color->name}}">{{$color->name}}</option>
+                    <select name="color_id_input" class="ml-3">
+                        @foreach ($colors as $color)
+                        <option value="{{$color->id}}" style="background-color: {{$color->name}}">{{$color->name}}
+                        </option>
                         @endforeach
                     </select>
                     @csrf
