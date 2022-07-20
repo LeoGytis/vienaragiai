@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('mechanics', function (Blueprint $table) {
+        Schema::create('autoshops', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('surname');
-            $table->string('photo');
-            $table->integer('rating');
-            $table->unsignedBigInteger('autoshop_id');
-            $table->foreign('autoshop_id')->references('id')->on('autoshops');
+            $table->string('address');
+            $table->string('phone_nr');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mechanics');
+        Schema::dropIfExists('autoshops');
     }
 };

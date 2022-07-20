@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('date');
+            $table->unsignedBigInteger('autoshop_id');
+            $table->foreign('autoshop_id')->references('id')->on('autoshops');
             $table->timestamps();
         });
     }
