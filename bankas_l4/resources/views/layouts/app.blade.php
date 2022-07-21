@@ -50,34 +50,6 @@
                         </li>
                         @endif
                         @else
-                        <div>LABAS
-                        </div>
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Autoshops
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('autoshop.index') }}">
-                                    Autoshops List
-                                </a>
-                                <a class="dropdown-item" href="{{ route('autoshop.create') }}">
-                                    New Autoshop
-                                </a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Mechanics
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('mechanic.index') }}">
-                                    Mechanics List
-                                </a>
-                                <a class="dropdown-item" href="{{ route('mechanic.create') }}">
-                                    New Mechanic
-                                </a>
-                            </div>
-                        </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Services
