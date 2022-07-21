@@ -31,18 +31,6 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        // ========================== SERVICES ==========================
-        foreach (range(1, 10) as $_) {
-            $services = ['Tires change', 'Oil/Fluid Leak Inspection', 'Battery diagnostic', 'Break pad replacement', 'Car belt change', 'Vacuum Pump Repair', 'Speedometer Cable Repair', 'Endgine diagnostic', 'Paint job', 'Cooling System Flush', 'Fuel Pump Replacement'];
-
-            DB::table('services')->insert([
-                'name' => $services[rand(0, count($services) - 1)],
-                'time' => rand(10, 120),
-                'price' => rand(20, 200),
-                'autoshop_id' => rand(1, 10),
-            ]);
-        }
-
         // ========================== MECHANICS ==========================
         foreach (range(1, 10) as $_) {
 
@@ -55,15 +43,17 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        // // ========================== CLIENTS ==========================
-        // foreach (range(1, 10) as $_) {
+        // ========================== SERVICES ==========================
+        foreach (range(1, 10) as $_) {
+            $services = ['Tires change', 'Oil/Fluid Leak Inspection', 'Battery diagnostic', 'Break pad replacement', 'Car belt change', 'Vacuum Pump Repair', 'Speedometer Cable Repair', 'Endgine diagnostic', 'Paint job', 'Cooling System Flush', 'Fuel Pump Replacement'];
 
-        //     DB::table('mechanics')->insert([
-        //         'name' => $faker->firstNameMale,
-        //         'date' => $faker->date,
-        //         'autoshop_id' => rand(1, 10),
-        //     ]);
-        // }
+            DB::table('services')->insert([
+                'name' => $services[rand(0, count($services) - 1)],
+                'time' => rand(10, 120),
+                'price' => rand(20, 200),
+                'mechanic_id' => rand(1, 10),
+            ]);
+        }
 
         // ========================== USERS ==========================
         DB::table('users')->insert([

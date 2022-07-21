@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Autoservice;
-use App\Http\Requests\StoreAutoserviceRequest;
-use App\Http\Requests\UpdateAutoserviceRequest;
+use App\Models\Order;
+use App\Http\Requests\StoreOrderRequest;
+use App\Http\Requests\UpdateOrderRequest;
 
-class AutoserviceController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class AutoserviceController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreAutoserviceRequest  $request
+     * @param  \App\Http\Requests\StoreOrderRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAutoserviceRequest $request)
+    public function store(StoreOrderRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class AutoserviceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Autoservice  $autoservice
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Autoservice $autoservice)
+    public function show(Order $order)
     {
         //
     }
@@ -53,10 +53,10 @@ class AutoserviceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Autoservice  $autoservice
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function edit(Autoservice $autoservice)
+    public function edit(Order $order)
     {
         //
     }
@@ -64,11 +64,11 @@ class AutoserviceController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateAutoserviceRequest  $request
-     * @param  \App\Models\Autoservice  $autoservice
+     * @param  \App\Http\Requests\UpdateOrderRequest  $request
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAutoserviceRequest $request, Autoservice $autoservice)
+    public function update(UpdateOrderRequest $request, Order $order)
     {
         //
     }
@@ -76,10 +76,10 @@ class AutoserviceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Autoservice  $autoservice
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Autoservice $autoservice)
+    public function destroy(Order $order)
     {
         //
     }

@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->integer('time');
             $table->integer('price');
-            $table->unsignedBigInteger('autoshop_id');
-            $table->foreign('autoshop_id')->references('id')->on('autoshops');
+            $table->unsignedBigInteger('mechanic_id');
+            $table->foreign('mechanic_id')->references('id')->on('mechanics');
             $table->timestamps();
         });
     }
