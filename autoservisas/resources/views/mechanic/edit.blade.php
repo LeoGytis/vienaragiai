@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Create new autoshop</div>
+                <div class="card-header">Edit information of the mechanic</div>
                 <div class="card-body">
                     <form method="POST" action="{{route('mechanic.update',$mechanic)}}">
                         Name: <input type="text" name="mechanic_name" value="{{$mechanic->name}}">

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Autoshops list</div>
+                <div class="card-header">List of Autoshops</div>
                 <div class="card-body">
                     @foreach ($autoshops as $autoshop)
                     {{$autoshop->name}}<br>

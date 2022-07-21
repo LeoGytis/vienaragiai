@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
-use App\Models\Autoshop as Auto;
+use App\Models\Autoshop;
+use App\Models\Mechanic;
 use Illuminate\Http\Request;
 // use App\Http\Requests\StoreAutoshopRequest;   // NEREIKIA
 // use App\Http\Requests\UpdateAutoshopRequest;  // NEREIKIA
@@ -28,8 +29,8 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        $autoshops = Auto::all();
-        return view('services.create', ['autoshops' => $autoshops]);
+        $mechanics = Mechanic::all();
+        return view('service.create', ['mechanics' => $mechanics]);
     }
 
     /**
@@ -44,7 +45,7 @@ class ServiceController extends Controller
         $service->name = $request->service_name;
         $service->time = $request->service_time;
         $service->price = $request->service_price;
-        $service->autoshop_id = $request->autoshop_id;
+        $service->mechanic_id = $request->mechanic_id;
         $service->save();
         return redirect()->route('service.index');
     }
@@ -68,8 +69,8 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        $autoshops = Auto::all();
-        return view('services.edit', ['service' => $service, 'autoshops' => $autoshops]);
+        $mechanics = Mechanic::all();
+        return view('service.edit', ['service' => $service, 'mechanics' => $mechanics]);
     }
 
     /**
@@ -84,7 +85,7 @@ class ServiceController extends Controller
         $service->name = $request->service_name;
         $service->time = $request->service_time;
         $service->price = $request->service_price;
-        $service->autoshop_id = $request->autoshop_id;
+        $service->mechanic_id = $request->mechanic_id;
         $service->save();
         return redirect()->route('service.index');
     }

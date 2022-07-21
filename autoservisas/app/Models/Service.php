@@ -9,8 +9,8 @@ class Service extends Model
 {
     use HasFactory;
 
-    public function serviceAutoshop()
+    public function serviceMechanic()
     {
-        return $this->belongsTo('App\Models\Autoshop', 'autoshop_id', 'id');
+        return $this->belongsTo('App\Models\Mechanic', 'mechanic_id', 'id');
     }
 }
