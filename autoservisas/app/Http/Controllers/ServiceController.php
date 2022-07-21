@@ -68,7 +68,8 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        //
+        $autoshops = Auto::all();
+        return view('services.edit', ['service' => $service, 'autoshops' => $autoshops]);
     }
 
     /**
@@ -80,7 +81,12 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        //
+        $service->name = $request->service_name;
+        $service->time = $request->service_time;
+        $service->price = $request->service_price;
+        $service->autoshop_id = $request->autoshop_id;
+        $service->save();
+        return redirect()->route('service.index');
     }
 
     /**
@@ -91,6 +97,7 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+        $service->delete();
+        return redirect()->route('service.index');
     }
 }

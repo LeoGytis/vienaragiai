@@ -92,7 +92,10 @@ class AutoshopController extends Controller
      */
     public function destroy(Autoshop $autoshop)
     {
+        if ($autoshop->autoshopServices->count()) {
+            return 'Trinti negalima, nes turi servisus';
+        }
         $autoshop->delete();
-        return redirect()->route('autoshop.index');
+        return redirect()->route('autoshop.index');  // <<--------------- DAR SUSIZIURETI
     }
 }

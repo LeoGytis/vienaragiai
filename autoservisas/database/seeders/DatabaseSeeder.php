@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create('lt_LT');
+        // $faker->addProvider(new Bluemmb\Faker\PicsumPhotosProvider($faker));
 
         // ========================== AUTOSHOPS ==========================
         foreach (range(1, 10) as $_) {
@@ -30,7 +31,7 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        // ========================== AUTOSHOPS ==========================
+        // ========================== SERVICES ==========================
         foreach (range(1, 10) as $_) {
             $services = ['Tires change', 'Oil/Fluid Leak Inspection', 'Battery diagnostic', 'Break pad replacement', 'Car belt change', 'Vacuum Pump Repair', 'Speedometer Cable Repair', 'Endgine diagnostic', 'Paint job', 'Cooling System Flush', 'Fuel Pump Replacement'];
 
@@ -42,9 +43,29 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
+        // ========================== MECHANICS ==========================
+        foreach (range(1, 10) as $_) {
+
+            DB::table('mechanics')->insert([
+                'name' => $faker->firstNameMale,
+                'surname' => $faker->lastNameMale,
+                'photo' => 'imageUrl',
+                'rating' => rand(1, 10),
+                'autoshop_id' => rand(1, 10),
+            ]);
+        }
+
+        // // ========================== CLIENTS ==========================
+        // foreach (range(1, 10) as $_) {
+
+        //     DB::table('mechanics')->insert([
+        //         'name' => $faker->firstNameMale,
+        //         'date' => $faker->date,
+        //         'autoshop_id' => rand(1, 10),
+        //     ]);
+        // }
 
         // ========================== USERS ==========================
-
         DB::table('users')->insert([
             'name' => 'Auto',
             'email' => 'auto@gmail.com',
