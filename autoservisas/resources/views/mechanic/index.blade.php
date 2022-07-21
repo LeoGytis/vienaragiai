@@ -1,14 +1,15 @@
-@foreach ($services as $service)
-{{$service->name}}<br>
-{{$service->time}}<br>
-{{$service->price}}<br>
-{{$service->serviceAutoshop->name}}<br>
-{{$service->serviceAutoshop->address}}<br>
+@foreach ($mechanics as $mechanic)
+{{$mechanic->name}}<br>
+{{$mechanic->surname}}<br>
+{{$mechanic->photo}}<br>
+{{$mechanic->rating}}<br>
+{{$mechanic->mechanicAutoshop->name}}<br>
+{{$mechanic->mechanicAutoshop->address}}<br>
 
-<a href="{{route('service.edit',[$service])}}">EDIT</a>
+<a href="{{route('mechanic.edit',[$mechanic])}}">EDIT</a>
 
 
-<form method="POST" action="{{route('service.destroy', [$service])}}">
+<form method="POST" action="{{route('mechanic.destroy', [$mechanic])}}">
     @csrf
     <button type="submit">DELETE</button>
 </form>

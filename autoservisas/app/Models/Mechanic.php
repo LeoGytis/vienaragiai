@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Mechanic extends Model
 {
     use HasFactory;
+
+    public function mechanicAutoshop()
+    {
+        return $this->belongsTo('App\Models\Autoshop', 'autoshop_id', 'id');
+    }
 }

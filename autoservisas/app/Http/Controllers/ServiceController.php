@@ -18,7 +18,7 @@ class ServiceController extends Controller
     public function index()
     {
         $services = Service::all();
-        return view('services.index', ['services' => $services]);
+        return view('service.index', ['services' => $services]);
     }
 
     /**

@@ -41,13 +41,13 @@ Route::group(['prefix' => 'autoshops'], function () {
 // ========================== MECHANICS ==========================
 
 Route::group(['prefix' => 'mechanics'], function () {
-    Route::get('', [Mecahnic::class, 'index'])->name('mecahnic.index');
-    Route::get('create', [Mecahnic::class, 'create'])->name('mecahnic.create');
-    Route::post('store', [Mecahnic::class, 'store'])->name('mecahnic.store');
-    Route::get('edit/{mecahnic}', [Mecahnic::class, 'edit'])->name('mecahnic.edit');
-    Route::post('update/{mecahnic}', [Mecahnic::class, 'update'])->name('mecahnic.update');
-    Route::post('delete/{mecahnic}', [Mecahnic::class, 'destroy'])->name('mecahnic.destroy');
-    Route::get('show/{mecahnic}', [Mecahnic::class, 'show'])->name('mecahnic.show');
+    Route::get('', [Mechanic::class, 'index'])->name('mechanic.index');
+    Route::get('create', [Mechanic::class, 'create'])->name('mechanic.create');
+    Route::post('store', [Mechanic::class, 'store'])->name('mechanic.store');
+    Route::get('edit/{mechanic}', [Mechanic::class, 'edit'])->name('mechanic.edit');
+    Route::post('update/{mechanic}', [Mechanic::class, 'update'])->name('mechanic.update');
+    Route::post('delete/{mechanic}', [Mechanic::class, 'destroy'])->name('mechanic.destroy');
+    Route::get('show/{mechanic}', [Mechanic::class, 'show'])->name('mechanic.show');
 });
 
 // ========================== SERVICES ==========================

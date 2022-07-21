@@ -1,10 +1,11 @@
-<form method="POST" action="{{route('service.update',$service)}}">
-    Name: <input type="text" name="service_name" value="{{$service->name}}">
-    Time: <input type="text" name="service_time" value="{{$service->time}}">
-    Price: <input type="text" name="service_price" value="{{$service->price}}">
+<form method="POST" action="{{route('mechanic.update',$mechanic)}}">
+    Name: <input type="text" name="mechanic_name" value="{{$mechanic->name}}">
+    Last name: <input type="text" name="mechanic_surname" value="{{$mechanic->surname}}">
+    Photo: <input type="text" name="mechanic_photo" value="{{$mechanic->photo}}">
+    Rating: <input type="text" name="mechanic_rating" value="{{$mechanic->rating}}">
     <select name="autoshop_id">
         @foreach ($autoshops as $autoshop)
-        <option value="{{$autoshop->id}}" @if($autoshop->id == $service->autoshop_id) selected @endif>
+        <option value="{{$autoshop->id}}" @if($autoshop->id == $mechanic->autoshop_id) selected @endif>
             {{$autoshop->name}} {{$autoshop->address}}
         </option>
         @endforeach
