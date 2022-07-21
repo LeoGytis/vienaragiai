@@ -13,4 +13,9 @@ class Mechanic extends Model
     {
         return $this->belongsTo('App\Models\Autoshop', 'autoshop_id', 'id');
     }
+
+    public function servicesCount()
+    {
+        return $this->hasMany('App\Models\Service', 'mechanic_id', 'id');
+    }
 }

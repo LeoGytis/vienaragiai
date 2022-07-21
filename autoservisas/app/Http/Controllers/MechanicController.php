@@ -100,6 +100,9 @@ class MechanicController extends Controller
      */
     public function destroy(Mechanic $mechanic)
     {
+        if ($mechanic->servicesCount->count()) {
+            return 'Trinti negalima, nes turi servisu';
+        }
         $mechanic->delete();
         return redirect()->route('mechanic.index');
     }

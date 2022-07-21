@@ -9,13 +9,8 @@ class Autoshop extends Model
 {
     use HasFactory;
 
-    public function autoshopMechanics()
+    public function mechanicCount()
     {
-        return $this->hasMany('App\Models\Mechanic', 'author_id', 'id');
-    }
-
-    public function autoshopServices()
-    {
-        return $this->hasMany('App\Models\Service', 'autoshop_id', 'id');
+        return $this->hasMany('App\Models\Mechanic', 'autoshop_id', 'id');
     }
 }
