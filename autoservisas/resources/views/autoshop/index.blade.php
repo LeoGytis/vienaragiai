@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">List of Autoshops</div>
+            <div class="card card-color">
+                <div class="card-header header-color">List of Autoshops</div>
                 <div class="card-body">
                     @foreach ($autoshops as $autoshop)
                     {{$autoshop->name}}<br>

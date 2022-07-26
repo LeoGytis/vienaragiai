@@ -1,3 +1,36 @@
+.back-img {
+  background-image: url(http://localhost/vienaragiai/autoservisas/public/images/car-back5.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-bottom: 40rem !important;
+}
+
+.navbar-logo {
+  height: 80px;
+}
+
+.navbar {
+  border-bottom: solid 1px rgb(164,37,124);
+}
+
+.card-header{
+  background: rgb(164,37,124);
+  background: linear-gradient(143deg, rgba(164,37,124,0.65) 36%, rgba(225,29,49,0.65) 95%);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.card {
+  background-color: rgba(53, 51, 51, 0.552);
+  color: white;
+  border-style: solid 2px;
+  border-color: rgb(164,37,124);
+  box-shadow: 2px 2px 5px rgb(164,37,124);
+}
+
+
+
 .logo-place {
     display: flex;
     flex-direction: column;
