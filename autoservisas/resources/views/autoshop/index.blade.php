@@ -8,15 +8,20 @@
                 <div class="card-header header-color">List of Autoshops</div>
                 <div class="card-body">
                     @foreach ($autoshops as $autoshop)
-                    {{$autoshop->name}}<br>
-                    {{$autoshop->address}}<br>
-                    {{$autoshop->phone_nr}}<br>
-                    <a href="{{route('autoshop.edit',$autoshop)}}">EDIT</a><br>
-                    <form method="POST" action="{{route('autoshop.destroy', $autoshop)}}">
-                        @csrf
-                        <button type="submit">DELETE</button>
-                    </form>
-                    -------------<br>
+                    <div class="list-info mb-3">
+                        <div class="info">
+                            {{$autoshop->name}}<br>
+                            {{$autoshop->address}}<br>
+                            {{$autoshop->phone_nr}}<br>
+                        </div>
+                        <div class="list-buttons">
+                            <a class="btn btn-outline-success" href="{{route('autoshop.edit',$autoshop)}}">EDIT</a><br>
+                            <form method="POST" action="{{route('autoshop.destroy', $autoshop)}}">
+                                @csrf
+                                <button class="btn btn-outline-secondary ms-3" type="submit">DELETE</button>
+                            </form>
+                        </div>
+                    </div>
                     @endforeach
                 </div>
             </div>

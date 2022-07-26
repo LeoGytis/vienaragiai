@@ -3,26 +3,28 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header">List of Mechanics</div>
                 <div class="card-body">
                     @foreach ($mechanics as $mechanic)
-                    {{$mechanic->name}}<br>
-                    {{$mechanic->surname}}<br>
-                    {{$mechanic->photo}}<br>
-                    {{$mechanic->rating}}<br>
-                    {{$mechanic->mechanicAutoshop->name}}<br>
-                    {{$mechanic->mechanicAutoshop->address}}<br>
-
-                    <a href="{{route('mechanic.edit',[$mechanic])}}">EDIT</a>
-
-
-                    <form method="POST" action="{{route('mechanic.destroy', [$mechanic])}}">
-                        @csrf
-                        <button type="submit">DELETE</button>
-                    </form>
-                    <br>
+                    <div class="list-info mb-3">
+                        <div class="info">
+                            {{$mechanic->name}}<br>
+                            {{$mechanic->surname}}<br>
+                            {{-- {{$mechanic->photo}}<br> --}}
+                            <b>Rating: </b>{{$mechanic->rating}}<br>
+                            {{-- {{$mechanic->mechanicAutoshop->name}}<br>
+                            {{$mechanic->mechanicAutoshop->address}}<br> --}}
+                        </div>
+                        <div class="list-buttons">
+                            <a class="btn btn-outline-success" href="{{route('mechanic.edit',[$mechanic])}}">EDIT</a>
+                            <form method="POST" action="{{route('mechanic.destroy', [$mechanic])}}">
+                                @csrf
+                                <button class="btn btn-outline-secondary ms-3" type="submit">DELETE</button>
+                            </form>
+                        </div>
+                    </div>
                     @endforeach
                 </div>
             </div>
