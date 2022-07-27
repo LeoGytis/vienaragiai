@@ -13,8 +13,9 @@
                             {{$service->name}}<br>
                             <b>Time: </b>{{$service->time}}<br>
                             <b>Price: </b>{{$service->price}}<br>
-                            {{-- <a class="btn btn-link btn-sm pl-0" href="{{route('service-show', $service->id)}}"
-                            role="button">More info</a> --}}
+
+                            <a class="btn btn-link btn-sm pl-0" href="{{route('service.show', $service->id)}}"
+                                role="button">More info</a>
 
                             {{-- {{$service->serviceMechanic->name}}<br>
                             {{$service->serviceMechanic->surname}}<br> --}}

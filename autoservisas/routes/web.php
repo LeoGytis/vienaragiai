@@ -35,7 +35,7 @@ Route::group(['prefix' => 'autoshops'], function () {
     Route::get('edit/{autoshop}', [Autoshop::class, 'edit'])->name('autoshop.edit');
     Route::post('update/{autoshop}', [Autoshop::class, 'update'])->name('autoshop.update');
     Route::post('delete/{autoshop}', [Autoshop::class, 'destroy'])->name('autoshop.destroy');
-    Route::get('show/{autoshop}', [Autoshop::class, 'show'])->name('autoshop.show');
+    Route::get('show/{autoshopid}', [Autoshop::class, 'show'])->name('autoshop.show');
 });
 
 // ========================== MECHANICS ==========================
@@ -47,7 +47,7 @@ Route::group(['prefix' => 'mechanics'], function () {
     Route::get('edit/{mechanic}', [Mechanic::class, 'edit'])->name('mechanic.edit');
     Route::post('update/{mechanic}', [Mechanic::class, 'update'])->name('mechanic.update');
     Route::post('delete/{mechanic}', [Mechanic::class, 'destroy'])->name('mechanic.destroy');
-    Route::get('show/{mechanic}', [Mechanic::class, 'show'])->name('mechanic.show');
+    Route::get('show/{mechanicid}', [Mechanic::class, 'show'])->name('mechanic.show');
 });
 
 // ========================== SERVICES ==========================

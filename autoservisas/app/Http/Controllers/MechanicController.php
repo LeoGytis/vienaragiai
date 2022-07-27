@@ -6,6 +6,7 @@ use App\Models\Mechanic;
 // use App\Http\Requests\StoreMechanicRequest;
 // use App\Http\Requests\UpdateMechanicRequest;
 use App\Models\Autoshop;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class MechanicController extends Controller
@@ -57,9 +58,13 @@ class MechanicController extends Controller
      * @param  \App\Models\Mechanic  $mechanic
      * @return \Illuminate\Http\Response
      */
-    public function show(Mechanic $mechanic)
+    public function show(int $mechanicId)
     {
-        //
+        $services = Service::all();
+
+        $mechanic = Mechanic::where('id', '=', $mechanicId)->first();  //uzklausa grazina viena rezultata
+
+        return view('mechanic.show', ['mechanic' => $mechanic, 'services' => $services]);
     }
 
     /**

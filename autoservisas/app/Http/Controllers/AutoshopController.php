@@ -52,9 +52,11 @@ class AutoshopController extends Controller
      * @param  \App\Models\Autoshop  $autoshop
      * @return \Illuminate\Http\Response
      */
-    public function show(Autoshop $autoshop)
+    public function show(int $autoshopId)
     {
-        //
+        $autoshop = Autoshop::where('id', '=', $autoshopId)->first();  //uzklausa grazina viena rezultata
+
+        return view('autoshop.show', ['autoshop' => $autoshop]);
     }
 
     /**

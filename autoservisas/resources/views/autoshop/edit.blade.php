@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Edit your Autoshop</div>
+                <div class="card-header">Edit your Autoshop {{$autoshop->name}}</div>
                 <div class="card-body">
                     <form method="POST" action="{{route('autoshop.update',$autoshop)}}">
                         Name: <input type="text" name="autoshop_name" value="{{$autoshop->name}}">
