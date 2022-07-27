@@ -43,7 +43,7 @@ class AutoshopController extends Controller
         $autoshop->address = $request->autoshop_address;
         $autoshop->phone_nr = $request->autoshop_phone_nr;
         $autoshop->save();
-        return redirect()->route('autoshop.index');
+        return redirect()->route('autoshop.index')->with('success_message', 'Successfully created!');
     }
 
     /**
@@ -81,7 +81,7 @@ class AutoshopController extends Controller
         $autoshop->address = $request->autoshop_address;
         $autoshop->phone_nr = $request->autoshop_phone_nr;
         $autoshop->save();
-        return redirect()->route('autoshop.index');
+        return redirect()->route('autoshop.index')->with('success_message', 'Successfully edited!');
     }
 
     /**
@@ -93,10 +93,10 @@ class AutoshopController extends Controller
     public function destroy(Autoshop $autoshop)
     {
         if ($autoshop->mechanicCount()->count()) {
-            return 'Trinti negalima, nes turi mechanikus';
+            return redirect()->route('autoshop.index')->with('success_message', 'Can not delete because it has mechanics!');
         }
 
         $autoshop->delete();
-        return redirect()->route('autoshop.index');
+        return redirect()->route('autoshop.index')->with('success_message', 'Successfully deleted!');
     }
 }

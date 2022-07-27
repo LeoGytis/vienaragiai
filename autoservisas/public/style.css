@@ -31,6 +31,10 @@
   height: 80px;
 }
 
+.navbar-menu {
+  height: 50px;
+}
+
 .navbar {
   border-bottom: solid 1px rgb(164,37,124);
 }
@@ -59,6 +63,13 @@
   /* -moz-box-shadow: 0 0 10px rgb(179, 84, 149);
   -webkit-box-shadow: 0 0 10px rgb(179, 84, 149);
   box-shadow: 0 0 10px rgb(179, 84, 149); */
+}
+
+.msg-container {
+  background: rgb(164,37,124);
+  background: linear-gradient(143deg, rgba(164,37,124,0.65) 36%, rgba(225,29,49,0.65) 95%);
+  color: white;
+  text-align: center;
 }
 
 .list-info {

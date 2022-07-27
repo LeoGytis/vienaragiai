@@ -48,7 +48,7 @@ class MechanicController extends Controller
 
         $mechanic->autoshop_id = $request->autoshop_id;
         $mechanic->save();
-        return redirect()->route('mechanic.index');
+        return redirect()->route('mechanic.index')->with('success_message', 'Successfully created!');
     }
 
     /**
@@ -89,7 +89,7 @@ class MechanicController extends Controller
         $mechanic->rating = $request->mechanic_rating;
         $mechanic->autoshop_id = $request->autoshop_id;
         $mechanic->save();
-        return redirect()->route('mechanic.index');
+        return redirect()->route('mechanic.index')->with('success_message', 'Successfully edited!');
     }
 
     /**
@@ -101,9 +101,9 @@ class MechanicController extends Controller
     public function destroy(Mechanic $mechanic)
     {
         if ($mechanic->servicesCount->count()) {
-            return 'Trinti negalima, nes turi servisu';
+            return redirect()->route('mechanic.index')->with('success_message', 'Can not delete because it has services!');
         }
         $mechanic->delete();
-        return redirect()->route('mechanic.index');
+        return redirect()->route('mechanic.index')->with('success_message', 'Successfully created!');
     }
 }

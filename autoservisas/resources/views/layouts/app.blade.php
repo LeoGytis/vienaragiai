@@ -19,7 +19,7 @@
 
 </head>
 <body>
-    <div id="app"  >
+    <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/autoshops') }}">
@@ -52,7 +52,7 @@
                         @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex flex-column align-items-center me-5" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <img class="navbar-logo" src="http://localhost/vienaragiai/autoservisas/public/images/nav-a2.png" alt="#">
+                                <img class="navbar-menu" src="http://localhost/vienaragiai/autoservisas/public/images/nav-a2.png" alt="#">
                                 Autoshops
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -66,7 +66,7 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex flex-column align-items-center me-5" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <img class="navbar-logo" src="http://localhost/vienaragiai/autoservisas/public/images/nav-m3.png" alt="#">
+                                <img class="navbar-menu" src="http://localhost/vienaragiai/autoservisas/public/images/nav-m3.png" alt="#">
                                 Mechanics
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -80,7 +80,7 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex flex-column align-items-center me-5" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <img class="navbar-logo" src="http://localhost/vienaragiai/autoservisas/public/images/nav-s2.png" alt="#">
+                                <img class="navbar-menu" src="http://localhost/vienaragiai/autoservisas/public/images/nav-s2.png" alt="#">
                                 Services
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -115,6 +115,7 @@
         </nav>
 
         <main class="py-4 back-img">
+            @include('msg')
             @yield('content')
         </main>
     </div>

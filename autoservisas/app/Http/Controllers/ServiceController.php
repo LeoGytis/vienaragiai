@@ -47,7 +47,7 @@ class ServiceController extends Controller
         $service->price = $request->service_price;
         $service->mechanic_id = $request->mechanic_id;
         $service->save();
-        return redirect()->route('service.index');
+        return redirect()->route('service.index')->with('success_message', 'Successfully created!');
     }
 
     /**
@@ -87,7 +87,7 @@ class ServiceController extends Controller
         $service->price = $request->service_price;
         $service->mechanic_id = $request->mechanic_id;
         $service->save();
-        return redirect()->route('service.index');
+        return redirect()->route('service.index')->with('success_message', 'Successfully edited!');
     }
 
     /**
@@ -99,6 +99,6 @@ class ServiceController extends Controller
     public function destroy(Service $service)
     {
         $service->delete();
-        return redirect()->route('service.index');
+        return redirect()->route('service.index')->with('success_message', 'Successfully deleted!');
     }
 }

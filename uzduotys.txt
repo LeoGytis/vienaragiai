@@ -3,8 +3,9 @@
 -- Puslapiavimas
 
 
---Daktaras
---Telesoftas
 
 --------AUTOSHOP---------
--- DROPDOWN MENU
+-- Message pop
+-- Show item
+-- Photo item
+-- Validaton
