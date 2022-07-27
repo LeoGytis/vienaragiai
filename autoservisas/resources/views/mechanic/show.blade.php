@@ -14,7 +14,7 @@
                     <b>Autoshop:</b>
                     {{$mechanic->mechanicAutoshop->name}}
                     {{$mechanic->mechanicAutoshop->address}}<br>
-                    <b>Service:</b>
+                    <b>Services:</b>
                     @foreach ($services as $service)
                         @if ($service->serviceMechanic->id === $mechanic->id) 
                         {{$service->name}}

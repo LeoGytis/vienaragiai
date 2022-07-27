@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Autoshop;
+use App\Models\Mechanic;
+use App\Models\Service;
 use Illuminate\Http\Request;
 // use App\Http\Requests\StoreAutoshopRequest;   // NEREIKIA
 // use App\Http\Requests\UpdateAutoshopRequest;  // NEREIKIA
@@ -54,9 +56,13 @@ class AutoshopController extends Controller
      */
     public function show(int $autoshopId)
     {
+        $mechanics = Mechanic::all();
+        $services = Service::all();
+
         $autoshop = Autoshop::where('id', '=', $autoshopId)->first();  //uzklausa grazina viena rezultata
 
-        return view('autoshop.show', ['autoshop' => $autoshop]);
+        return view('autoshop.show', ['autoshop' => $autoshop, 'mechanics' => $mechanics, 'services' => $services, ]);
+
     }
 
     /**

@@ -56,9 +56,14 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function show(Service $service)
+    public function show(int $serviceId)
     {
-        //
+        $autoshops = Autoshop::all();
+        $mechanics = Mechanic::all();
+
+        $service = Service::where('id', '=', $serviceId)->first();  //uzklausa grazina viena rezultata
+
+        return view('service.show', ['service' => $service, 'autoshops' => $autoshops, 'mechanics' => $mechanics]);
     }
 
     /**

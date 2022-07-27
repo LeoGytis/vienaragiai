@@ -72,6 +72,12 @@
   text-align: center;
 }
 
+.more-info-link {
+  background-color: none;
+  color: rgb(164,37,124);
+  text-decoration: none;
+}
+
 .list-info {
   display: flex;
   justify-content: space-between;

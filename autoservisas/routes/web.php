@@ -59,5 +59,5 @@ Route::group(['prefix' => 'services'], function () {
     Route::get('edit/{service}', [Service::class, 'edit'])->name('service.edit');
     Route::post('update/{service}', [Service::class, 'update'])->name('service.update');
     Route::post('delete/{service}', [Service::class, 'destroy'])->name('service.destroy');
-    Route::get('show/{service}', [Service::class, 'show'])->name('service.show');
+    Route::get('show/{serviceid}', [Service::class, 'show'])->name('service.show');
 });

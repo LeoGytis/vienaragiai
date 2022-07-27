@@ -13,4 +13,6 @@ class Service extends Model
     {
         return $this->belongsTo('App\Models\Mechanic', 'mechanic_id', 'id');
     }
+
+    
 }

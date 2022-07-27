@@ -13,7 +13,7 @@
                             {{$autoshop->name}}<br>
                             {{$autoshop->address}}<br>
                             {{$autoshop->phone_nr}}<br>
-                            <a class="btn btn-link btn-sm pl-0" href="{{route('autoshop.show', $autoshop->id)}}"
+                            <a class="more-info-link" href="{{route('autoshop.show', $autoshop->id)}}"
                                 role="button">More info</a>
                         </div>
                         <div class="list-buttons">

@@ -13,12 +13,7 @@
                             {{$service->name}}<br>
                             <b>Time: </b>{{$service->time}}<br>
                             <b>Price: </b>{{$service->price}}<br>
-
-                            <a class="btn btn-link btn-sm pl-0" href="{{route('service.show', $service->id)}}"
-                                role="button">More info</a>
-
-                            {{-- {{$service->serviceMechanic->name}}<br>
-                            {{$service->serviceMechanic->surname}}<br> --}}
+                            <a class="more-info-link" href="{{route('service.show', $service->id)}}" role="button">More info</a>
                         </div>
                         <div class="list-buttons">
                             <a class="btn btn-outline-success" href="{{route('service.edit',[$service])}}">EDIT</a>

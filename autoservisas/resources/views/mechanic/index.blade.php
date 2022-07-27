@@ -14,7 +14,7 @@
                             {{$mechanic->surname}}<br>
                             {{-- {{$mechanic->photo}}<br> --}}
                             <b>Rating: </b>{{$mechanic->rating}}<br>
-                            <a class="btn btn-link btn-sm pl-0" href="{{route('mechanic.show', $mechanic->id)}}"
+                            <a class="more-info-link" href="{{route('mechanic.show', $mechanic->id)}}"
                                 role="button">More info</a>
                         </div>
                         <div class="list-buttons">
