@@ -7,12 +7,15 @@
             <div class="card">
                 <div class="card-header">Hire new Mechanic</div>
                 <div class="card-body">
-                    <form method="POST" action="{{route('mechanic.store')}}">
+                    <form method="POST" action="{{route('mechanic.store')}}" enctype="multipart/form-data">
                         <div class="col-md-4 ms-3 mb-3">
                             Name: <input class="mb-3" type="text" name="mechanic_name">
                             Last name: <input class="mb-3" type="text" name="mechanic_surname">
-                            Photo: <input class="mb-3" type="text" name="mechanic_photo">
                             Rating: <input class="mb-3" type="text" name="mechanic_rating">
+                            <div class="form-group">
+                                <label>Photo of the mechanic</label>
+                                <input class="form-control" type="file" name="mechanic_photo"/>
+                            </div>
                             Choose autoshop:
                             <select class="mb-3" name="autoshop_id">
                                 @foreach ($autoshops as $autoshop)

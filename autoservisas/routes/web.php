@@ -48,6 +48,7 @@ Route::group(['prefix' => 'mechanics'], function () {
     Route::post('update/{mechanic}', [Mechanic::class, 'update'])->name('mechanic.update');
     Route::post('delete/{mechanic}', [Mechanic::class, 'destroy'])->name('mechanic.destroy');
     Route::get('show/{mechanicid}', [Mechanic::class, 'show'])->name('mechanic.show');
+    Route::put('/mechanic/delete-picture/{mechanic}', [Mechanic::class, 'deletePicture'])->name('mechanic-delete-picture');
 });
 
 // ========================== SERVICES ==========================

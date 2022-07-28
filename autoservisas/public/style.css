@@ -93,3 +93,6 @@
   align-items: center;
 }
 
+.image-box > img {
+  width: 90px;
+}

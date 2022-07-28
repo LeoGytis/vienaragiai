@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('surname');
-            $table->string('photo');
+            $table->string('photo', 200)->nullable();
             $table->integer('rating');
             $table->unsignedBigInteger('autoshop_id');
             $table->foreign('autoshop_id')->references('id')->on('autoshops');

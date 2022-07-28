@@ -1,10 +1,5 @@
--- Filtruoti pagal spalvas
--- Search
--- Puslapiavimas
-
-
-
 --------AUTOSHOP---------
 -- Photo item
 -- Edit form
 -- Validaton
+-- Cart

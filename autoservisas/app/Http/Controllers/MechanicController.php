@@ -44,9 +44,21 @@ class MechanicController extends Controller
         $mechanic = new Mechanic;
         $mechanic->name = $request->mechanic_name;
         $mechanic->surname = $request->mechanic_surname;
-        $mechanic->photo = $request->mechanic_photo;
-        $mechanic->rating = $request->mechanic_rating;
 
+        if ($request->file('mechanic_photo')) {
+            $photo = $request->file('mechanic_photo');
+            $ext = $photo->getClientOriginalExtension(); //kad galetumem padaryt linka
+            $name = pathinfo($photo->getClientOriginalName(), PATHINFO_FILENAME);
+            $file = $name. '-' . rand(100, 999). '.' . $ext;
+
+            // $Image = Image::make($photo)->pixelate(12);
+            // $Image->save(public_path().'/images/'.$file);  //public_path - serverio
+
+            $photo->move(public_path().'/images', $file);
+            $mechanic->photo = asset('/images') . '/' . $file; //asset - urlas
+        }
+
+        $mechanic->rating = $request->mechanic_rating;
         $mechanic->autoshop_id = $request->autoshop_id;
         $mechanic->save();
         return redirect()->route('mechanic.index')->with('success_message', 'Successfully created!');
@@ -110,5 +122,25 @@ class MechanicController extends Controller
         }
         $mechanic->delete();
         return redirect()->route('mechanic.index')->with('success_message', 'Successfully created!');
+    }
+
+    public function deletePicture(Mechanic $mechanic) 
+    {
+
+        $name = pathinfo($mechanic->photo, PATHINFO_FILENAME);
+        $ext = pathinfo($mechanic->photo, PATHINFO_EXTENSION);
+
+        $path = asset('/images') . '/' . $name . '.' . $ext;
+
+        if(file_exists($path)) {
+            unlink($path);
+        }
+        
+        $mechanic->photo = null;
+        $mechanic->save();
+
+
+
+        return redirect()->back()->with('deleted', 'mechanic have no photo now');
     }
 }

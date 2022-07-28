@@ -14,7 +14,7 @@
                     <b>Mechanics:</b><br>
                     @foreach ($mechanics as $mechanic)
                         @if ($mechanic->mechanicAutoshop->id === $autoshop->id) 
-                        {{$mechanic->name}}<br>
+                        {{$mechanic->name}} {{$mechanic->surname}}<br>
                         @endif
                     @endforeach
                     
