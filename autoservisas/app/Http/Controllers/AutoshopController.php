@@ -6,6 +6,7 @@ use App\Models\Autoshop;
 use App\Models\Mechanic;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Validator;
 // use App\Http\Requests\StoreAutoshopRequest;   // NEREIKIA
 // use App\Http\Requests\UpdateAutoshopRequest;  // NEREIKIA
 
@@ -40,6 +41,23 @@ class AutoshopController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'autoshop_name' => ['required', 'min:5', 'max:64'],
+                'autoshop_address' => ['required', 'min:5', 'max:64'],
+                'autoshop_phone_nr' => ['required', 'min:5', 'max:64'],
+            ],
+            [
+                'autoshop_name.required' => 'Type something in',
+                'autoshop_name.min' => 'Name is too short'
+            ]
+        );
+        if ($validator->fails()) {
+            $request->flash();
+            return redirect()->back()->withErrors($validator);
+        }
+
         $autoshop = new Autoshop;
         $autoshop->name = $request->autoshop_name;
         $autoshop->address = $request->autoshop_address;
@@ -61,8 +79,7 @@ class AutoshopController extends Controller
 
         $autoshop = Autoshop::where('id', '=', $autoshopId)->first();  //uzklausa grazina viena rezultata
 
-        return view('autoshop.show', ['autoshop' => $autoshop, 'mechanics' => $mechanics, 'services' => $services, ]);
-
+        return view('autoshop.show', ['autoshop' => $autoshop, 'mechanics' => $mechanics, 'services' => $services,]);
     }
 
     /**

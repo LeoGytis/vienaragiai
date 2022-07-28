@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Service;
 use App\Models\Autoshop;
 use App\Models\Mechanic;
+use App\Models\Service;
 use Illuminate\Http\Request;
+use Validator;
+
 // use App\Http\Requests\StoreAutoshopRequest;   // NEREIKIA
 // use App\Http\Requests\UpdateAutoshopRequest;  // NEREIKIA
 
@@ -41,6 +43,23 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
+
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'service_name' => ['required', 'min:5', 'max:64'],
+                'service_time' => ['required', 'min:1', 'max:64'],
+                'service_price' => ['required', 'min:1', 'max:64'],
+            ],
+            // [
+            //     'service_name.required' => 'Type message you want',
+            // ]
+        );
+        if ($validator->fails()) {
+            $request->flash();
+            return redirect()->back()->withErrors($validator);
+        }
+
         $service = new Service;
         $service->name = $request->service_name;
         $service->time = $request->service_time;

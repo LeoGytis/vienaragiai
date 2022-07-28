@@ -5,7 +5,7 @@
             <div class="alert">
                 <ul class="list-group">
                     @foreach ($errors->all() as $error)
-                    <li class="list-group-item list-group-item-danger">{{ $error }}</li>
+                    <li class="list-group-item list-group-item-danger msg-container">{{ $error }}</li>
                     @endforeach
                 </ul>
             </div>
@@ -27,6 +27,15 @@
                 {{session()->get('info_message')}}
             </div>
             @endif
+            {{-- @if ($errors->any())
+            <div class="alert">
+                <ul class="list-group">
+                    @foreach ($errors->all() as $error)
+                    <li class="list-group-item list-group-item-danger">{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif --}}
         </div>
     </div>
 </div>

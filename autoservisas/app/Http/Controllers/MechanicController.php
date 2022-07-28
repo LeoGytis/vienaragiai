@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Mechanic;
-// use App\Http\Requests\StoreMechanicRequest;
-// use App\Http\Requests\UpdateMechanicRequest;
 use App\Models\Autoshop;
+use App\Models\Mechanic;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Validator;
+// use App\Http\Requests\StoreMechanicRequest;
+// use App\Http\Requests\UpdateMechanicRequest;
+
 
 class MechanicController extends Controller
 {
@@ -41,6 +43,21 @@ class MechanicController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'mechanic_name' => ['required', 'min:5', 'max:64'],
+                'mechanic_surname' => ['required', 'min:5', 'max:64'],
+            ],
+            // [
+            //     'mechanic_name.required' => 'Type message you want',
+            // ]
+        );
+        if ($validator->fails()) {
+            $request->flash();
+            return redirect()->back()->withErrors($validator);
+        }
+
         $mechanic = new Mechanic;
         $mechanic->name = $request->mechanic_name;
         $mechanic->surname = $request->mechanic_surname;
