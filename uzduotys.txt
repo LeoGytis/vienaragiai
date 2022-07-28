@@ -1,5 +1,5 @@
 --------AUTOSHOP---------
--- Photo item
 -- Edit form
 -- Validaton
+-- Middleware
 -- Cart

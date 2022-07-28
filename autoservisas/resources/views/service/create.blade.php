@@ -7,9 +7,8 @@
             <div class="card">
                 <div class="card-header">Create new Service</div>
                 <div class="card-body">
-                    <form method="POST" action="{{route('service.store')}}">
+                    <form class="d-flex flex-column align-items-center" method="POST" action="{{route('service.store')}}">
                         <div class="col-md-4 ms-3 mb-3">
-
                             Name: <input type="text" name="service_name">
                             Time: <input type="text" name="service_time">
                             Price: <input type="text" name="service_price">
@@ -18,10 +17,9 @@
                                 <option value="{{$mechanic->id}}">{{$mechanic->name}} {{$mechanic->surname}}</option>
                                 @endforeach
                             </select>
-
-                            @csrf
-                            <button class="btn btn-outline-success mt-3" type="submit">Create</button>
                         </div>
+                        @csrf
+                        <button class="btn btn-outline-success mt-3" type="submit">Create</button>
                     </form>
                 </div>
             </div>

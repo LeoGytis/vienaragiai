@@ -12,8 +12,8 @@
                             Name: <input class="mb-3" type="text" name="mechanic_name">
                             Last name: <input class="mb-3" type="text" name="mechanic_surname">
                             Rating: <input class="mb-3" type="text" name="mechanic_rating">
-                            <div class="form-group">
-                                <label>Photo of the mechanic</label>
+                            <div class="form-group mb-3">
+                                <label>Choose photo:</label>
                                 <input class="form-control" type="file" name="mechanic_photo"/>
                             </div>
                             Choose autoshop:

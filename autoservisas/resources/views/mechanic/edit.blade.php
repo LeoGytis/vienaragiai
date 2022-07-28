@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">Edit information of the mechanic {{$mechanic->name}} {{$mechanic->surname}} </div>
                 <div class="card-body">
-                    <form class="d-flex d-flex flex-column align-items-start" method="POST" action="{{route('mechanic.update',$mechanic)}}" enctype="multipart/form-data">
+                    <form class="d-flex flex-column align-items-start" method="POST" action="{{route('mechanic.update',$mechanic)}}" enctype="multipart/form-data">
                         Name: <input type="text" name="mechanic_name" value="{{$mechanic->name}}">
                         Last name: <input type="text" name="mechanic_surname" value="{{$mechanic->surname}}">
                         Rating: <input class="mb-3" type="text" name="mechanic_rating" value="{{$mechanic->rating}}">

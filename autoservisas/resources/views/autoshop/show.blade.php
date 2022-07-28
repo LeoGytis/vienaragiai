@@ -10,37 +10,26 @@
                     <b>Name:</b> {{$autoshop->name}}<br>
                     <b>Address:</b> {{$autoshop->address}}<br>
                     <b>Phone number:</b> {{$autoshop->phone_nr}}<br><br>
-
                     <b>Mechanics:</b><br>
-                    @foreach ($mechanics as $mechanic)
-                        @if ($mechanic->mechanicAutoshop->id === $autoshop->id) 
-                        {{$mechanic->name}} {{$mechanic->surname}}<br>
-                        @endif
-                    @endforeach
-                    
+                        @foreach ($mechanics as $mechanic)
+
+                            @if ($mechanic->mechanicAutoshop->id === $autoshop->id)
+                            {{$mechanic->name}} {{$mechanic->surname}}<br>
+                            @if($mechanic->photo)
+                            <div class="image-box">
+                                <img src="{{$mechanic->photo}}">
+                                @endif
+                            </div>
+                            @endif
+                        @endforeach
                     <br><b>Services:</b><br>
                     @foreach ($mechanics as $mechanic)
                     @foreach ($services as $service)
-                        @if ($mechanic->mechanicAutoshop->id === $autoshop->id && $service->serviceMechanic->id === $mechanic->id) 
-                        {{$service->name}}<br>
-                        @endif
+                    @if ($mechanic->mechanicAutoshop->id === $autoshop->id && $service->serviceMechanic->id === $mechanic->id)
+                    {{$service->name}}<br>
+                    @endif
                     @endforeach
                     @endforeach
-
-
-
-                    {{-- <b>Mechanic:</b>
-                    {{$service->serviceMechanic->name}}
-                    {{$service->serviceMechanic->surname}}<br> --}}
-                    {{-- <b>Autoshop:</b><br>
-                    @foreach ($mechanics as $mechanic)
-                    @foreach ($autoshops as $autoshop)
-                        @if ($mechanic->mechanicAutoshop->id === $autoshop->id) 
-                        {{$autoshop->name}}
-                        @break
-                        @endif
-                    @endforeach
-                    @endforeach --}}
                 </div>
             </div>
         </div>
