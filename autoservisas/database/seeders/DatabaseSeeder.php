@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
             DB::table('mechanics')->insert([
                 'name' => $faker->firstNameMale,
                 'surname' => $faker->lastNameMale,
-                'photo' => $photopath . rand(1,3) . '.jpg',
+                'photo' => $photopath . rand(1,9) . '.jpg',
                 'rating' => rand(1, 10),
                 'autoshop_id' => rand(1, 10),
             ]);

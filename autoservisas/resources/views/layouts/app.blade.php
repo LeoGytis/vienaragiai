@@ -66,7 +66,7 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex flex-column align-items-center me-5" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <img class="navbar-menu" src="http://localhost/vienaragiai/autoservisas/public/images/nav-m3.png" alt="#">
+                                <img class="navbar-menu" src="http://localhost/vienaragiai/autoservisas/public/images/nav-m1.png" alt="#">
                                 Mechanics
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
