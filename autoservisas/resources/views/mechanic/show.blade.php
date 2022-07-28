@@ -7,9 +7,13 @@
             <div class="card">
                 <div class="card-header">More information of the mechanic {{$mechanic->name}} {{$mechanic->surname}} </div>
                 <div class="card-body">
+                    @if($mechanic->photo)
+                    <div class="image-box">
+                        <img src="{{$mechanic->photo}}">
+                    </div>
+                    @endif
                     <b>Name:</b> {{$mechanic->name}}<br>
                     <b>Last name:</b> {{$mechanic->surname}}<br>
-                    <b>Photo:</b> {{$mechanic->photo}}<br>
                     <b>Rating:</b> {{$mechanic->rating}}<br><br>
                     <b>Autoshop:</b>
                     {{$mechanic->mechanicAutoshop->name}}

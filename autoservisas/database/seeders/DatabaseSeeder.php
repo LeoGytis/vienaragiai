@@ -34,10 +34,12 @@ class DatabaseSeeder extends Seeder
         // ========================== MECHANICS ==========================
         foreach (range(1, 10) as $_) {
 
+            $photopath = 'http://localhost/vienaragiai/autoservisas/public/images/mech';
+
             DB::table('mechanics')->insert([
                 'name' => $faker->firstNameMale,
                 'surname' => $faker->lastNameMale,
-                // 'photo' => $faker->imageUrl,
+                'photo' => $photopath . rand(1,3) . '.jpg',
                 'rating' => rand(1, 10),
                 'autoshop_id' => rand(1, 10),
             ]);

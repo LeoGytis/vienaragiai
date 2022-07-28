@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">Edit information of the mechanic {{$mechanic->name}} {{$mechanic->surname}} </div>
                 <div class="card-body">
-                    <form class="d-flex d-flex flex-column align-items-start" method="POST" action="{{route('mechanic.update',$mechanic)}}">
+                    <form class="d-flex d-flex flex-column align-items-start" method="POST" action="{{route('mechanic.update',$mechanic)}}" enctype="multipart/form-data">
                         Name: <input type="text" name="mechanic_name" value="{{$mechanic->name}}">
                         Last name: <input type="text" name="mechanic_surname" value="{{$mechanic->surname}}">
                         Rating: <input class="mb-3" type="text" name="mechanic_rating" value="{{$mechanic->rating}}">
@@ -23,9 +23,12 @@
                             <img src="{{$mechanic->photo}}">
                         </div>
                         @endif
+                        <div class="form-group">
+                            <input class="form-control mt-3" type="file" name="mechanic_photo"/>
+                        </div>
                         @csrf
-                        @method('put')
-                        <button class="btn btn-outline-success mb-3" type="submit">EDIT</button>
+
+                        <button class="btn btn-outline-success mt-3 mb-3" type="submit">Save</button>
                     </form>
 
                     @if($mechanic->photo)
@@ -35,20 +38,6 @@
                         <button class="btn btn-outline-danger" type="submit">Delete picture</button>
                     </form>
                     @endif
-                    {{-- <form class="d-flex d-flex flex-column align-items-start" method="POST" action="{{route('mechanic.update',$mechanic)}}" enctype="multipart/form-data">
-                        @if($mechanic->photo)
-                        <div class="image-box">
-                            <img src="{{$mechanic->photo}}">
-                        </div>
-                        <div class="form-group">
-                            <label>Photo of the mechanic</label>
-                            <input class="form-control" type="file" name="mechanic_photo"/>
-                        </div>
-                        @endif
-                        @csrf
-                        @method('put')
-                        <button class="btn btn-outline-success mt-3" type="submit">Delete photo</button>
-                    </form> --}}
                 </div>
             </div>
         </div>

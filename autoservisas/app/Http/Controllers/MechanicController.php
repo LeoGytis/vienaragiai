@@ -49,12 +49,10 @@ class MechanicController extends Controller
             $photo = $request->file('mechanic_photo');
             $ext = $photo->getClientOriginalExtension(); //kad galetumem padaryt linka
             $name = pathinfo($photo->getClientOriginalName(), PATHINFO_FILENAME);
+
             $file = $name. '-' . rand(100, 999). '.' . $ext;
 
-            // $Image = Image::make($photo)->pixelate(12);
-            // $Image->save(public_path().'/images/'.$file);  //public_path - serverio
-
-            $photo->move(public_path().'/images', $file);
+            $photo->move(public_path().'/images', $file);      //public_path - serverio
             $mechanic->photo = asset('/images') . '/' . $file; //asset - urlas
         }
 
@@ -102,7 +100,32 @@ class MechanicController extends Controller
     {
         $mechanic->name = $request->mechanic_name;
         $mechanic->surname = $request->mechanic_surname;
-        $mechanic->photo = $request->mechanic_photo;
+
+        if ($request->file('mechanic_photo')) {
+
+            $name = pathinfo($mechanic->photo, PATHINFO_FILENAME);
+            $ext = pathinfo($mechanic->photo, PATHINFO_EXTENSION);
+    
+            $path = asset('/images') . '/' . $name . '.' . $ext;
+    
+            if (file_exists($path)) {
+                unlink($path);
+            }
+
+            $photo = $request->file('mechanic_photo');
+
+            $ext = $photo->getClientOriginalExtension();
+
+            $name = pathinfo($photo->getClientOriginalName(), PATHINFO_FILENAME);
+
+            $file = $name. '-' . rand(100, 999). '.' . $ext;
+
+            $photo->move(public_path().'/images', $file);
+
+            $mechanic->photo = asset('/images') . '/' . $file;
+
+        }
+
         $mechanic->rating = $request->mechanic_rating;
         $mechanic->autoshop_id = $request->autoshop_id;
         $mechanic->save();
@@ -117,6 +140,17 @@ class MechanicController extends Controller
      */
     public function destroy(Mechanic $mechanic)
     {
+        if($mechanic->photo) {
+            $name = pathinfo($mechanic->photo, PATHINFO_FILENAME);
+            $ext = pathinfo($mechanic->photo, PATHINFO_EXTENSION);
+    
+            $path = asset('/images') . '/' . $name . '.' . $ext;
+    
+            if(file_exists($path)) {
+                unlink($path);
+            }
+        }
+
         if ($mechanic->servicesCount->count()) {
             return redirect()->route('mechanic.index')->with('success_message', 'Can not delete because it has services!');
         }
@@ -135,12 +169,10 @@ class MechanicController extends Controller
         if(file_exists($path)) {
             unlink($path);
         }
-        
+
         $mechanic->photo = null;
         $mechanic->save();
 
-
-
-        return redirect()->back()->with('deleted', 'mechanic have no photo now');
+        return redirect()->back()->with('success_message', 'Mechanic have no photo now');
     }
 }
