@@ -9,16 +9,5 @@ use Auth;
 
 class CartController extends Controller
 {
-    public function add(Request $request)
-    {
-        // dd($request->all());
-
-        $cart = new Cart;
-
-        $cart->count = $request->services_count;
-        $cart->service_id = $request->service_id;
-        $cart->user_id = Auth::user()->id;
-
-        $cart->save();
-    }
+  
 }

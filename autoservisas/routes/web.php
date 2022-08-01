@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AutoshopController as Autoshop;
 use App\Http\Controllers\ServiceController as Service;
 use App\Http\Controllers\MechanicController as Mechanic;
+use App\Http\Controllers\OrderController as Order;
 use App\Http\Controllers\ClientController as Client;
 use App\Http\Controllers\CartController as Cart;
 
@@ -26,8 +27,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// ========================== FRONT ==========================
-Route::post('add-service-to-cart', [Cart::class, 'add'])->name('front-add');
+// ========================== ORDERS ==========================
+Route::post('add-service-to-order', [Order::class, 'add'])->name('front-add');
+Route::get('my-orders', [Order::class, 'showMyOrders'])->name('my-orders');
 
 
 
