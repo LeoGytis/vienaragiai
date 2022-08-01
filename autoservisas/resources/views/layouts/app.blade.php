@@ -7,8 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    {{-- <title>{{ config('app.name', 'Lara Auotoshop') }}</title> --}}
-    <title>Auotoshop</title>
+    {{-- <title>{{ config('app.name', 'Lara Autoshop') }}</title> --}}
+    <title>Autoshop</title>
 
     {{-- ==================== VITE ==================== --}}
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
