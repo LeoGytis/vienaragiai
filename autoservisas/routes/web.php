@@ -5,6 +5,7 @@ use App\Http\Controllers\AutoshopController as Autoshop;
 use App\Http\Controllers\ServiceController as Service;
 use App\Http\Controllers\MechanicController as Mechanic;
 use App\Http\Controllers\ClientController as Client;
+use App\Http\Controllers\CartController as Cart;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// ========================== FRONT ==========================
+Route::post('add-service-to-cart', [Cart::class, 'add'])->name('front-add');
+
 
 
 // ========================== AUTOSHOPS ==========================
