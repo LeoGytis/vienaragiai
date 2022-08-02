@@ -122,6 +122,10 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
+        // if ($service->mecahnicsCount->count()) {
+        //     return redirect()->route('service.index')->with('success_message', 'Can not delete because it has mechanics!');
+        // }
+
         $service->delete();
         return redirect()->route('service.index')->with('success_message', 'Successfully deleted!');
     }

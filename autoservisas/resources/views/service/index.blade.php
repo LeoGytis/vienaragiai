@@ -23,7 +23,7 @@
                             </form>
                         </div>
                         <div class="list-buttons">
-                            <form method="post" action="{{route('front-add')}}">
+                            <form method="post" action="{{route('orders-add')}}">
                                 @csrf
                                 @method('post')
                                 <input class="order-count" type="number" name="services_count">

@@ -9,6 +9,16 @@ use Auth;
 
 class OrderController extends Controller
 {
+
+    public function index(Request $request)
+    {
+        $orders = Order::orderBy('id', 'desc')->get();
+
+        return view('orders.index', [
+            'orders' => $orders,
+        ]);
+    }
+
     public function add(Request $request)
     {
         $order = new Order;
@@ -19,7 +29,7 @@ class OrderController extends Controller
 
         $order->save();
 
-        return redirect()->route('my-orders');
+        return redirect()->route('orders-show');
     }
 
     public function showMyOrders()

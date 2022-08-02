@@ -14,5 +14,10 @@ class Service extends Model
         return $this->belongsTo('App\Models\Mechanic', 'mechanic_id', 'id');
     }
 
+    // public function mechanicsCount()
+    // {
+    //     return $this->hasMany('App\Models\Mechanic', 'service_id', 'id');
+    // }
+
     
 }

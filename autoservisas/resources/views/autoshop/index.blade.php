@@ -5,7 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card card-color">
-                <div class="card-header header-color">List of Autoshops</div>
+                <div class="card-header header-color">List of Autoshops
+                <div class="geeks"></div>
+
+                </div>
                 <div class="card-body">
                     @foreach ($autoshops as $autoshop)
                     <div class="list-info mb-3">

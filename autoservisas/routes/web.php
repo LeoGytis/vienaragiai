@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AutoshopController as Autoshop;
 use App\Http\Controllers\ServiceController as Service;
 use App\Http\Controllers\MechanicController as Mechanic;
-use App\Http\Controllers\OrderController as Order;
+use App\Http\Controllers\OrderController as O;
 use App\Http\Controllers\ClientController as Client;
 use App\Http\Controllers\CartController as Cart;
 
@@ -26,11 +26,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// ========================== ORDERS ==========================
-Route::post('add-service-to-order', [Order::class, 'add'])->name('front-add');
-Route::get('my-orders', [Order::class, 'showMyOrders'])->name('my-orders');
-
 
 
 // ========================== AUTOSHOPS ==========================
@@ -68,4 +63,21 @@ Route::group(['prefix' => 'services'], function () {
     Route::post('update/{service}', [Service::class, 'update'])->name('service.update');
     Route::post('delete/{service}', [Service::class, 'destroy'])->name('service.destroy');
     Route::get('show/{serviceid}', [Service::class, 'show'])->name('service.show');
+});
+
+
+// ========================== ORDERS ==========================
+
+
+// Route::post('add-service-to-order', [O::class, 'add'])->name('front-add');
+// Route::get('my-orders', [O::class, 'showMyOrders'])->name('my-orders');
+
+
+Route::prefix('orders')->name('orders-')->group(function () {
+    Route::post('add', [O::class, 'add'])->name('add');
+    Route::get('show', [O::class, 'showMyOrders'])->name('show');
+
+    Route::get('', [O::class, 'index'])->name('index');
+    Route::put('status/{order}', [O::class, 'setStatus'])->name('status');
+    Route::get('/pdf/{order}', [O::class, 'getPdf'])->name('pdf');
 });
