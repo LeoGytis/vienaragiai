@@ -6,3 +6,20 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+$width: 500px; $height: 10px;
+$transition: 3s linear;
+$one: hsl(random(360),75%,50%);
+$two: hsl(random(360),75%,50%);
+body { background: #111; }
+.hr {
+//   position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: $width; height: $height;
+  margin: auto;
+  border-radius: $height;
+  border: 0;
+  background: linear-gradient(90deg,$one 0%,$two 50%,$one 100%);
+  animation: scroll $transition infinite;
+}
+@keyframes scroll { 100% { background-position: $width 0; } }
