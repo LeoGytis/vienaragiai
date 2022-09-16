@@ -68,10 +68,8 @@ Route::group(['prefix' => 'services'], function () {
 
 // ========================== ORDERS ==========================
 
-
 // Route::post('add-service-to-order', [O::class, 'add'])->name('front-add');
 // Route::get('my-orders', [O::class, 'showMyOrders'])->name('my-orders');
-
 
 Route::prefix('orders')->name('orders-')->group(function () {
     Route::post('add', [O::class, 'add'])->name('add');

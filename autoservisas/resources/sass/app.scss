@@ -7,10 +7,16 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
+
+//------ Thin line ------
 $width: 500px; $height: 10px;
 $transition: 3s linear;
 $one: hsl(random(360),75%,50%);
 $two: hsl(random(360),75%,50%);
+
+$one: rgb(223, 153, 32);
+$two: #a4257c;
+
 body { background: #111; }
 .hr {
 //   position: absolute;
